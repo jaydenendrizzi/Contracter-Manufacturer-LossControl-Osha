@@ -7,16 +7,19 @@ export default async (req) => {
   try {
     if (!key) throw new Error("FMCSA_WEBKEY is not set");
     const state = (q.get("state") || "").toUpperCase();
-    const lookup = async (term) => {
-      const r = await fetch(`https://mobile.fmcsa.dot.gov/qc/services/carriers/name/${encodeURIComponent(term)}?webKey=${key}`);
+    // FMCSA searches nationwide and returns one page, so ask for a big page and search a
+    // few spellings at once (as typed, hyphenated, and the most distinctive word)
+    const name = (q.get("name") || "").trim();
+    const terms = [...new Set([name, name.replace(/\s+/g, "-"), keyWord(name)])];
+    const pages = await Promise.all(terms.map(async (term) => {
+      const r = await fetch(`https://mobile.fmcsa.dot.gov/qc/services/carriers/name/${encodeURIComponent(term)}?webKey=${key}&start=0&size=500`);
       if (!r.ok) throw new Error(`FMCSA returned ${r.status}`);
-      return ((await r.json()).content || []).map((c) => c.carrier || c)
-        .filter((c) => (!state || c.phyState === state) && nameMatch(q.get("name"), c.legalName, c.dbaName));
-    };
-    // Try the name as typed; if FMCSA spells it differently, retry on the most distinctive word
-    let found = await lookup(q.get("name") || "");
-    if (!found.length) found = await lookup(keyWord(q.get("name")));
-    const carriers = found
+      return ((await r.json()).content || []).map((c) => c.carrier || c);
+    }));
+    const seen = new Set();
+    const carriers = pages.flat()
+      .filter((c) => !seen.has(c.dotNumber) && seen.add(c.dotNumber))
+      .filter((c) => (!state || c.phyState === state) && nameMatch(name, c.legalName, c.dbaName))
       .slice(0, 10)
       .map((c) => ({
         dot: c.dotNumber, name: c.legalName, dba: c.dbaName, city: c.phyCity, state: c.phyState,
