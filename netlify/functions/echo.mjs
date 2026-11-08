@@ -1,11 +1,12 @@
 // EPA ECHO facility compliance. No key needed.
-import { json, fail, nameMatch } from "../lib/shared.mjs";
+import { json, fail, nameMatch, keyWord } from "../lib/shared.mjs";
 const BASE = "https://echodata.epa.gov/echo/echo_rest_services";
 
 export default async (req) => {
   const q = new URL(req.url).searchParams;
   try {
-    const p = new URLSearchParams({ output: "JSON", p_fn: q.get("name") || "" });
+    // Search ECHO on the most distinctive word so spelling differences don't hide a facility
+    const p = new URLSearchParams({ output: "JSON", p_fn: keyWord(q.get("name")) });
     if (q.get("state")) p.set("p_st", q.get("state"));
     if (q.get("zip")) p.set("p_zip", q.get("zip"));
     const r = await (await fetch(`${BASE}.get_facilities?${p}`)).json();

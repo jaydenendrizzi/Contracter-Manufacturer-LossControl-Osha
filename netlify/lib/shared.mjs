@@ -30,15 +30,48 @@ export const and = (...conds) => {
   return c.length === 1 ? c[0] : { and: c };
 };
 
-// Name matching shared by the bulk-file searches: every meaningful word in the
-// query must appear in the record's name. "Lakeshore Metal" matches "LAKESHORE METAL FAB LLC".
-const STOP = new Set(["llc", "inc", "co", "corp", "corporation", "company", "ltd", "lp", "the", "and", "of"]);
-export const tokens = (s) => String(s || "").toLowerCase().replace(/[^a-z0-9 ]/g, " ").split(/\s+/).filter((w) => w && !STOP.has(w));
+// Name matching shared by every source. Government records spell the same company
+// many ways ("Harley-Davidson" / "HARLEY DAVIDSON", "Briggs & Stratton" / "BRIGGS AND
+// STRATTON", "Lake Shore" / "LAKESHORE", "Metal" / "METALS", "Manufacturing" / "MFG"),
+// so punctuation, spacing, "&" vs "and", plurals and word order are all ignored:
+// every meaningful word of the query just has to appear somewhere in the name.
+const STOP = new Set(["llc", "inc", "incorporated", "co", "corp", "corporation", "company", "companies",
+  "ltd", "limited", "lp", "llp", "pc", "dba", "the", "and", "of"]);
+const ABBR = [["manufacturing", "manufacturer", "manufacturers", "mfg", "mfrs", "mfr"],
+  ["international", "intl"], ["brothers", "bros"], ["services", "service", "svcs", "svc"]];
+const ABBR_OF = new Map(ABBR.flatMap((g) => g.map((w) => [w, g[g.length - 1]])));
+const canon = (w) => ABBR_OF.get(w) || (w.length >= 5 && w.endsWith("s") ? w.slice(0, -1) : w);
+export const tokens = (s) => String(s || "").toLowerCase().replace(/['’]/g, "").replace(/&/g, " and ").replace(/[^a-z0-9 ]/g, " ").split(/\s+/).filter((w) => w && !STOP.has(w));
 export const nameMatch = (query, ...names) => {
-  const q = tokens(query);
+  const q = tokens(query).map(canon);
   if (!q.length) return false;
-  const hay = new Set(names.flatMap(tokens));
-  return q.every((w) => hay.has(w) || [...hay].some((h) => h.startsWith(w) && w.length >= 4));
+  const parts = names.map((n) => tokens(n).map(canon)).filter((t) => t.length);
+  const hay = parts.map((t) => t.join(""));
+  // Text from each word onward, so a short word can only match at the start of a word
+  const starts = parts.flatMap((t) => t.map((_, i) => t.slice(i).join("")));
+  // Short words (A1, MC, JR) must start a word ("A1" = "A-1"), or they'd match inside anything
+  return q.every((w) => (w.length < 3 ? starts.some((s) => s.startsWith(w)) : hay.some((h) => h.includes(w))));
+};
+
+// The DOL API only does SQL LIKE, so it can't ignore spelling the way nameMatch does.
+// Ask it for the query's most distinctive word (also split with a space at each point,
+// so "Lakeshore" finds "LAKE SHORE"), then narrow the results with nameMatch.
+export const likePatterns = (query) => {
+  const words = tokens(query).filter((w) => w.length >= 3);
+  if (!words.length) return [`%${String(query || "").trim().toUpperCase()}%`];
+  const plain = words.filter((w) => !ABBR_OF.has(w));
+  const key = (plain.length ? plain : words).reduce((a, b) => (b.length > a.length ? b : a));
+  const variants = ABBR.find((g) => g.includes(key)) || [canon(key)];
+  const pats = variants.map((v) => v.toUpperCase());
+  const k = canon(key).toUpperCase();
+  if (!ABBR_OF.has(key) && k.length >= 7) for (let i = 3; i <= k.length - 3; i++) pats.push(`${k.slice(0, i)} ${k.slice(i)}`);
+  return [...new Set(pats)].map((p) => `%${p}%`);
+};
+// The single most distinctive word, for sources that take a plain search string
+export const keyWord = (query) => likePatterns(query)[0].replace(/%/g, "");
+export const likeAny = (fields, query) => {
+  const c = fields.flatMap((field) => likePatterns(query).map((value) => ({ field, operator: "like", value })));
+  return c.length === 1 ? c[0] : { or: c };
 };
 
 // Cached loaders for the bundled data files
