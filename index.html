@@ -451,9 +451,11 @@ async function api(path) {
   if (demo) return;
   ready = s;
   const el = $("#status");
-  el.innerHTML = Object.keys(SOURCE_NAMES).map((k) => `<li class="${s[k] ? "on" : "off"}" title="${s[k] ? "Live" : "Waiting on " + esc(KEY_FOR[k] || "setup")}">${esc(SOURCE_NAMES[k])}</li>`).join("");
-  const waiting = [...new Set(Object.keys(SOURCE_NAMES).filter((k) => !s[k]).map((k) => KEY_FOR[k]))];
-  if (waiting.length) el.insertAdjacentHTML("beforeend", `<li class="note">Waiting on ${waiting.map(esc).join(" and ")}</li>`);
+  el.innerHTML = Object.keys(SOURCE_NAMES).map((k) => `<li class="${s[k] ? "on" : "off"}" title="${s[k] ? "Live" : esc((s.why && s.why[k]) || "Waiting on " + (KEY_FOR[k] || "setup"))}">${esc(SOURCE_NAMES[k])}</li>`).join("");
+  // Say exactly what's wrong with each key, in plain words, so nobody has to dig through Netlify logs
+  const problems = [...new Set(Object.keys(SOURCE_NAMES).filter((k) => !s[k]).map((k) => (s.why && s.why[k]) || `Waiting on ${KEY_FOR[k]}`))];
+  if (problems.length) el.insertAdjacentHTML("beforeend", problems.map((t) => `<li class="note">${esc(t)}</li>`).join(""));
+  else el.insertAdjacentHTML("beforeend", `<li class="note" style="color:var(--green);font-weight:700">All sources live</li>`);
   el.hidden = false;
 })();
 
