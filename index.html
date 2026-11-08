@@ -48,7 +48,8 @@ main { max-width: 1120px; margin: 0 auto; padding: 0 20px 64px; }
 h1 { font: 700 clamp(32px, 6vw, 48px)/1 var(--cond); margin: 8px 0 6px; }
 .lede { color: var(--muted); margin: 0 0 20px; max-width: 62ch; }
 
-.search { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: grid; gap: 12px; grid-template-columns: 2fr 1fr 1fr auto; align-items: end; }
+.search { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: grid; gap: 12px; grid-template-columns: 1.1fr 2fr 0.8fr 1fr auto; align-items: end; }
+.cand.match { border-color: var(--teal); box-shadow: inset 4px 0 0 var(--teal); }
 .search label { display: grid; gap: 4px; font-size: 14px; color: var(--muted); font-weight: 500; }
 .search input, .search select { border: 1px solid var(--line); background: var(--bg); border-radius: 6px; padding: 10px 12px; min-width: 0; }
 .btn { border: 0; border-radius: 6px; padding: 11px 18px; font-weight: 700; cursor: pointer; background: var(--btn); color: #fff; }
@@ -292,10 +293,12 @@ details.mod > summary span { color: var(--muted); font-size: 14px; white-space: 
   <p class="lede">Search a client or prospect to pull their OSHA history, injury rates, severe injury reports, EPA and MSHA records, and any trucks they run.</p></div>
 
   <form class="search" id="search" autocomplete="off">
-    <label class="name">Company name<input id="q-name" required minlength="3" placeholder="Lakeshore Metal"></label>
+    <label>Search by<select id="q-by"><option value="name">Company name</option><option value="dot">USDOT number</option><option value="address">Street address</option><option value="ein">EIN (tax ID)</option><option value="insp">OSHA inspection #</option></select></label>
+    <label class="name"><span id="q-label-text">Company name</span><input id="q-name" required minlength="3" placeholder="Lakeshore Metal"></label>
     <label>State<select id="q-state"></select></label>
-    <label>ZIP (optional)<input id="q-zip" inputmode="numeric" maxlength="5" pattern="\d{5}" placeholder="53188"></label>
+    <label id="q-zip-label">ZIP (optional)<input id="q-zip" inputmode="numeric" maxlength="5" pattern="\d{5}" placeholder="53188"></label>
     <button class="btn" type="submit">Search</button>
+    <p class="hint" id="q-hint" hidden style="grid-column:1/-1;margin:0"></p>
     <label class="chk"><input type="checkbox" id="q-multi"> Contractor or multi-site company (group every job site together)</label>
   </form>
 
@@ -460,35 +463,106 @@ async function api(path) {
 })();
 
 /* ---------- Search: OSHA, 300A and severe injury records, grouped by location ---------- */
+/* ---------- Search: by name, USDOT, address, EIN or inspection number ----------
+   An ID pins down one exact business and its address. The address then pulls in OSHA, 300A and
+   severe injury records filed under any spelling of the name. */
+const BY = {
+  name: { label: "Company name", ph: "Lakeshore Metal", mode: "text", hint: "" },
+  dot: { label: "USDOT number", ph: "1234567", mode: "numeric", hint: "Pulls the exact business and address from FMCSA, then finds every record at that address." },
+  address: { label: "Street address", ph: "2140 Commerce Dr", mode: "text", hint: "Needs the ZIP. Finds everything filed at that address, whatever name it’s under." },
+  ein: { label: "EIN (federal tax ID)", ph: "39-1234567", mode: "numeric", hint: "Finds every location the company files OSHA injury data for. It’s on their application or loss runs." },
+  insp: { label: "OSHA inspection number", ph: "1701234", mode: "numeric", hint: "Starts from one known inspection and finds the rest of that site’s history." },
+};
+const setBy = () => {
+  const b = BY[$("#q-by").value];
+  $("#q-label-text").textContent = b.label;
+  const inp = $("#q-name"); inp.placeholder = b.ph; inp.inputMode = b.mode; inp.minLength = $("#q-by").value === "name" ? 3 : 1;
+  $("#q-zip").required = $("#q-by").value === "address";
+  $("#q-zip-label").firstChild.textContent = $("#q-by").value === "address" ? "ZIP" : "ZIP (optional)";
+  $("#q-hint").textContent = b.hint; $("#q-hint").hidden = !b.hint;
+};
+$("#q-by").addEventListener("change", () => { setBy(); $("#q-name").value = ""; $("#q-name").focus(); });
+const houseNoC = (s) => (String(s || "").trim().match(/^(\d+)/) || [])[1] || "";
+const sameSiteC = (a, az, b, bz) => !!houseNoC(a) && houseNoC(a) === houseNoC(b) && String(az || "").slice(0, 5) === String(bz || "").slice(0, 5);
+const uniqBy = (arr, key) => { const seen = new Set(); return arr.filter((x) => { const k = key(x); if (seen.has(k)) return false; seen.add(k); return true; }); };
+
 let state = {};
 $("#search").addEventListener("submit", async (e) => {
   e.preventDefault();
-  const name = $("#q-name").value.trim(), st = $("#q-state").value, zip = $("#q-zip").value.trim();
-  state = { name, st, zip };
+  const by = $("#q-by").value, raw = $("#q-name").value.trim(), st = $("#q-state").value, zip = $("#q-zip").value.trim();
   $("#step-prof").hidden = true;
   const pick = $("#step-pick"); pick.hidden = false;
-  $("#cands").innerHTML = `<p class="loading">Searching OSHA, injury and severe injury records…</p>`;
-  const qs = `name=${encodeURIComponent(name)}&state=${st}&zip=${zip}`;
-  const [osha, ita, sir] = await Promise.all([api(`osha?mode=search&${qs}`), api(`ita?${qs}`), api(`sir?${qs}`)]);
-  const notes = [osha, ita, sir].filter((r) => r.error).map((r) => friendly(r.error));
+  const say = (html) => { $("#cands").innerHTML = html; pick.scrollIntoView({ behavior: "smooth", block: "start" }); };
+  say(`<p class="loading">${by === "name" ? "Searching OSHA, injury and severe injury records…" : "Looking up that business…"}</p>`);
+
+  // 1. Resolve the ID to one business
+  let ident = null, einRows = [];
+  const digits = raw.replace(/\D/g, "");
+  if (by === "dot") {
+    const r = await api(`fmcsa?dot=${digits}`);
+    if (!r.carrier) return say(`<p class="err">${esc(friendly(r.error || `No carrier found for USDOT ${digits}`))}</p>`);
+    const c = r.carrier;
+    ident = { label: `USDOT ${c.dot}`, name: c.name, dba: c.dba, street: c.street, city: c.city, st: c.state, zip: c.zip, dot: c.dot, carrier: c };
+  } else if (by === "insp") {
+    const r = await api(`osha?mode=insp&nr=${digits}`);
+    const i = (r.inspections || [])[0];
+    if (!i) return say(`<p class="err">${esc(friendly(r.error || `No OSHA inspection ${digits} found`))}</p>`);
+    ident = { label: `OSHA inspection ${digits}`, name: i.estab_name, street: i.site_address, city: i.site_city, st: i.site_state, zip: String(i.site_zip || "").slice(0, 5), naics: i.naics_code };
+  } else if (by === "ein") {
+    if (digits.length !== 9) return say(`<p class="err">An EIN is 9 digits.</p>`);
+    const r = await api(`ita?ein=${digits}`);
+    einRows = r.rows || [];
+    if (!einRows.length) return say(`<p class="empty">No OSHA 300A filings under EIN ${esc(raw)}. Smaller employers often don’t file. Try their name or address instead.</p>`);
+    const f = einRows[0];
+    ident = { label: `EIN ${digits.slice(0, 2)}-${digits.slice(2)}`, name: f.company || f.name, street: f.street, city: f.city, st: f.state, zip: f.zip, naics: f.naics, ein: digits, multiSite: new Set(einRows.map((x) => x.street + x.zip)).size > 1 };
+  } else if (by === "address") {
+    if (!houseNoC(raw)) return say(`<p class="err">Start the address with the street number, like “2140 Commerce Dr”.</p>`);
+    ident = { label: "Address", name: "", street: raw, city: "", st, zip };
+  }
+
+  // 2. Search every source by name and, when we have one, by address
+  const name = ident ? baseName(ident.name || "") : raw;
+  const sst = ident ? ident.st || st : st;
+  const jobs = [];
+  const qs = (o) => Object.entries(o).filter(([, v]) => v).map(([k, v]) => `${k}=${encodeURIComponent(v)}`).join("&");
+  if (name.length >= 3) {
+    // With an ID, search the name statewide (no ZIP) so other locations and job sites show up too
+    const nz = ident ? "" : zip;
+    jobs.push(api(`osha?mode=search&${qs({ name, state: sst, zip: nz })}`), api(`ita?${qs({ name, state: sst, zip: nz })}`), api(`sir?${qs({ name, state: sst, zip: nz })}`));
+    if (ident && ident.dba && baseName(ident.dba).length >= 3 && baseName(ident.dba) !== name) jobs.push(api(`osha?mode=search&${qs({ name: baseName(ident.dba), state: sst })}`));
+  }
+  if (ident && ident.street && ident.zip) {
+    const a = { street: ident.street, zip: ident.zip, state: sst };
+    jobs.push(api(`osha?mode=search&${qs(a)}`), api(`ita?${qs(a)}`), api(`sir?${qs(a)}`));
+  }
+  const res = await Promise.all(jobs);
+  const insp = uniqBy(res.flatMap((r) => r.inspections || []), (x) => x.activity_nr);
+  const ita = uniqBy([...einRows, ...res.flatMap((r) => (r.rows && r.rows[0] && "hours" in r.rows[0] ? r.rows : []))], (x) => `${x.name}|${x.zip}|${x.year}`);
+  const sir = uniqBy(res.flatMap((r) => (r.rows && r.rows[0] && "narrative" in r.rows[0] ? r.rows : [])), (x) => `${x.date}|${x.employer}`);
+  const notes = [...new Set(res.filter((r) => r.error).map((r) => friendly(r.error)))];
   const multi = $("#q-multi").checked;
-  const groups = groupSites(osha.inspections || [], ita.rows || [], sir.rows || [], multi);
-  const noteHtml = notes.length ? `<p class="why" style="color:var(--muted);font-size:14px;margin:0 0 8px">OSHA enforcement not searched. ${notes.map(esc).join(" ")}</p>` : "";
+  let groups = groupSites(insp, ita, sir, multi);
+  if (ident && ident.street) groups.forEach((g) => { g.match = sameSiteC(ident.street, ident.zip, g.address, g.zip) || (g.multi && [...g.sites].some((s) => houseNoC(s) === houseNoC(normAddr(ident.street)) && s.endsWith("|" + ident.zip))); });
+  groups.sort((a, b) => (b.match ? 1 : 0) - (a.match ? 1 : 0));
+  state = { name: name || raw, st: sst, zip: ident ? ident.zip : zip, ident };
+
+  const identHtml = ident ? `<div class="prior" style="border-left-color:var(--teal);background:var(--tint)"><p style="margin:0"><b>${esc(ident.label)}:</b> ${[ident.name ? esc(ident.name) + (ident.dba ? ` (DBA ${esc(ident.dba)})` : "") : "", ident.street ? `${esc(ident.street)}${ident.city ? ", " + esc(titleCase(ident.city)) : ""}, ${esc(ident.st || "")} ${esc(ident.zip || "")}` : ""].filter(Boolean).join(", ")}</p>
+    <p style="margin:4px 0 0;color:var(--muted)">${groups.some((g) => g.match) ? "Records filed at this address are marked and listed first." : ident.street ? "Nothing on file at this exact address. Other locations under the name are below, if any." : ""}${ident.multiSite ? " This EIN files for more than one location. Tick the multi-site box and search again to see them combined." : ""}</p></div>` : "";
+  const noteHtml = notes.length ? `<p class="why" style="color:var(--muted);font-size:14px;margin:0 0 8px">Some sources weren’t searched. ${notes.map(esc).join(" ")}</p>` : "";
   if (!groups.length) {
-    $("#cands").innerHTML = noteHtml + `<p class="empty">No OSHA, injury or severe injury records match that name${st ? " in " + st : ""}. You can still pull EPA, DOT and MSHA.</p>
-      <p><button class="btn alt" type="button" id="no-osha">Pull other sources anyway</button></p>`;
-    $("#no-osha").onclick = () => loadProfile({ name: name.toUpperCase(), address: "", city: "", st, zip, naics: "", inspections: [], ita: [], sir: [] });
+    say(identHtml + noteHtml + `<p class="empty">No OSHA, injury or severe injury records${ident ? " for this business" : ` match that name${st ? " in " + st : ""}`}. That’s often good news. You can still pull EPA, DOT and MSHA.</p>
+      <p><button class="btn alt" type="button" id="no-osha">Pull other sources anyway</button></p>`);
+    $("#no-osha").onclick = () => loadProfile({ name: (ident ? ident.name : raw).toUpperCase(), address: ident ? ident.street : "", city: ident ? ident.city : "", st: sst, zip: state.zip, naics: ident ? ident.naics || "" : "", inspections: [], ita: [], sir: [] });
     return;
   }
   const cnt = (n, one, many) => n ? `${n} ${n === 1 ? one : many}` : "";
-  $("#cands").innerHTML = noteHtml + groups.slice(0, 25).map((g, i) => `
-    <button class="cand" type="button" data-i="${i}">
-      <b>${esc(g.name)}</b>
+  say(identHtml + noteHtml + groups.slice(0, 25).map((g, i) => `
+    <button class="cand${g.match ? " match" : ""}" type="button" data-i="${i}">
+      <b>${esc(g.name)}${g.match ? ` <span class="pill open">Same address</span>` : ""}</b>
       <span class="addr">${g.multi && g.sites.size > 1 ? `${g.sites.size} locations on record, including ${esc(g.city)}, ${esc(g.st)}` : `${esc(g.address)}, ${esc(g.city)}, ${esc(g.st)} ${esc(g.zip)}`}${g.naics ? " · NAICS " + esc(g.naics) : ""}${g.altNames.length ? "<br>Also filed as " + g.altNames.slice(0, 3).map(esc).join(", ") : ""}</span>
       <span class="count">${g.inspections.length + g.sir.length + g.years}<span>${[cnt(g.inspections.length, "inspection", "inspections"), cnt(g.years, "300A year", "300A years"), cnt(g.sir.length, "severe injury", "severe injuries")].filter(Boolean).join("<br>")}</span></span>
-    </button>`).join("");
+    </button>`).join(""));
   $("#cands").querySelectorAll(".cand").forEach((b) => b.onclick = () => loadProfile(groups[b.dataset.i]));
-  pick.scrollIntoView({ behavior: "smooth", block: "start" });
 });
 
 const SUFFIX = { STREET: "ST", DRIVE: "DR", AVENUE: "AVE", ROAD: "RD", COURT: "CT", LANE: "LN", BOULEVARD: "BLVD", HIGHWAY: "HWY", PARKWAY: "PKWY", CIRCLE: "CIR", PLACE: "PL", SUITE: "STE", NORTH: "N", SOUTH: "S", EAST: "E", WEST: "W" };
@@ -546,7 +620,7 @@ async function loadProfile(site) {
   const [detail, echo, fm, msha, bench] = await Promise.all([
     ids ? api(`osha?mode=detail&ids=${ids}`) : Promise.resolve({ violations: [], accidents: [] }),
     api(`echo?name=${q}&state=${st}&zip=${zip}`),
-    api(`fmcsa?name=${q}&state=${st}`),
+    state.ident && state.ident.dot ? api(`fmcsa?dot=${state.ident.dot}`) : api(`fmcsa?name=${q}&state=${st}`),
     api(`msha?name=${q}&state=${st}`),
     api(`bls?naics=${site.naics || ""}`),
   ]);
@@ -1801,6 +1875,7 @@ $("#pros-form").addEventListener("submit", async (e) => {
 
 function openLookup(x) {
   location.hash = "lookup";
+  $("#q-by").value = "name"; setBy();
   $("#q-name").value = baseName(x.filedAs && !/\(.+ site\)$/.test(x.name) ? x.filedAs : (x.company || x.name.replace(/\s*\(.+ site\)$/, "")));
   $("#q-state").value = "WI";
   $("#q-zip").value = x.zip;
@@ -1929,18 +2004,21 @@ function demoData(path) {
           accidents: ids.includes("1598765") ? [{ summary_nr: "9001", event_date: "2022-04-27", event_desc: "Operator’s left hand caught in press brake during die change. Partial amputation of two fingertips.", injuries: [{ rel_insp_nr: "1598765", summary_nr: "9001" }] }] : [],
         };
       }
+      if (p.get("mode") === "insp") return { inspections: D.insp.filter((i) => i.activity_nr === String(p.get("nr")).replace(/\D/g, "")) };
+      if (p.get("street")) return { inspections: D.insp.filter((i) => houseNoC(i.site_address) === houseNoC(p.get("street")) && i.site_zip === p.get("zip")) };
       return { inspections: /lake/i.test(p.get("name") || "") ? D.insp.filter((i) => (!p.get("state") || i.site_state === p.get("state")) && near(i.site_zip)) : [] };
     case "ita":
-      return { rows: /lake/i.test(p.get("name")) && near("53188") ? [
+      return { rows: (p.get("ein") || (p.get("street") && p.get("zip") === "53188") || (/lake/i.test(p.get("name")) && near("53188"))) ? [
         { name: "Lakeshore Metal Fab LLC", street: "2140 Commerce Drive", city: "Waukesha", state: "WI", naics: "332322", year: "2025", zip: "53188", employees: 66, hours: 136000, dafw: 1, djtr: 1, other: 1 },
         { name: "Lakeshore Metal Fab LLC", street: "2140 Commerce Drive", city: "Waukesha", state: "WI", naics: "332322", year: "2024", zip: "53188", employees: 64, hours: 131000, dafw: 2, djtr: 1, other: 3 },
         { name: "Lakeshore Metal Fab LLC", street: "2140 Commerce Drive", city: "Waukesha", state: "WI", naics: "332322", year: "2023", zip: "53188", employees: 58, hours: 119000, dafw: 1, djtr: 1, other: 2 },
       ] : [] };
     case "sir":
-      return { rows: /lake/i.test(p.get("name")) && near("53188") ? [{ date: "2022-04-27", employer: "Lakeshore Metal Fab LLC", street: "2140 Commerce Dr", city: "WAUKESHA", state: "WI", naics: "332322", zip: "53188", source: "Press brake", amputation: 1, hospitalized: 1, body: "Fingertips", narrative: "An employee was changing dies on a press brake when the ram cycled. The employee’s left hand was caught, resulting in partial amputation of two fingertips." }] : [] };
+      return { rows: ((p.get("street") && p.get("zip") === "53188") || (/lake/i.test(p.get("name")) && near("53188"))) ? [{ date: "2022-04-27", employer: "Lakeshore Metal Fab LLC", street: "2140 Commerce Dr", city: "WAUKESHA", state: "WI", naics: "332322", zip: "53188", source: "Press brake", amputation: 1, hospitalized: 1, body: "Fingertips", narrative: "An employee was changing dies on a press brake when the ram cycled. The employee’s left hand was caught, resulting in partial amputation of two fingertips." }] : [] };
     case "echo":
       return { facilities: /lake/i.test(p.get("name")) ? [{ name: "LAKESHORE METAL FAB", city: "Waukesha", state: "WI", registryId: "110000000000", inspections: 2, formalActions: 0, penalties: "$0", significantViolator: "N" }] : [] };
     case "fmcsa":
+      if (p.get("dot")) { const c = { dot: p.get("dot"), name: "LAKESHORE METAL FAB LLC", dba: "LAKESHORE FAB", street: "2140 COMMERCE DR", city: "WAUKESHA", state: "WI", zip: "53188", powerUnits: 4, drivers: 5, rating: "" }; return { carrier: c, carriers: [c] }; }
       return { carriers: /lake/i.test(p.get("name")) ? [{ dot: "0000000 (demo)", name: "LAKESHORE METAL FAB LLC", city: "Waukesha", state: "WI", powerUnits: 4, drivers: 5, rating: "" }] : [] };
     case "prospects": return { total: 412, setAside: 6, rows: [
       { name: "Lakeshore Metal Fab LLC", city: "Waukesha", zip: "53188", naics: "332322", industry: "Sheet metal work manufacturing", year: "2025", employees: 66, cases: 3, trir: 4.41, prevTrir: 9.16, bench: 4.6, ratio: 0.96, excess: -0.1, lostDays: 41, severe: 1, amputations: 1 },

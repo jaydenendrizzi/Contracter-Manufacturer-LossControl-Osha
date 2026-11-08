@@ -108,3 +108,11 @@ const EVENT_BUCKETS = [
   [/violence|assault/i, "Violence"],
 ];
 export const eventBucket = (e) => { for (const [re, label] of EVENT_BUCKETS) if (re.test(e || "")) return label; return e ? "Other" : ""; };
+
+// Address matching: same ZIP and same house number is a strong signal two records are one site,
+// even when the street is spelled "W Commerce Dr" in one file and "West Commerce Drive" in another.
+export const houseNo = (street) => (String(street || "").trim().match(/^(\d+)/) || [])[1] || "";
+export const sameSite = (aStreet, aZip, bStreet, bZip) => {
+  const n = houseNo(aStreet);
+  return !!n && n === houseNo(bStreet) && String(aZip || "").slice(0, 5) === String(bZip || "").slice(0, 5);
+};
