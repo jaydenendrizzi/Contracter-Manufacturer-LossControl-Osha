@@ -1,7 +1,7 @@
 // OSHA inspections, violations and accident investigations (DOL API v4).
 // /api/osha?mode=search&name=Acme&state=WI&zip=53188
 // /api/osha?mode=detail&ids=1701234,1654321
-import { json, fail, dol, and } from "../lib/shared.mjs";
+import { json, fail, dol, and, likeAny, nameMatch } from "../lib/shared.mjs";
 
 const INSP_FIELDS = ["activity_nr","estab_name","site_address","site_city","site_state","site_zip",
   "naics_code","insp_type","insp_scope","open_date","close_case_date","nr_in_estab"];
@@ -37,13 +37,16 @@ export default async (req) => {
 
     const name = (q.get("name") || "").trim();
     if (name.length < 3) return json({ error: "Enter at least 3 characters" }, 400);
+    // Fetch on the most distinctive word, then keep names that match every word,
+    // however they're spelled ("Briggs & Stratton" = "BRIGGS AND STRATTON CORP")
     const filter = and(
-      { field: "estab_name", operator: "like", value: `%${name.toUpperCase()}%` },
+      likeAny(["estab_name"], name),
       q.get("state") && { field: "site_state", operator: "eq", value: q.get("state").toUpperCase() },
       q.get("zip") && { field: "site_zip", operator: "eq", value: q.get("zip") },
     );
-    const inspections = await dol("OSHA", "inspection", filter,
-      { limit: 300, sort_by: "open_date", fields: INSP_FIELDS });
+    const found = await dol("OSHA", "inspection", filter,
+      { limit: 2000, sort_by: "open_date", fields: INSP_FIELDS });
+    const inspections = found.filter((i) => nameMatch(name, i.estab_name)).slice(0, 300);
     return json({ inspections });
   } catch (e) {
     return fail("osha", e);

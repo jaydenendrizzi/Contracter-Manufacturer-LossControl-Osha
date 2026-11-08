@@ -1,17 +1,17 @@
 // MSHA mines and violations (DOL API v4). Field names verified against the DOL catalog.
-import { json, fail, dol, and } from "../lib/shared.mjs";
+import { json, fail, dol, and, likeAny, nameMatch } from "../lib/shared.mjs";
 
 export default async (req) => {
   const q = new URL(req.url).searchParams;
-  const name = (q.get("name") || "").trim().toUpperCase();
+  const name = (q.get("name") || "").trim();
   try {
-    const mines = await dol("MSHA", "mines", and(
-      { or: [
-        { field: "oper_nm", operator: "like", value: `%${name}%` },
-        { field: "curr_mine_nm", operator: "like", value: `%${name}%` },
-      ] },
+    // Fetch on the most distinctive word, then keep mines whose operator or mine name
+    // matches every word, however it's spelled
+    const found = await dol("MSHA", "mines", and(
+      likeAny(["oper_nm", "curr_mine_nm"], name),
       q.get("state") && { field: "state_abbr", operator: "eq", value: q.get("state").toUpperCase() },
-    ), { limit: 25, fields: ["mine_id","curr_mine_nm","oper_nm","state_abbr","fips_cnty_nm","mine_type_cd","curr_stat_cd","employee_cnt","primary_canvass_desc"] });
+    ), { limit: 300, fields: ["mine_id","curr_mine_nm","oper_nm","state_abbr","fips_cnty_nm","mine_type_cd","curr_stat_cd","employee_cnt","primary_canvass_desc"] });
+    const mines = found.filter((m) => nameMatch(name, m.oper_nm, m.curr_mine_nm)).slice(0, 25);
     const ids = mines.map((m) => m.mine_id).filter(Boolean).slice(0, 20);
     const violations = ids.length
       ? await dol("MSHA", "violation", { field: "mine_id", operator: "in", value: ids },
