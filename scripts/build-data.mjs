@@ -53,7 +53,7 @@ for (const f of itaFiles) {
     if (!states.has(state)) return;
     const key = `${r.establishment_id}|${r.year_filing_for}`;
     ita.set(key, {
-      name: t(r.establishment_name), company: t(r.company_name), street: t(r.street_address), city: t(r.city), state,
+      name: t(r.establishment_name), company: t(r.company_name), ein: String(r.ein || "").replace(/\D/g, "").length === 9 ? String(r.ein).replace(/\D/g, "") : "", street: t(r.street_address), city: t(r.city), state,
       zip: zip5(r.zip_code), naics: t(r.naics_code), industry: t(r.industry_description), year: t(r.year_filing_for),
       employees: num(r.annual_average_employees), hours: num(r.total_hours_worked), deaths: num(r.total_deaths),
       dafw: num(r.total_dafw_cases), djtr: num(r.total_djtr_cases), other: num(r.total_other_cases),

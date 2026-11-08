@@ -3,7 +3,7 @@
 Pre-visit lookup for loss control. Same setup as the trucking tool: static page on Netlify, serverless functions call the public sources so keys stay off the browser.
 
 ## Five tools in one site
-- **Site lookup** (`#lookup`): everything public on one company before a visit. Tick "Contractor or multi-site" for contractors, since OSHA inspects them at job sites, not their office.
+- **Site lookup** (`#lookup`): everything public on one company before a visit. Search by company name, USDOT number, street address, EIN or OSHA inspection number. An ID pins down the exact business and address, then every source is searched by both name and address, and records at that address are marked "Same address" and listed first. Tick "Contractor or multi-site" for contractors, since OSHA inspects them at job sites, not their office.
 - **Prospects** (`#prospects`): Wisconsin manufacturers and contractors ranked by injuries over what their industry would expect, from their own 300A filings. Tap a row to run the site lookup. Export to CSV.
 - **Walkthrough** (`#walk`): **Snap a hazard** button always on screen: photo first, then pick a hazard type and the title, recommendation, reference and priority fill in. **Quick capture** skips the checklist entirely for photo-only visits. **Create PDF report** builds a real PDF on the phone (jsPDF) and opens the share sheet to text or email it.
   Full checklist mode: phone checklist for the visit. About 100 items across 20 manufacturing and construction sections, each tied to the standard and a default recommendation. Mark OK, Finding or N/A; findings get severity, dictated notes and photos. Saves on the phone (IndexedDB) so a dead signal or closed tab doesn't lose the visit. Ends with a printable PDF report or a hand-off to Claude (request text, photos and `visit.json`) via the phone's share sheet. Finished visits save to a visit history on the phone, where reps update each recommendation's client status (Open, Done, Client declined), reprint the PDF, draft a follow-up email, or start a follow-up visit that carries open items forward with Fixed / Partly fixed / Not fixed. Start it from a lookup and prior OSHA cites and severe injuries get flagged on the matching items.
@@ -31,8 +31,13 @@ The day you get them:
 2. Netlify > Site settings > Environment variables, add both
 3. Redeploy. The source chips at the top of the page go green.
 
-## Deploy
-Drag this folder into Netlify, or connect a repo. No build step. `netlify.toml` routes `/api/*` to the functions.
+## Deploy (no coding tools needed)
+1. Upload everything inside this folder to the GitHub repo (GitHub > Add file > Upload files). `netlify.toml` must sit at the top level of the repo.
+2. Netlify > Add new site > Import an existing project > GitHub > pick the repo > Deploy. Leave the build command empty.
+3. Add the keys under Site configuration > Environment variables, then Deploys > Trigger deploy.
+Don't use Netlify's drag-and-drop deploy: it skips the functions that call the APIs.
+
+The status chips at the top of the site test each key with a real call. Green means it works; gray shows the reason.
 
 ## Run it locally
 `node scripts/dev-server.mjs`, then open http://localhost:8888 (Node 18 or newer). Add keys in front of the command to test them.
