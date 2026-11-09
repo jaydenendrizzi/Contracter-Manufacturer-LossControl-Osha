@@ -1042,6 +1042,8 @@ async function initWalk() {
     $("#w-company").value = walkPrefill.company || "";
     $("#w-location").value = walkPrefill.location || "";
     $("#w-sector").value = walkPrefill.sector || "mfg";
+    // A new hand-off picks its industry sections from the site's NAICS, so drop any industry left over from before
+    if (!walkPrefill.applied) { $("#w-industry").value = ""; walkPrefill.applied = true; }
   }
   renderMods();
   if (W) return renderWalk();
