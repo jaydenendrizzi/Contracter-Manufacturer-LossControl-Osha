@@ -55,6 +55,7 @@ h1 { font: 700 clamp(32px, 6vw, 48px)/1 var(--cond); margin: 8px 0 6px; }
 .btn { border: 0; border-radius: 6px; padding: 11px 18px; font-weight: 700; cursor: pointer; background: var(--btn); color: #fff; }
 .btn.alt { background: transparent; color: var(--ink); border: 1px solid var(--line); }
 .btn.go { background: var(--amber); color: #1F4244; font-weight: 800; }
+.btn:disabled { opacity: .55; cursor: wait; }
 @media (max-width: 720px) { .search { grid-template-columns: 1fr 1fr; } .search .name { grid-column: 1 / -1; } .search .btn { grid-column: 1 / -1; } }
 
 .status { list-style: none; margin: 0 0 10px; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; font-size: 13px; }
@@ -650,7 +651,7 @@ async function loadProfile(site) {
     </div>
     <div class="handoff">
       <p><b>Build the visit plan in Claude</b>Copies everything above into a request. Claude turns it into a walkthrough checklist and talking points for this site.</p>
-      <span class="row"><button class="btn go" type="button" id="to-claude">Copy and open Claude</button><button class="btn alt" type="button" id="to-walk" style="color:var(--brand-ink);border-color:rgba(255,255,255,.4)">Start walkthrough</button></span>
+      <span class="row"><button class="btn go" type="button" id="to-claude" disabled>Copy and open Claude</button><button class="btn alt" type="button" id="to-walk" disabled style="color:var(--brand-ink);border-color:rgba(255,255,255,.4)">Start walkthrough</button></span>
     </div>`;
   sec.scrollIntoView({ behavior: "smooth", block: "start" });
 
@@ -691,6 +692,7 @@ async function loadProfile(site) {
     };
     location.hash = "walk";
   };
+  $("#to-claude").disabled = false; $("#to-walk").disabled = false;
 }
 
 const baseName = (n) => String(n).replace(/\b(LLC|L\.L\.C\.|INC|INCORPORATED|CORP|CORPORATION|CO|COMPANY|LTD|LP)\b\.?/gi, "").replace(/[.,&]/g, " ").replace(/\s+/g, " ").trim();
