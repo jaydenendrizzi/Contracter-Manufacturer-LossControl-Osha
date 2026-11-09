@@ -12,7 +12,7 @@ self.addEventListener("install", (e) => {
     await c.addAll(SHELL);
     await Promise.all(CDN.map((u) => fetch(u, { mode: "cors" }).then((r) => r.ok && c.put(u, r)).catch(() => {})));
     // Library index (titles only) so search works offline; templates are cached as they are opened
-    await fetch("/library/index.json").then((r) => r.ok && c.put("/library/index.json", r)).catch(() => {});
+    await fetch("/lib-index.json").then((r) => r.ok && c.put("/lib-index.json", r)).catch(() => {});
     self.skipWaiting();
   })());
 });
