@@ -2,9 +2,13 @@
 // The app shell (page, logo, icons, PDF library, fonts) is cached so the walkthrough opens with no signal.
 // Data calls (/api/*) try the network first and fall back to the last copy seen.
 // Bump VERSION when you deploy changes so phones pick up the new page.
-const VERSION = "rr-lc-2026-11-09-industry";
+const VERSION = "rr-lc-2026-11-09-libcache";
 const SHELL = ["/", "/index.html", "/rr-logo.png", "/icon-192.png", "/icon-512.png", "/icon-180.png", "/manifest.webmanifest"];
 const CDN = ["https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"];
+// Library data lives in its own cache so templates saved for offline survive app updates.
+// The page uses the same name for "Save this industry for offline". Change both together.
+const LIB_CACHE = "rr-lib-v1";
+const isLib = (u) => u.origin === location.origin && /^\/lib-(index|p-[\w-]+)\.json$/.test(u.pathname);
 
 self.addEventListener("install", (e) => {
   e.waitUntil((async () => {
@@ -12,14 +16,14 @@ self.addEventListener("install", (e) => {
     await c.addAll(SHELL);
     await Promise.all(CDN.map((u) => fetch(u, { mode: "cors" }).then((r) => r.ok && c.put(u, r)).catch(() => {})));
     // Library index (titles only) so search works offline; templates are cached as they are opened
-    await fetch("/lib-index.json").then((r) => r.ok && c.put("/lib-index.json", r)).catch(() => {});
+    await fetch("/lib-index.json").then((r) => r.ok && caches.open(LIB_CACHE).then((lc) => lc.put("/lib-index.json", r))).catch(() => {});
     self.skipWaiting();
   })());
 });
 
 self.addEventListener("activate", (e) => {
   e.waitUntil((async () => {
-    for (const k of await caches.keys()) if (k !== VERSION) await caches.delete(k);
+    for (const k of await caches.keys()) if (k !== VERSION && k !== LIB_CACHE) await caches.delete(k);
     await self.clients.claim();
   })());
 });
@@ -39,6 +43,15 @@ self.addEventListener("fetch", (e) => {
   if (url.origin === location.origin && url.pathname.startsWith("/api/")) {
     e.respondWith(fetch(req).then((r) => { if (r.ok) { const copy = r.clone(); caches.open(VERSION).then((c) => c.put(req, copy)); } return r; })
       .catch(() => caches.match(req).then((m) => m || new Response(JSON.stringify({ error: "You're offline. This comes back when you have signal." }), { status: 503, headers: { "content-type": "application/json" } }))));
+    return;
+  }
+  // Library index and packs: saved copy first so it works offline, refreshed in the background
+  if (isLib(url)) {
+    e.respondWith(caches.open(LIB_CACHE).then((c) => c.match(req).then((hit) => {
+      const net = fetch(req).then((r) => { if (r.ok) c.put(req, r.clone()); return r; })
+        .catch(() => hit || new Response("", { status: 504 }));
+      return hit || net;
+    })));
     return;
   }
   // Everything else (logo, icons, fonts, PDF library): cache first, refresh in the background
