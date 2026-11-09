@@ -1012,6 +1012,12 @@ const ls = { get: (k) => { try { return localStorage.getItem(k); } catch { retur
 let W = null;            // current walkthrough
 let walkPrefill = null;  // handed over from site lookup
 const ITEM = {}; CHECKLISTS.forEach((m) => m.items.forEach((i) => { ITEM[i.id] = { ...i, module: m.id, moduleName: m.name }; }));
+// Pick up sections added from the Library without reloading the page (a reload would drop a Lookup hand-off)
+function reloadTemplates() {
+  for (let i = CHECKLISTS.length - 1; i >= 0; i--) if (CHECKLISTS[i].custom) CHECKLISTS.splice(i, 1);
+  const t = loadTemplates(); CHECKLISTS.push(...t);
+  t.forEach((m) => m.items.forEach((i) => { ITEM[i.id] = { ...i, module: m.id, moduleName: m.name }; }));
+}
 let saveTimer;
 const save = () => { clearTimeout(saveTimer); saveTimer = setTimeout(() => { if (W) { W.updated = new Date().toISOString(); DB.set("walk", W); } }, 400); };
 const priorFor = (item) => (W && W.prior && item.sec ? W.prior.cites.filter((c) => c.sec === item.sec) : []);
@@ -1965,7 +1971,7 @@ $("#v-library").addEventListener("click", (e) => {
   const row = e.target.closest(".lib-row"); if (row) { openLib(LIB.cur[+row.dataset.n]); return; }
   if (e.target.closest("#lib-more")) { LIB.shown += 40; renderLib(false); return; }
   if (e.target.closest("#lib-back")) { closeLib(); return; }
-  if (e.target.closest("#lib-go")) { LIB.dirty = false; location.hash = "walk"; location.reload(); }
+  if (e.target.closest("#lib-go")) { location.hash = "walk"; }
 });
 
 /* ---------- Router: #lookup, #prospects, #industry, #walk, #library ---------- */
@@ -1976,7 +1982,7 @@ function route() {
   VIEWS.forEach((x) => { $("#v-" + x).hidden = x !== v; });
   document.querySelectorAll(".tabs a").forEach((a) => { if (a.getAttribute("href") === "#" + v) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current"); });
   if (!inited[v]) { inited[v] = true; if (v === "prospects" || v === "industry") loadIndustryList(); }
-  if (v === "walk" && LIB.dirty) { LIB.dirty = false; location.reload(); return; }
+  if (v === "walk" && LIB.dirty) { LIB.dirty = false; reloadTemplates(); }
   if (v === "walk") initWalk();
   if (v === "library") initLibrary();
   const cur = document.querySelector(".tabs a[aria-current]"); if (cur && cur.scrollIntoView) cur.scrollIntoView({ inline: "center", block: "nearest" });
