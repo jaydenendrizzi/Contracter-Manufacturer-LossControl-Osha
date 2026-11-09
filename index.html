@@ -1860,7 +1860,7 @@ $("#s-import").addEventListener("change", (e) => { importVisits([...e.target.fil
 $("#s-clear").addEventListener("click", async () => { if (confirm("Remove all imported teammate visits from this phone?")) { await DB.del("visits_imported"); renderStats(); } });
 
 /* ---------- Library: industry templates and training outlines, loaded on demand ----------
-   /library/index.json lists everything (titles only). Full templates load in small packs of about 100
+   /lib-index.json lists everything (titles only). Full templates load in small packs of about 100
    when one is opened, and the service worker keeps them so they work offline after the first open. */
 const LIB = { idx: null, labels: {}, packs: {}, shown: 40, cur: [], dirty: false };
 const LIB_SECTORS = { manufacturing: ["mfg"], construction: ["con"] };
@@ -1869,7 +1869,7 @@ async function initLibrary() {
   if (!LIB.idx) {
     $("#lib-out").innerHTML = `<p class="hint">Loading the library…</p>`;
     try {
-      const d = await libJSON("/library/index.json");
+      const d = await libJSON("/lib-index.json");
       LIB.idx = d.items; LIB.labels = d.labels;
       const n = {}; LIB.idx.forEach((x) => { n[x.i] = (n[x.i] || 0) + 1; });
       $("#lib-ind").innerHTML = `<option value="">All industries (${LIB.idx.length.toLocaleString()})</option>` +
@@ -1915,7 +1915,7 @@ async function openLib(x) {
   $("#lib-detail").innerHTML = `<p class="hint">Opening…</p>`; scrollTo(0, 0);
   let r;
   try {
-    if (!LIB.packs[x.p]) LIB.packs[x.p] = await libJSON("/library/p/" + x.p + ".json");
+    if (!LIB.packs[x.p]) LIB.packs[x.p] = await libJSON("/lib-p-" + x.p + ".json");
     r = LIB.packs[x.p].find((y) => y.id === x.id);
     if (!r) throw new Error("missing");
   } catch {
