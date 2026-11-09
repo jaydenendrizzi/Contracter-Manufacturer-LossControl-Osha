@@ -300,6 +300,8 @@ details.mod > summary span { color: var(--muted); font-size: 14px; white-space: 
 .lib-plain .lib-q:first-child { border-top: 0; }
 .lib-note { background: var(--green-soft); border: 1px solid var(--green); border-radius: 10px; padding: 12px 14px; margin: 12px 0 0; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; }
 .lib-h3 { font: 700 18px/1.2 var(--cond); margin: 18px 0 6px; color: var(--heading); }
+.lib-off { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; justify-content: space-between; margin: 10px 0 0; color: var(--muted); font-size: 14px; }
+.lib-off:empty, .lib-off[hidden] { display: none; }
 @media (max-width: 720px) { .search.lib { grid-template-columns: 1fr 1fr; } }
 </style>
 </head>
@@ -400,6 +402,7 @@ details.mod > summary span { color: var(--muted); font-size: 14px; white-space: 
       <label>Industry<select id="lib-ind"><option value="">All industries</option></select></label>
       <label>Type<select id="lib-kind"><option value="">Templates and courses</option><option value="t">Templates</option><option value="c">Courses</option></select></label>
     </form>
+    <div class="lib-off" id="lib-offline"></div>
     <div id="lib-note"></div>
     <div id="lib-out"></div>
     <div id="lib-detail" hidden></div>
@@ -1884,12 +1887,17 @@ async function initLibrary() {
       const n = {}; LIB.idx.forEach((x) => { n[x.i] = (n[x.i] || 0) + 1; });
       $("#lib-ind").innerHTML = `<option value="">All industries (${LIB.idx.length.toLocaleString()})</option>` +
         Object.keys(LIB.labels).filter((k) => n[k]).map((k) => `<option value="${esc(k)}">${esc(LIB.labels[k])} (${n[k].toLocaleString()})</option>`).join("");
+      // Come back to the industry and type used last time
+      const ind = ls.get("rr-lib-ind"), kind = ls.get("rr-lib-kind");
+      if (ind && n[ind]) $("#lib-ind").value = ind;
+      if (kind && [...$("#lib-kind").options].some((o) => o.value === kind)) $("#lib-kind").value = kind;
     } catch {
       $("#lib-out").innerHTML = `<p class="hint">The library isn’t reachable right now. Open it once with signal and what you’ve viewed will work offline after that.</p>`;
       return;
     }
   }
   renderLib(true);
+  libOfflineBar();
 }
 function renderLib(reset) {
   if (!LIB.idx) return;  // index still loading or unreachable; the message from initLibrary stays up
@@ -1922,7 +1930,7 @@ function libText(r) {
   return out.join("\n");
 }
 async function openLib(x) {
-  $("#lib-detail").hidden = false; $("#lib-out").hidden = true; $("#lib-form").hidden = true;
+  $("#lib-detail").hidden = false; $("#lib-out").hidden = true; $("#lib-form").hidden = true; $("#lib-offline").hidden = true;
   $("#lib-detail").innerHTML = `<p class="hint">Opening…</p>`; scrollTo(0, 0);
   let r;
   try {
@@ -1965,14 +1973,53 @@ function libAdd(r, ind) {
   $("#lib-note").innerHTML = `<div class="lib-note"><span>Added “${esc(r.t)}” with ${items.length} question${items.length === 1 ? "" : "s"}. On the Walkthrough tab, check it under Sections to walk.</span><button type="button" class="btn go" id="lib-go">Open walkthrough</button></div>`;
   toast("Added to your walkthrough sections");
 }
-function closeLib() { $("#lib-detail").hidden = true; $("#lib-out").hidden = false; $("#lib-form").hidden = false; }
+// "Save this industry for offline": pull every pack for the picked industry into the library cache.
+// Same cache name as LIB_CACHE in sw.js, so saved packs survive app updates.
+const LIB_CACHE = "rr-lib-v1";
+const libPacksFor = (ind) => [...new Set(LIB.idx.filter((x) => x.i === ind).map((x) => x.p))];
+async function libSavedCount(packs) {
+  if (!("caches" in window)) return 0;
+  try { const c = await caches.open(LIB_CACHE); let n = 0; for (const p of packs) if (await c.match("/lib-p-" + p + ".json")) n++; return n; } catch { return 0; }
+}
+async function libOfflineBar() {
+  const el = $("#lib-offline"), ind = $("#lib-ind").value;
+  if (!LIB.idx || !ind || !("caches" in window)) { el.innerHTML = ""; return; }
+  const packs = libPacksFor(ind), count = LIB.idx.filter((x) => x.i === ind).length, name = esc(LIB.labels[ind] || ind);
+  const saved = await libSavedCount(packs);
+  if ($("#lib-ind").value !== ind) return;  // picked something else while checking
+  el.innerHTML = saved === packs.length
+    ? `<span>All ${count.toLocaleString()} ${name} items are saved on this phone.</span>`
+    : `<span>Save all ${count.toLocaleString()} ${name} items so they open with no signal.</span><button type="button" class="btn alt" id="lib-save">Save for offline</button>`;
+}
+async function libSaveOffline() {
+  const ind = $("#lib-ind").value, packs = libPacksFor(ind), btn = $("#lib-save");
+  if (!ind || !btn) return;
+  btn.disabled = true;
+  try {
+    const c = await caches.open(LIB_CACHE);
+    for (let i = 0; i < packs.length; i++) {
+      btn.textContent = `Saving ${i + 1} of ${packs.length}…`;
+      const url = "/lib-p-" + packs[i] + ".json";
+      const r = await fetch(url);
+      if (!r.ok) throw new Error(String(r.status));
+      await c.put(url, r.clone());
+      LIB.packs[packs[i]] = await r.json();
+    }
+    toast("Saved for offline");
+  } catch {
+    toast("Couldn’t save everything. Try again with a better signal.");
+  }
+  libOfflineBar();
+}
+function closeLib() { $("#lib-detail").hidden = true; $("#lib-out").hidden = false; $("#lib-form").hidden = false; $("#lib-offline").hidden = false; }
 $("#lib-q").addEventListener("input", () => renderLib(true));
-$("#lib-ind").addEventListener("change", () => renderLib(true));
-$("#lib-kind").addEventListener("change", () => renderLib(true));
+$("#lib-ind").addEventListener("change", () => { ls.set("rr-lib-ind", $("#lib-ind").value); renderLib(true); libOfflineBar(); });
+$("#lib-kind").addEventListener("change", () => { ls.set("rr-lib-kind", $("#lib-kind").value); renderLib(true); });
 $("#v-library").addEventListener("click", (e) => {
   const row = e.target.closest(".lib-row"); if (row) { openLib(LIB.cur[+row.dataset.n]); return; }
   if (e.target.closest("#lib-more")) { LIB.shown += 40; renderLib(false); return; }
   if (e.target.closest("#lib-back")) { closeLib(); return; }
+  if (e.target.closest("#lib-save")) { libSaveOffline(); return; }
   if (e.target.closest("#lib-go")) { location.hash = "walk"; }
 });
 
