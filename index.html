@@ -1882,6 +1882,7 @@ async function initLibrary() {
   renderLib(true);
 }
 function renderLib(reset) {
+  if (!LIB.idx) return;  // index still loading or unreachable; the message from initLibrary stays up
   if (reset) LIB.shown = 40;
   const q = $("#lib-q").value.trim().toLowerCase().split(/\s+/).filter(Boolean);
   const ind = $("#lib-ind").value, kind = $("#lib-kind").value;
