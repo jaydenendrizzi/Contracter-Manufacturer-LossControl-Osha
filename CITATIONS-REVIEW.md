@@ -1,6 +1,6 @@
 # Citation review: industry sections
 
-Checked 197 industry walkthrough items against eCFR (29 CFR 1910 and 1926, current through 2026-11-02, pulled from the eCFR API). Every CFR section and paragraph cited was fetched and read against what the item asks for.
+Checked 197 industry walkthrough items, plus the 10 in the new Glass section against eCFR (29 CFR 1910 and 1926, current through 2026-11-02, pulled from the eCFR API). Every CFR section and paragraph cited was fetched and read against what the item asks for.
 
 **Result:** 10 items changed, the rest verified. Two cites pointed at rules that no longer exist (1910.108 and 1910.94(d), both moved in OSHA's 2016 dip tank rewrite), one pointed at a paragraph that never existed (1926.201(a)(2)), and four cited a real section that doesn't say what the item relies on (1926.250(b), 1926.20(b), 1926.1400, 1926.914).
 
@@ -47,6 +47,23 @@ These are best-practice pointers, not law. osha.gov blocks automated requests an
 - local codes
 
 All look right to me (for example NFPA 652 dust fundamentals, NFPA 664 wood dust, NFPA 61 agricultural and food dust, NFPA 86 ovens and furnaces, ANSI Z358.1 eyewash, ANSI B11.3 press brakes, ANSI/RIA R15.06 robots, ANSI Z245.5 balers, ANSI B65.1 printing, ANSI/ASSE Z50.1 bakery equipment, ANSI Z136.1 lasers, OSHA 3123 meatpacking ergonomics guidelines, CPL 02-00-124 multi-employer policy). Worth a quick human check before a client sees them.
+
+## New section: Glass and glass products
+
+Added 2026-11-10. Every CFR cite below was pulled from eCFR and read against the item.
+
+| Item | Question | Old cite | Cite | Note |
+|---|---|---|---|---|
+| glass-0 | Hot end PPE worn around furnaces, forehearths and forming | (new) | 1910.132(a); 1910.132(d); 1910.133(a)(5) | 1910.132(d) requires a written hazard assessment and PPE selection. 1910.133(a)(5) requires filter lenses with a shade suited to the work for injurious light radiation; its shade table is written for welding, so for furnace glare follow the PPE maker's infrared rating. |
+| glass-1 | Cut protection for handling sheet glass and cullet | (new) | 1910.138(a); 1910.132(a) | 1910.138(a) names severe cuts and lacerations. Verified. |
+| glass-2 | Glass racks, A-frames and stillages restrained | (new) | 1910.176(b); General Duty Clause 5(a)(1) | 1910.176(b): storage must not create a hazard and must be secure against sliding or collapse. No glass-specific rack rule exists, so the General Duty Clause carries the rest. |
+| glass-3 | Forklift, crane and vacuum lifter handling of glass | (new) | 1910.178(l); 1910.184(d); ASME B30.20 | 1910.178(l) operator training, 1910.184(d) daily sling inspection by a competent person. ASME B30.20 (below-the-hook lifting devices, which covers vacuum lifters) is a pointer, not checked online. |
+| glass-4 | Batch house silica controlled | (new) | 1910.1053 | 1910.1053 applies to general industry silica exposure. Verified at section level. |
+| glass-5 | Forming machines, lehrs and cutting lines guarded and locked out | (new) | 1910.212(a)(1); 1910.147(c)(4) | 1910.212(a)(1) nip points and rotating parts; 1910.147(c)(4) machine-specific energy control procedures. Verified. |
+| glass-6 | Furnace and lehr combustion safeguards tested | (new) | NFPA 86; General Duty Clause 5(a)(1) | No OSHA furnace standard. NFPA 86 (ovens and furnaces) is a pointer, not checked online. |
+| glass-7 | Heat illness prevention at the hot end | (new) | General Duty Clause 5(a)(1) | No federal heat standard is in eCFR as of this check; General Duty Clause. |
+| glass-8 | Noise on the forming floor managed | (new) | 1910.95(c); 1910.95(i) | 1910.95(c) hearing conservation program at 85 dBA TWA; 1910.95(i) hearing protectors at 85 dBA. Verified. |
+| glass-9 | Etching acids and leaded glass controlled | (new) | 1910.1200; 1910.151(c); 1910.1025 | 1910.1200 HazCom; 1910.151(c) quick drench and flush facilities for corrosives; 1910.1025 lead in general industry. Calcium gluconate is first aid practice for HF, not OSHA text. |
 
 ## All items
 

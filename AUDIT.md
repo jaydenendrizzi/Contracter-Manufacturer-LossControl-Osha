@@ -63,3 +63,11 @@ GitHub has no deploy status or check runs for 38e6eb6 (combined status is empty,
 - **Repacking the library later.** Packs are served saved-copy-first. If a future rebuild moves templates between pack files, a phone with old packs can show "isn't saved on this phone" for a moved template until the background refresh lands. If you ever change the pack layout, change `LIB_CACHE` in both `sw.js` and `index.html` (now noted in the README).
 - **jsPDF from cdnjs** couldn't load in this sandbox (network policy), so PDF export wasn't exercised here. Nothing in this PR touches it.
 - **Library content** has company names and addresses inside some questions, and a lot of it appears to come from SafetyCulture's public library. See LIBRARY-REVIEW.md. Nothing changed there yet.
+
+## Follow-up, 2026-11-10
+
+Done at your direction after the first review:
+
+- **Library cleaned.** 5,351 to 4,742 items. Removed 221 templates that named a company, address or contact, dropped 388 Professional services HR and admin forms (299 of your approved 319 remain; the other 20 also named a company), stripped SafetyCulture and iAuditor from 126 templates, and gave every item a clean id. Details in LIBRARY-REVIEW.md. The library cache is now `rr-lib-v2`, so phones drop packs saved under the old ids.
+- **Glass section added.** "Industry: Glass and glass products", 10 items, cites checked against eCFR (see CITATIONS-REVIEW.md). Glass (NAICS 3272) now maps to it instead of the concrete section.
+- Re-ran the full browser suite after both changes: all pass, no page errors.
