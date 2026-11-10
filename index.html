@@ -1975,7 +1975,7 @@ function libAdd(r, ind) {
 }
 // "Save this industry for offline": pull every pack for the picked industry into the library cache.
 // Same cache name as LIB_CACHE in sw.js, so saved packs survive app updates.
-const LIB_CACHE = "rr-lib-v1";
+const LIB_CACHE = "rr-lib-v2";
 const libPacksFor = (ind) => [...new Set(LIB.idx.filter((x) => x.i === ind).map((x) => x.p))];
 async function libSavedCount(packs) {
   if (!("caches" in window)) return 0;
