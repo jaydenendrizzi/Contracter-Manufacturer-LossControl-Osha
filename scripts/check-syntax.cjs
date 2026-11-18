@@ -1,0 +1,6 @@
+/* Static checks need Node only; browser suites additionally need Playwright and Chromium. */
+const fs=require('node:fs'),path=require('node:path'),os=require('node:os'),{execFileSync}=require('node:child_process');
+const root=path.resolve(__dirname,'..'),temp=fs.mkdtempSync(path.join(os.tmpdir(),'rr-syntax-'));let count=0;
+function check(file){execFileSync(process.execPath,['--check',file],{stdio:'pipe'});count++;}
+function walk(dir){for(const item of fs.readdirSync(dir,{withFileTypes:true})){if(['.git','node_modules'].includes(item.name))continue;const file=path.join(dir,item.name);if(item.isDirectory())walk(file);else if(/\.(?:js|mjs|cjs)$/.test(file))check(file);else if(file.endsWith('.html')){const source=fs.readFileSync(file,'utf8');let i=0;for(const match of source.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g))if(match[1].trim()){const inline=path.join(temp,path.basename(file)+'-'+i+++'.js');fs.writeFileSync(inline,match[1]);check(inline);}}}}
+try{walk(root);for(const name of ['hazards.json','handout-forms.json'])JSON.parse(fs.readFileSync(path.join(root,name),'utf8'));console.log(`PASS: ${count} scripts, including inline scripts; handout JSON parses.`);}finally{fs.rmSync(temp,{recursive:true,force:true});}

@@ -1,0 +1,3761 @@
+[
+  {
+    "id": "1",
+    "category": "Heavy machinery and equipment",
+    "title": "Machine guarding gaps",
+    "what_happens": "Moving parts can pull in hands or clothing and cause crushing injuries or amputations.",
+    "industries": [
+      "Manufacturing",
+      "Maintenance"
+    ],
+    "checks": [
+      {
+        "label": "Guard pinch points",
+        "caption": "Cover reachable rollers, gears and nip points before running.",
+        "priority": "High"
+      },
+      {
+        "label": "Protect the work point",
+        "caption": "Keep hands away from the machine's cutting or forming area.",
+        "priority": "High"
+      },
+      {
+        "label": "Stop for service",
+        "caption": "Isolate energy before reaching past a guard or clearing a jam.",
+        "priority": "High"
+      },
+      {
+        "label": "Test interlocks",
+        "caption": "Check that opening a gate stops the hazardous motion.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Make bypassing visible",
+        "caption": "Ask the crew to report missing guards and defeated switches.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Cover reachable rollers, gears and nip points before running."
+      },
+      {
+        "when": "This week",
+        "action": "Keep hands away from the machine's cutting or forming area."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Ask the crew to report missing guards and defeated switches."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "29 CFR 1910.212(a)(1), (a)(3)",
+      "construction": "29 CFR 1926.300(b)"
+    },
+    "reference_status": "standard",
+    "reference_note": "",
+    "related_walkthrough_section_ids": [
+      "plastics",
+      "foodproc",
+      "dairy",
+      "bakery",
+      "meat",
+      "machining",
+      "fabmetal",
+      "foundry",
+      "printing",
+      "papermill",
+      "wood",
+      "concrete",
+      "hvacequip",
+      "vehicles",
+      "textile"
+    ],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "Moving parts can pull in hands or clothing and cause crushing injuries or amputations.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "29 CFR 1910.212",
+    "sources": "Sources: eCFR, 29 CFR sections listed above, checked 2026-11-18.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "id": "2",
+    "category": "Heavy machinery and equipment",
+    "title": "Lockout/tagout failures",
+    "what_happens": "A machine that starts or releases stored energy during service can crush or amputate.",
+    "industries": [
+      "Manufacturing",
+      "Maintenance",
+      "Construction"
+    ],
+    "checks": [
+      {
+        "label": "Isolate every source",
+        "caption": "Find electrical, hydraulic, pneumatic, gravity and other energy.",
+        "priority": "High"
+      },
+      {
+        "label": "Release stored energy",
+        "caption": "Bleed pressure, block moving parts and watch for energy that builds back up.",
+        "priority": "High"
+      },
+      {
+        "label": "Verify isolation",
+        "caption": "Check that isolation works before starting service.",
+        "priority": "High"
+      },
+      {
+        "label": "Use the procedure",
+        "caption": "Match the written steps to the machine and the task.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Prepare the crew",
+        "caption": "Confirm who locks out, who is affected and how shifts hand off.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before service",
+        "action": "Stop work until energy is isolated and isolation is verified."
+      },
+      {
+        "when": "This week",
+        "action": "Walk the machine-specific steps with the people who do the work."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Review personal locks, stored energy and shift handoffs."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "29 CFR 1910.147(c)(4), (c)(7), (d)(3)-(6), (f)(4)",
+      "construction": "29 CFR 1926.417 (electrical circuits); 1926.702(j)(1) (covered concrete equipment)"
+    },
+    "reference_status": "standard",
+    "related_walkthrough_section_ids": [
+      "plastics",
+      "foodproc",
+      "printing",
+      "foundry"
+    ],
+    "workers_comp": [
+      "Unexpected startup or stored energy can cause crushing injuries or amputations.",
+      "These checks focus on isolating energy before service begins."
+    ],
+    "reference_summary": "29 CFR 1910.147 | Construction: see below",
+    "reference_note": "1910.147 does not cover construction. The construction references cover the tasks named, not every service task.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "3",
+    "category": "Heavy machinery and equipment",
+    "title": "Forklift collisions and tip-overs",
+    "what_happens": "A moving or tipping forklift can crush the operator or a person on foot.",
+    "industries": [
+      "Warehousing",
+      "Manufacturing",
+      "Construction"
+    ],
+    "checks": [
+      {
+        "label": "Separate walking routes",
+        "caption": "Keep people out of forklift travel and loading areas.",
+        "priority": "High"
+      },
+      {
+        "label": "Check the load",
+        "caption": "Keep the load stable and within the truck's rating.",
+        "priority": "High"
+      },
+      {
+        "label": "Use the restraint",
+        "caption": "Use the operator restraint supplied for the truck.",
+        "priority": "High"
+      },
+      {
+        "label": "Slow at corners",
+        "caption": "Look both ways and use the horn at blocked cross aisles.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Check the truck",
+        "caption": "Report brake, tire, steering or restraint problems before use.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Keep people out of forklift travel and loading areas."
+      },
+      {
+        "when": "This week",
+        "action": "Keep the load stable and within the truck's rating."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Report brake, tire, steering or restraint problems before use."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "29 CFR 1910.178(l), (m), (n)",
+      "construction": "29 CFR 1926.602(c), (d)"
+    },
+    "reference_status": "standard",
+    "reference_note": "",
+    "related_walkthrough_section_ids": [
+      "printing",
+      "papermill",
+      "concrete",
+      "textile",
+      "highway",
+      "specialty"
+    ],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "A moving or tipping forklift can crush the operator or a person on foot.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "29 CFR 1910.178",
+    "sources": "Sources: eCFR, 29 CFR sections listed above, checked 2026-11-18.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "4",
+    "category": "Heavy machinery and equipment",
+    "title": "Heavy site equipment blind spots",
+    "what_happens": "Backing or swinging equipment can pin someone the operator cannot see.",
+    "industries": [
+      "Construction",
+      "Excavation",
+      "Material handling"
+    ],
+    "checks": [
+      {
+        "label": "Keep people clear",
+        "caption": "Mark swing and backing areas before equipment starts.",
+        "priority": "High"
+      },
+      {
+        "label": "Agree on signals",
+        "caption": "Use one clear signal system with the operator and spotter.",
+        "priority": "High"
+      },
+      {
+        "label": "Stop when sight is lost",
+        "caption": "Stop movement if the operator loses sight of the spotter.",
+        "priority": "High"
+      },
+      {
+        "label": "Check alarms",
+        "caption": "Check the backup alarm and other warning devices.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Plan the route",
+        "caption": "Walk the route for slopes, soft ground and foot traffic.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Mark swing and backing areas before equipment starts."
+      },
+      {
+        "when": "This week",
+        "action": "Use one clear signal system with the operator and spotter."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Walk the route for slopes, soft ground and foot traffic."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "29 CFR 1910.176(a)",
+      "construction": "29 CFR 1926.602(a)(9)(ii)"
+    },
+    "reference_status": "standard",
+    "reference_note": "",
+    "related_walkthrough_section_ids": [
+      "fabmetal",
+      "printing",
+      "highway",
+      "specialty"
+    ],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "Backing or swinging equipment can pin someone the operator cannot see.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "29 CFR 1910.176",
+    "sources": "Sources: eCFR, 29 CFR sections listed above, checked 2026-11-18.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "5",
+    "category": "Heavy machinery and equipment",
+    "title": "Crane and rigging failures",
+    "what_happens": "A dropped or shifting load can crush people in the lift area.",
+    "industries": [
+      "Construction",
+      "Manufacturing",
+      "Maintenance"
+    ],
+    "checks": [
+      {
+        "label": "Keep loads off people",
+        "caption": "Set an exclusion area and keep people out from under loads.",
+        "priority": "High"
+      },
+      {
+        "label": "Confirm the lift",
+        "caption": "Check weight, radius, capacity and the lift setup.",
+        "priority": "High"
+      },
+      {
+        "label": "Inspect the rigging",
+        "caption": "Remove damaged slings, hooks and connectors from use.",
+        "priority": "High"
+      },
+      {
+        "label": "Watch the weather",
+        "caption": "Follow equipment limits for wind and changing conditions.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Use clear signals",
+        "caption": "Agree on signals and who can stop the lift.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Set an exclusion area and keep people out from under loads."
+      },
+      {
+        "when": "This week",
+        "action": "Check weight, radius, capacity and the lift setup."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Agree on signals and who can stop the lift."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "29 CFR 1910.179(n); 1910.184",
+      "construction": "29 CFR 1926.1417; 1926.251"
+    },
+    "reference_status": "standard",
+    "reference_note": "",
+    "related_walkthrough_section_ids": [
+      "fabmetal",
+      "foundry",
+      "papermill",
+      "concrete",
+      "textile",
+      "gc",
+      "utility",
+      "specialty"
+    ],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "A dropped or shifting load can crush people in the lift area.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "29 CFR 1910.179",
+    "sources": "Sources: eCFR, 29 CFR sections listed above, checked 2026-11-18.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "6",
+    "category": "Heavy machinery and equipment",
+    "title": "Aerial lift and boom ejections",
+    "what_happens": "A sudden movement can throw a worker from an elevated boom platform.",
+    "industries": [
+      "Construction",
+      "Maintenance",
+      "Utilities"
+    ],
+    "checks": [
+      {
+        "label": "Use the right attachment",
+        "caption": "Use the fall protection system and attachment point specified for the lift.",
+        "priority": "High"
+      },
+      {
+        "label": "Stay inside the platform",
+        "caption": "Keep feet on the floor and do not climb rails.",
+        "priority": "High"
+      },
+      {
+        "label": "Set up on firm ground",
+        "caption": "Check slopes, holes and the lift's ground limits.",
+        "priority": "High"
+      },
+      {
+        "label": "Check overhead space",
+        "caption": "Look for obstructions and electrical lines before raising.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Practice lowering",
+        "caption": "Confirm the ground controls and emergency lowering steps work.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Use the fall protection system and attachment point specified for the lift."
+      },
+      {
+        "when": "This week",
+        "action": "Keep feet on the floor and do not climb rails."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Confirm the ground controls and emergency lowering steps work."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "29 CFR 1910.67(c)(2)",
+      "construction": "29 CFR 1926.453(b)(2)"
+    },
+    "reference_status": "standard",
+    "reference_note": "",
+    "related_walkthrough_section_ids": [],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "A sudden movement can throw a worker from an elevated boom platform.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "29 CFR 1910.67",
+    "sources": "Sources: eCFR, 29 CFR sections listed above, checked 2026-11-18.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "7",
+    "category": "Heavy machinery and equipment",
+    "title": "Conveyor entanglement",
+    "what_happens": "A belt or roller can catch a hand, sleeve or hair and pull a worker in.",
+    "industries": [
+      "Manufacturing",
+      "Warehousing",
+      "Food processing"
+    ],
+    "checks": [
+      {
+        "label": "Guard nip points",
+        "caption": "Keep reachable belts, rollers and drives covered.",
+        "priority": "High"
+      },
+      {
+        "label": "Isolate before clearing",
+        "caption": "Lock out energy before clearing a jam or cleaning inside guards.",
+        "priority": "High"
+      },
+      {
+        "label": "Keep clothing clear",
+        "caption": "Secure loose clothing, jewelry and long hair.",
+        "priority": "High"
+      },
+      {
+        "label": "Check stop controls",
+        "caption": "Keep stop devices reachable and test them to the site plan.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Use the crossing",
+        "caption": "Use the designated walkway instead of stepping over a moving belt.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Keep reachable belts, rollers and drives covered."
+      },
+      {
+        "when": "This week",
+        "action": "Lock out energy before clearing a jam or cleaning inside guards."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Use the designated walkway instead of stepping over a moving belt."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "29 CFR 1910.212; 1910.219",
+      "construction": "29 CFR 1926.555"
+    },
+    "reference_status": "standard",
+    "reference_note": "",
+    "related_walkthrough_section_ids": [
+      "plastics",
+      "foodproc",
+      "dairy",
+      "bakery",
+      "meat",
+      "machining",
+      "fabmetal",
+      "foundry",
+      "printing",
+      "papermill",
+      "wood",
+      "concrete",
+      "hvacequip",
+      "vehicles",
+      "textile"
+    ],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "A belt or roller can catch a hand, sleeve or hair and pull a worker in.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "29 CFR 1910.212",
+    "sources": "Sources: eCFR, 29 CFR sections listed above, checked 2026-11-18.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "8",
+    "category": "Heavy machinery and equipment",
+    "title": "Automated guided vehicle blind spots",
+    "what_happens": "A moving automated vehicle can strike or trap a person in a narrow lane.",
+    "industries": [
+      "Warehousing",
+      "Manufacturing"
+    ],
+    "checks": [
+      {
+        "label": "Separate the routes",
+        "caption": "Keep people out of vehicle travel lanes where possible.",
+        "priority": "High"
+      },
+      {
+        "label": "Check stopping space",
+        "caption": "Confirm the vehicle can stop before reaching people or obstacles.",
+        "priority": "High"
+      },
+      {
+        "label": "Protect tight spots",
+        "caption": "Keep people out of trapping points at doors and stations.",
+        "priority": "High"
+      },
+      {
+        "label": "Test detection",
+        "caption": "Follow the maker's procedure for checking sensors and stops.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Explain the signals",
+        "caption": "Show workers the vehicle's lights, sounds and stop procedure.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Keep people out of vehicle travel lanes where possible."
+      },
+      {
+        "when": "This week",
+        "action": "Confirm the vehicle can stop before reaching people or obstacles."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Show workers the vehicle's lights, sounds and stop procedure."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "29 CFR 1910.176(a)",
+      "construction": "29 CFR 1926.250(a)(3)"
+    },
+    "reference_status": "standard",
+    "reference_note": "These references cover material handling routes, not an automated-vehicle-specific standard.",
+    "related_walkthrough_section_ids": [
+      "fabmetal",
+      "printing",
+      "gc"
+    ],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "A moving automated vehicle can strike or trap a person in a narrow lane.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "29 CFR 1910.176",
+    "sources": "Sources: eCFR, 29 CFR sections listed above, checked 2026-11-18.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "id": "9",
+    "category": "Structural and height",
+    "title": "Falls from roofs and unprotected edges",
+    "what_happens": "One unprotected edge can turn a routine task into a life-changing fall.",
+    "industries": [
+      "Roofing",
+      "Construction",
+      "Manufacturing",
+      "Maintenance"
+    ],
+    "checks": [
+      {
+        "label": "Protect the edge",
+        "caption": "Choose protection for the task before anyone gets near the edge.",
+        "priority": "High"
+      },
+      {
+        "label": "Check the height",
+        "caption": "General industry edges: 4 ft. Construction edges: 6 ft. Task-specific rules differ.",
+        "priority": "High"
+      },
+      {
+        "label": "Plan the rescue",
+        "caption": "Check fall clearance and how a suspended worker will be reached.",
+        "priority": "High"
+      },
+      {
+        "label": "Check the gear",
+        "caption": "Inspect harnesses, connectors and anchors before use.",
+        "priority": "High"
+      },
+      {
+        "label": "Walk the route",
+        "caption": "Check the roof access and work area before the crew starts.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Set up edge protection and confirm the rule for the task."
+      },
+      {
+        "when": "This week",
+        "action": "Have a qualified person check the system, clearance and rescue plan."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Walk through access, gear checks and who calls for help."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "29 CFR 1910.28(b)(1)(i); 1910.29",
+      "construction": "29 CFR 1926.501(b)(1), (b)(10), (b)(11); 1926.502(d)"
+    },
+    "reference_status": "standard",
+    "related_walkthrough_section_ids": [
+      "papermill",
+      "structure",
+      "highway"
+    ],
+    "workers_comp": [
+      "Falls can cause serious injury and time away from work.",
+      "The checks on this sheet focus on edge protection, equipment and rescue."
+    ],
+    "reference_summary": "29 CFR 1910.28 | 1926.501",
+    "reference_note": "The 4 ft and 6 ft figures apply to general unprotected edges. Roof work and other tasks have specific rules.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "10",
+    "category": "Structural and height",
+    "title": "Scaffold collapses",
+    "what_happens": "A failed scaffold can drop workers and materials onto people below.",
+    "industries": [
+      "Construction",
+      "Maintenance"
+    ],
+    "checks": [
+      {
+        "label": "Check the base",
+        "caption": "Set supports on a sound base with the required bearing support.",
+        "priority": "High"
+      },
+      {
+        "label": "Follow the setup plan",
+        "caption": "Use the scaffold design and do not improvise missing parts.",
+        "priority": "High"
+      },
+      {
+        "label": "Control the load",
+        "caption": "Keep people and materials within the scaffold's capacity.",
+        "priority": "High"
+      },
+      {
+        "label": "Inspect before use",
+        "caption": "Have the competent person check the scaffold before the shift.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Use proper access",
+        "caption": "Use the planned ladder or stair access instead of climbing braces.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Set supports on a sound base with the required bearing support."
+      },
+      {
+        "when": "This week",
+        "action": "Use the scaffold design and do not improvise missing parts."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Use the planned ladder or stair access instead of climbing braces."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "29 CFR 1910.27(a)",
+      "construction": "29 CFR 1926.451"
+    },
+    "reference_status": "standard",
+    "reference_note": "",
+    "related_walkthrough_section_ids": [
+      "bakery",
+      "finish"
+    ],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "A failed scaffold can drop workers and materials onto people below.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "29 CFR 1910.27",
+    "sources": "Sources: eCFR, 29 CFR sections listed above, checked 2026-11-18.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "11",
+    "category": "Structural and height",
+    "title": "Unsecured or improperly angled ladders",
+    "what_happens": "A slipping or unstable ladder can drop a worker onto the floor or ground.",
+    "industries": [
+      "Construction",
+      "Maintenance",
+      "Manufacturing"
+    ],
+    "checks": [
+      {
+        "label": "Set a stable base",
+        "caption": "Place the ladder on firm, level support and secure it when needed.",
+        "priority": "High"
+      },
+      {
+        "label": "Check the angle",
+        "caption": "Set non-self-supporting ladders to the angle required for their use.",
+        "priority": "High"
+      },
+      {
+        "label": "Secure landing access",
+        "caption": "For construction access, extend side rails 3 ft above the landing or use the allowed secured alternative.",
+        "priority": "High"
+      },
+      {
+        "label": "Remove damaged ladders",
+        "caption": "Tag and remove ladders with broken rungs, rails or feet.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Keep hands available",
+        "caption": "Face the ladder and use a tool belt or other way to move tools.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Place the ladder on firm, level support and secure it when needed."
+      },
+      {
+        "when": "This week",
+        "action": "Set non-self-supporting ladders to the angle required for their use."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Face the ladder and use a tool belt or other way to move tools."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "29 CFR 1910.23(b), (c)",
+      "construction": "29 CFR 1926.1053(b)"
+    },
+    "reference_status": "standard",
+    "reference_note": "",
+    "related_walkthrough_section_ids": [
+      "dairy",
+      "finish",
+      "resid"
+    ],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "A slipping or unstable ladder can drop a worker onto the floor or ground.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "29 CFR 1910.23",
+    "sources": "Sources: eCFR, 29 CFR sections listed above, checked 2026-11-18.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "12",
+    "category": "Structural and height",
+    "title": "Trench and excavation cave-ins",
+    "what_happens": "Collapsing soil can bury or crush a worker before help can reach them.",
+    "industries": [
+      "Excavation",
+      "Utilities",
+      "Construction"
+    ],
+    "checks": [
+      {
+        "label": "Keep out until protected",
+        "caption": "Use the competent person's protective system plan before entry.",
+        "priority": "High"
+      },
+      {
+        "label": "Check changing ground",
+        "caption": "Have the competent person inspect before work and after changes.",
+        "priority": "High"
+      },
+      {
+        "label": "Keep loads back",
+        "caption": "Keep spoil and equipment where they will not overload the edge.",
+        "priority": "High"
+      },
+      {
+        "label": "Plan the way out",
+        "caption": "Provide access that matches the trench depth and travel distance.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Check utilities and water",
+        "caption": "Locate utilities and control water before the crew enters.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Use the competent person's protective system plan before entry."
+      },
+      {
+        "when": "This week",
+        "action": "Have the competent person inspect before work and after changes."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Locate utilities and control water before the crew enters."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "Not applicable to general industry work",
+      "construction": "29 CFR 1926.651; 1926.652"
+    },
+    "reference_status": "standard",
+    "reference_note": "",
+    "related_walkthrough_section_ids": [
+      "buildequip",
+      "resid",
+      "utility",
+      "specialty"
+    ],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "Collapsing soil can bury or crush a worker before help can reach them.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "29 CFR 1926.651",
+    "sources": "Sources: eCFR, 29 CFR sections listed above, checked 2026-11-18.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "13",
+    "category": "Structural and height",
+    "title": "Uncovered or unmarked floor openings",
+    "what_happens": "An unprotected hole or skylight can let a worker fall through without warning.",
+    "industries": [
+      "Construction",
+      "Manufacturing",
+      "Maintenance"
+    ],
+    "checks": [
+      {
+        "label": "Cover or guard holes",
+        "caption": "Protect openings before people reach the area.",
+        "priority": "High"
+      },
+      {
+        "label": "Secure the cover",
+        "caption": "Keep covers from shifting or being lifted by traffic.",
+        "priority": "High"
+      },
+      {
+        "label": "Check cover strength",
+        "caption": "Use a cover rated for the loads that can reach it.",
+        "priority": "High"
+      },
+      {
+        "label": "Mark the opening",
+        "caption": "Mark covers as required for the work so no one removes them by mistake.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Recheck after changes",
+        "caption": "Check protection after trades move materials or change access.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Protect openings before people reach the area."
+      },
+      {
+        "when": "This week",
+        "action": "Keep covers from shifting or being lifted by traffic."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Check protection after trades move materials or change access."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "29 CFR 1910.28(b)(3)",
+      "construction": "29 CFR 1926.501(b)(4); 1926.502(i)"
+    },
+    "reference_status": "standard",
+    "reference_note": "",
+    "related_walkthrough_section_ids": [
+      "dairy",
+      "papermill",
+      "vehicles",
+      "buildequip",
+      "gc",
+      "structure",
+      "resid",
+      "highway"
+    ],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "An unprotected hole or skylight can let a worker fall through without warning.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "29 CFR 1910.28",
+    "sources": "Sources: eCFR, 29 CFR sections listed above, checked 2026-11-18.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "14",
+    "category": "Structural and height",
+    "title": "Collapsing materials and pallet stacks",
+    "what_happens": "Falling stacks can crush workers or block the route out.",
+    "industries": [
+      "Warehousing",
+      "Manufacturing",
+      "Construction"
+    ],
+    "checks": [
+      {
+        "label": "Stabilize the stack",
+        "caption": "Stack, block or interlock materials so they will not slide or collapse.",
+        "priority": "High"
+      },
+      {
+        "label": "Keep people clear",
+        "caption": "Keep workers out of the fall path while moving unstable loads.",
+        "priority": "High"
+      },
+      {
+        "label": "Remove damaged pallets",
+        "caption": "Use pallets and supports that can carry the load.",
+        "priority": "High"
+      },
+      {
+        "label": "Control stack height",
+        "caption": "Set a stacking limit suited to the material and support.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Keep aisles open",
+        "caption": "Leave room to move materials without striking nearby stacks.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Stack, block or interlock materials so they will not slide or collapse."
+      },
+      {
+        "when": "This week",
+        "action": "Keep workers out of the fall path while moving unstable loads."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Leave room to move materials without striking nearby stacks."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "29 CFR 1910.176(b)",
+      "construction": "29 CFR 1926.250(a)(1), (b)"
+    },
+    "reference_status": "standard",
+    "reference_note": "",
+    "related_walkthrough_section_ids": [
+      "fabmetal",
+      "printing",
+      "gc"
+    ],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "Falling stacks can crush workers or block the route out.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "29 CFR 1910.176",
+    "sources": "Sources: eCFR, 29 CFR sections listed above, checked 2026-11-18.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "15",
+    "category": "Structural and height",
+    "title": "Concrete and masonry wall collapses",
+    "what_happens": "An unsupported wall or panel can fall onto the crew.",
+    "industries": [
+      "Construction",
+      "Precast installation",
+      "Masonry"
+    ],
+    "checks": [
+      {
+        "label": "Brace before release",
+        "caption": "Keep panels supported until permanent connections are complete.",
+        "priority": "High"
+      },
+      {
+        "label": "Set the exclusion area",
+        "caption": "Keep people clear of the wall's possible fall zone.",
+        "priority": "High"
+      },
+      {
+        "label": "Follow the bracing plan",
+        "caption": "Use the planned anchors, braces and sequence.",
+        "priority": "High"
+      },
+      {
+        "label": "Inspect connections",
+        "caption": "Check temporary connections before loading or releasing the lift.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Watch conditions",
+        "caption": "Recheck bracing after wind, impact or a change in the work.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Keep panels supported until permanent connections are complete."
+      },
+      {
+        "when": "This week",
+        "action": "Keep people clear of the wall's possible fall zone."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Recheck bracing after wind, impact or a change in the work."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "No single rule for every wall or panel",
+      "construction": "29 CFR 1926.704(a); 1926.706(b)"
+    },
+    "reference_status": "standard",
+    "reference_note": "The construction references cover precast support and masonry wall bracing separately.",
+    "related_walkthrough_section_ids": [
+      "structure"
+    ],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "An unsupported wall or panel can fall onto the crew.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "29 CFR 1926.704",
+    "sources": "Sources: eCFR, 29 CFR sections listed above, checked 2026-11-18.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "16",
+    "category": "Structural and height",
+    "title": "Formwork and shoring failures",
+    "what_happens": "Failed supports can release wet concrete and bring the work platform down.",
+    "industries": [
+      "Concrete construction"
+    ],
+    "checks": [
+      {
+        "label": "Use the design",
+        "caption": "Build forms and shores to the planned loads and layout.",
+        "priority": "High"
+      },
+      {
+        "label": "Inspect before pouring",
+        "caption": "Check supports, connections and bearing before the pour starts.",
+        "priority": "High"
+      },
+      {
+        "label": "Control pour loading",
+        "caption": "Follow the planned pour sequence and placement rate.",
+        "priority": "High"
+      },
+      {
+        "label": "Watch for movement",
+        "caption": "Stop and get help if supports settle, shift or buckle.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Plan removal",
+        "caption": "Remove forms and shores only when the concrete can support the load.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Build forms and shores to the planned loads and layout."
+      },
+      {
+        "when": "This week",
+        "action": "Check supports, connections and bearing before the pour starts."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Remove forms and shores only when the concrete can support the load."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "Not applicable to general industry work",
+      "construction": "29 CFR 1926.703(a), (b)"
+    },
+    "reference_status": "standard",
+    "reference_note": "",
+    "related_walkthrough_section_ids": [
+      "structure"
+    ],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "Failed supports can release wet concrete and bring the work platform down.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "29 CFR 1926.703",
+    "sources": "Sources: eCFR, 29 CFR sections listed above, checked 2026-11-18.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "17",
+    "category": "Electrical and energy",
+    "title": "Overhead power line contact",
+    "what_happens": "Equipment or a carried object touching a line can electrocute workers nearby.",
+    "industries": [
+      "Construction",
+      "Utilities",
+      "Maintenance"
+    ],
+    "checks": [
+      {
+        "label": "Find the lines first",
+        "caption": "Locate lines along the work and travel routes.",
+        "priority": "High"
+      },
+      {
+        "label": "Confirm the plan",
+        "caption": "Arrange deenergizing or the required clearance controls before work.",
+        "priority": "High"
+      },
+      {
+        "label": "Mark the boundary",
+        "caption": "Keep equipment and materials out of the line's approach area.",
+        "priority": "High"
+      },
+      {
+        "label": "Assign the lookout",
+        "caption": "Use the spotter or other warning controls called for by the work plan.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Know the response",
+        "caption": "Review what to do if equipment contacts a line before the shift.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Locate lines along the work and travel routes."
+      },
+      {
+        "when": "This week",
+        "action": "Arrange deenergizing or the required clearance controls before work."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Review what to do if equipment contacts a line before the shift."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "29 CFR 1910.333(c)(3)",
+      "construction": "29 CFR 1926.1408; 1926.416(a)(1)"
+    },
+    "reference_status": "standard",
+    "reference_note": "",
+    "related_walkthrough_section_ids": [
+      "hvacequip",
+      "medelec",
+      "buildequip",
+      "structure",
+      "utility",
+      "highway"
+    ],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "Equipment or a carried object touching a line can electrocute workers nearby.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "29 CFR 1910.333",
+    "sources": "Sources: eCFR, 29 CFR sections listed above, checked 2026-11-18.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "18",
+    "category": "Electrical and energy",
+    "title": "Arc flash",
+    "what_happens": "An electrical arc can cause severe burns, blast injuries and death.",
+    "industries": [
+      "Manufacturing",
+      "Electrical work",
+      "Construction"
+    ],
+    "checks": [
+      {
+        "label": "Deenergize first",
+        "caption": "Plan the work so exposed electrical parts can be deenergized.",
+        "priority": "High"
+      },
+      {
+        "label": "Verify the isolation",
+        "caption": "Have qualified workers isolate and verify the electrical condition.",
+        "priority": "High"
+      },
+      {
+        "label": "Limit access",
+        "caption": "Keep unqualified workers outside the work area.",
+        "priority": "High"
+      },
+      {
+        "label": "Match protective gear",
+        "caption": "Have a qualified person select protection for the electrical task.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Check the tools",
+        "caption": "Use equipment suited to the voltage and conditions.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Plan the work so exposed electrical parts can be deenergized."
+      },
+      {
+        "when": "This week",
+        "action": "Have qualified workers isolate and verify the electrical condition."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Use equipment suited to the voltage and conditions."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "29 CFR 1910.333(a), (b); 1910.335(a)",
+      "construction": "29 CFR 1926.416(a); 1926.417"
+    },
+    "reference_status": "standard",
+    "reference_note": "",
+    "related_walkthrough_section_ids": [
+      "hvacequip",
+      "medelec",
+      "buildequip",
+      "structure",
+      "utility",
+      "highway"
+    ],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "An electrical arc can cause severe burns, blast injuries and death.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "29 CFR 1910.333",
+    "sources": "Sources: eCFR, 29 CFR sections listed above, checked 2026-11-18.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "19",
+    "category": "Electrical and energy",
+    "title": "Damaged temporary site power",
+    "what_happens": "A damaged cord or connection can shock a worker or start a fire.",
+    "industries": [
+      "Construction",
+      "Maintenance"
+    ],
+    "checks": [
+      {
+        "label": "Remove damaged cords",
+        "caption": "Take cut, crushed or exposed wiring out of service.",
+        "priority": "High"
+      },
+      {
+        "label": "Protect wet work",
+        "caption": "Use equipment and connections suited to the wet location.",
+        "priority": "High"
+      },
+      {
+        "label": "Guard connections",
+        "caption": "Keep panels and boxes closed and protected from damage.",
+        "priority": "High"
+      },
+      {
+        "label": "Route cords clear",
+        "caption": "Keep cords away from sharp edges, traffic and standing water.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Check before use",
+        "caption": "Look over portable electrical equipment before the shift.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Take cut, crushed or exposed wiring out of service."
+      },
+      {
+        "when": "This week",
+        "action": "Use equipment and connections suited to the wet location."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Look over portable electrical equipment before the shift."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "29 CFR 1910.334(a)(2)",
+      "construction": "29 CFR 1926.405(a)(2), (g)"
+    },
+    "reference_status": "standard",
+    "reference_note": "",
+    "related_walkthrough_section_ids": [],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "A damaged cord or connection can shock a worker or start a fire.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "29 CFR 1910.334",
+    "sources": "Sources: eCFR, 29 CFR sections listed above, checked 2026-11-18.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "20",
+    "category": "Electrical and energy",
+    "title": "Missing GFCIs",
+    "what_happens": "A ground fault can send current through a worker using a tool.",
+    "industries": [
+      "Construction",
+      "Maintenance"
+    ],
+    "checks": [
+      {
+        "label": "Check required protection",
+        "caption": "Confirm GFCI protection where the applicable rule calls for it.",
+        "priority": "High"
+      },
+      {
+        "label": "Test the device",
+        "caption": "Use the maker's test procedure before relying on a GFCI.",
+        "priority": "High"
+      },
+      {
+        "label": "Check the supply",
+        "caption": "Inspect receptacles, plugs and grounding connections.",
+        "priority": "High"
+      },
+      {
+        "label": "Review the alternative",
+        "caption": "In construction, an assured equipment grounding program may be an allowed option.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Remove suspect tools",
+        "caption": "Stop using tools or cords that trip protection or show damage.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Confirm GFCI protection where the applicable rule calls for it."
+      },
+      {
+        "when": "This week",
+        "action": "Use the maker's test procedure before relying on a GFCI."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Stop using tools or cords that trip protection or show damage."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "29 CFR 1910.304(b)(3)(ii)",
+      "construction": "29 CFR 1926.404(b)(1)"
+    },
+    "reference_status": "standard",
+    "reference_note": "Protection depends on the circuit and work. Construction allows a qualifying grounding program as an alternative.",
+    "related_walkthrough_section_ids": [
+      "buildequip",
+      "finish",
+      "resid"
+    ],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "A ground fault can send current through a worker using a tool.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "29 CFR 1910.304",
+    "sources": "Sources: eCFR, 29 CFR sections listed above, checked 2026-11-18.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "21",
+    "category": "Electrical and energy",
+    "title": "Static electricity ignition",
+    "what_happens": "A static spark can ignite a flammable vapor or combustible dust cloud.",
+    "industries": [
+      "Chemical handling",
+      "Finishing",
+      "Powder processing"
+    ],
+    "checks": [
+      {
+        "label": "Control ignition sources",
+        "caption": "Keep sparks and other ignition sources out of transfer areas.",
+        "priority": "High"
+      },
+      {
+        "label": "Check bonding paths",
+        "caption": "Use the electrical interconnection required for covered flammable liquid transfers.",
+        "priority": "High"
+      },
+      {
+        "label": "Assess the material",
+        "caption": "Check whether the liquid or powder can form an ignitable atmosphere.",
+        "priority": "High"
+      },
+      {
+        "label": "Use the right equipment",
+        "caption": "Follow the transfer system design and material handling plan.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Keep the area clean",
+        "caption": "Clean spills and dust using methods suited to the material.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Keep sparks and other ignition sources out of transfer areas."
+      },
+      {
+        "when": "This week",
+        "action": "Use the electrical interconnection required for covered flammable liquid transfers."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Clean spills and dust using methods suited to the material."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "29 CFR 1910.106(e)(6)(ii)",
+      "construction": "29 CFR 1926.152(e)(2)"
+    },
+    "reference_status": "standard",
+    "reference_note": "The liquid-transfer references do not cover every powder process. Review the material and transfer system.",
+    "related_walkthrough_section_ids": [
+      "finishing",
+      "printing",
+      "wood",
+      "hvacequip",
+      "chemical",
+      "medelec",
+      "finish"
+    ],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "A static spark can ignite a flammable vapor or combustible dust cloud.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "29 CFR 1910.106",
+    "sources": "Sources: eCFR, 29 CFR sections listed above, checked 2026-11-18.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "22",
+    "category": "Electrical and energy",
+    "title": "High-pressure hydraulic and pneumatic line bursts",
+    "what_happens": "A failed line can whip, strike a worker or inject fluid under the skin.",
+    "industries": [
+      "Manufacturing",
+      "Construction",
+      "Maintenance"
+    ],
+    "checks": [
+      {
+        "label": "Release stored pressure",
+        "caption": "Isolate energy and relieve pressure before opening a line.",
+        "priority": "High"
+      },
+      {
+        "label": "Keep hands off leaks",
+        "caption": "Do not feel for a pressurized leak with a hand.",
+        "priority": "High"
+      },
+      {
+        "label": "Support moving parts",
+        "caption": "Block equipment that could drop when pressure is released.",
+        "priority": "High"
+      },
+      {
+        "label": "Inspect hose condition",
+        "caption": "Replace damaged hoses and use fittings rated for the system.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Plan urgent care",
+        "caption": "Treat a suspected fluid injection as an urgent medical emergency.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Isolate energy and relieve pressure before opening a line."
+      },
+      {
+        "when": "This week",
+        "action": "Do not feel for a pressurized leak with a hand."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Treat a suspected fluid injection as an urgent medical emergency."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "29 CFR 1910.147(d)(5)",
+      "construction": "29 CFR 1926.302(b)(7), (d)(2)"
+    },
+    "reference_status": "standard",
+    "reference_note": "The construction references cover powered tools, not every high-pressure process.",
+    "related_walkthrough_section_ids": [
+      "plastics",
+      "foodproc",
+      "dairy",
+      "fabmetal",
+      "foundry",
+      "printing",
+      "papermill",
+      "wood",
+      "concrete",
+      "vehicles",
+      "resid"
+    ],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "A failed line can whip, strike a worker or inject fluid under the skin.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "29 CFR 1910.147",
+    "sources": "Sources: eCFR, 29 CFR sections listed above, checked 2026-11-18.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "23",
+    "category": "Chemical, airborne and respiratory",
+    "title": "Respirable crystalline silica",
+    "what_happens": "Breathing fine silica dust can scar lungs and cause serious disease.",
+    "industries": [
+      "Concrete work",
+      "Masonry",
+      "Foundries"
+    ],
+    "checks": [
+      {
+        "label": "Control dust at the tool",
+        "caption": "Use the exposure control method matched to the task.",
+        "priority": "High"
+      },
+      {
+        "label": "Check water or extraction",
+        "caption": "Confirm the dust control system works before cutting.",
+        "priority": "High"
+      },
+      {
+        "label": "Keep others clear",
+        "caption": "Keep nearby workers out of dusty areas where possible.",
+        "priority": "High"
+      },
+      {
+        "label": "Check exposure needs",
+        "caption": "Review the applicable silica rule and exposure assessment or task table.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Review respirators",
+        "caption": "Use the required respiratory protection program when respirators are needed.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Use the exposure control method matched to the task."
+      },
+      {
+        "when": "This week",
+        "action": "Confirm the dust control system works before cutting."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Use the required respiratory protection program when respirators are needed."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "29 CFR 1910.1053",
+      "construction": "29 CFR 1926.1153"
+    },
+    "reference_status": "standard",
+    "reference_note": "",
+    "related_walkthrough_section_ids": [
+      "foundry",
+      "concrete",
+      "buildequip",
+      "gc",
+      "structure",
+      "finish",
+      "highway"
+    ],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "Breathing fine silica dust can scar lungs and cause serious disease.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "29 CFR 1910.1053",
+    "sources": "Sources: eCFR, 29 CFR sections listed above, checked 2026-11-18.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "24",
+    "category": "Chemical, airborne and respiratory",
+    "title": "Hexavalent chromium and welding fumes",
+    "what_happens": "Welding fumes and chromium exposure can damage lungs and cause other serious illness.",
+    "industries": [
+      "Welding",
+      "Metal fabrication",
+      "Construction"
+    ],
+    "checks": [
+      {
+        "label": "Identify the metal",
+        "caption": "Check base metal, coatings and consumables before welding.",
+        "priority": "High"
+      },
+      {
+        "label": "Capture fumes",
+        "caption": "Place effective exhaust close to the work without blocking the task.",
+        "priority": "High"
+      },
+      {
+        "label": "Keep heads out of fumes",
+        "caption": "Position the work so the plume does not pass through the breathing area.",
+        "priority": "High"
+      },
+      {
+        "label": "Review exposure levels",
+        "caption": "Have exposure assessed for the metals and process in use.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Select protection",
+        "caption": "Match respiratory and other protection to the exposure assessment.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Check base metal, coatings and consumables before welding."
+      },
+      {
+        "when": "This week",
+        "action": "Place effective exhaust close to the work without blocking the task."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Match respiratory and other protection to the exposure assessment."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "29 CFR 1910.1026; 1910.252(c)",
+      "construction": "29 CFR 1926.1126; 1926.353"
+    },
+    "reference_status": "standard",
+    "reference_note": "",
+    "related_walkthrough_section_ids": [
+      "machining",
+      "fabmetal",
+      "finishing",
+      "papermill",
+      "hvacequip",
+      "vehicles"
+    ],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "Welding fumes and chromium exposure can damage lungs and cause other serious illness.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "29 CFR 1910.1026",
+    "sources": "Sources: eCFR, 29 CFR sections listed above, checked 2026-11-18.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "25",
+    "category": "Chemical, airborne and respiratory",
+    "title": "Hazardous chemical exposures",
+    "what_happens": "A splash, vapor or dust can burn skin or eyes and harm the lungs.",
+    "industries": [
+      "Manufacturing",
+      "Construction",
+      "Cleaning"
+    ],
+    "checks": [
+      {
+        "label": "Know the chemical",
+        "caption": "Read the label and safety data sheet before use.",
+        "priority": "High"
+      },
+      {
+        "label": "Control the release",
+        "caption": "Use enclosure, exhaust or a less hazardous process where practical.",
+        "priority": "High"
+      },
+      {
+        "label": "Prepare for splashes",
+        "caption": "Provide suitable quick flushing where corrosive exposure is possible.",
+        "priority": "High"
+      },
+      {
+        "label": "Check protective gear",
+        "caption": "Match gloves, eye protection and other gear to the chemical.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Label the container",
+        "caption": "Keep containers identified and explain handling steps to the crew.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Read the label and safety data sheet before use."
+      },
+      {
+        "when": "This week",
+        "action": "Use enclosure, exhaust or a less hazardous process where practical."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Keep containers identified and explain handling steps to the crew."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "29 CFR 1910.1200; 1910.1000; 1910.151(c)",
+      "construction": "29 CFR 1926.59; 1926.55; 1926.50(g)"
+    },
+    "reference_status": "standard",
+    "reference_note": "",
+    "related_walkthrough_section_ids": [
+      "foodproc",
+      "dairy",
+      "meat",
+      "machining",
+      "fabmetal",
+      "foundry",
+      "finishing",
+      "printing",
+      "papermill",
+      "wood",
+      "concrete",
+      "hvacequip",
+      "vehicles",
+      "chemical",
+      "medelec",
+      "textile",
+      "buildequip",
+      "gc",
+      "structure",
+      "finish",
+      "resid",
+      "highway"
+    ],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "A splash, vapor or dust can burn skin or eyes and harm the lungs.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "29 CFR 1910.1200",
+    "sources": "Sources: eCFR, 29 CFR sections listed above, checked 2026-11-18.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "26",
+    "category": "Chemical, airborne and respiratory",
+    "title": "Combustible dust explosions",
+    "what_happens": "A dust cloud and an ignition source can cause an explosion and secondary fires.",
+    "industries": [
+      "Wood products",
+      "Metal processing",
+      "Food processing"
+    ],
+    "checks": [
+      {
+        "label": "Find dust buildup",
+        "caption": "Check overhead surfaces and hidden spaces as well as floors.",
+        "priority": "High"
+      },
+      {
+        "label": "Control ignition sources",
+        "caption": "Review hot work, static and equipment heat in dust areas.",
+        "priority": "High"
+      },
+      {
+        "label": "Check dust collection",
+        "caption": "Have a qualified person review collection and explosion protection for the material.",
+        "priority": "High"
+      },
+      {
+        "label": "Use suitable cleaning",
+        "caption": "Avoid cleaning methods that spread a dust cloud or create sparks.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Identify the dust",
+        "caption": "Confirm whether the material can burn or explode before changing the process.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Check overhead surfaces and hidden spaces as well as floors."
+      },
+      {
+        "when": "This week",
+        "action": "Review hot work, static and equipment heat in dust areas."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Confirm whether the material can burn or explode before changing the process."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "29 CFR 1910.22(a)(1); 1910.272 (grain handling only)",
+      "construction": "29 CFR 1926.25(a)"
+    },
+    "reference_status": "standard",
+    "reference_note": "No single OSHA standard covers every combustible dust. Grain handling has specific rules.",
+    "related_walkthrough_section_ids": [
+      "plastics",
+      "foodproc",
+      "bakery",
+      "meat",
+      "wood",
+      "textile",
+      "gc",
+      "utility",
+      "specialty"
+    ],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "A dust cloud and an ignition source can cause an explosion and secondary fires.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "29 CFR 1910.22",
+    "sources": "Sources: eCFR, 29 CFR sections listed above, checked 2026-11-18.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "27",
+    "category": "Chemical, airborne and respiratory",
+    "title": "Confined space atmospheric hazards",
+    "what_happens": "An oxygen problem or toxic atmosphere can overcome a worker and an unplanned rescuer.",
+    "industries": [
+      "Manufacturing",
+      "Utilities",
+      "Construction"
+    ],
+    "checks": [
+      {
+        "label": "Keep entry controlled",
+        "caption": "Identify the space and complete the entry evaluation before anyone enters.",
+        "priority": "High"
+      },
+      {
+        "label": "Test the atmosphere",
+        "caption": "Use the testing and monitoring plan for the space.",
+        "priority": "High"
+      },
+      {
+        "label": "Isolate the hazards",
+        "caption": "Control connected equipment, lines and material before entry.",
+        "priority": "High"
+      },
+      {
+        "label": "Plan rescue first",
+        "caption": "Confirm a workable rescue arrangement before the job starts.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Use trained roles",
+        "caption": "Confirm entrant, attendant and supervisor duties for the entry.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Identify the space and complete the entry evaluation before anyone enters."
+      },
+      {
+        "when": "This week",
+        "action": "Use the testing and monitoring plan for the space."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Confirm entrant, attendant and supervisor duties for the entry."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "29 CFR 1910.146",
+      "construction": "29 CFR 1926.1203; 1926.1204"
+    },
+    "reference_status": "standard",
+    "reference_note": "",
+    "related_walkthrough_section_ids": [
+      "foodproc",
+      "dairy",
+      "papermill",
+      "concrete",
+      "vehicles",
+      "buildequip",
+      "utility"
+    ],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "An oxygen problem or toxic atmosphere can overcome a worker and an unplanned rescuer.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "29 CFR 1910.146",
+    "sources": "Sources: eCFR, 29 CFR sections listed above, checked 2026-11-18.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "28",
+    "category": "Chemical, airborne and respiratory",
+    "title": "Lead and asbestos disturbances",
+    "what_happens": "Disturbing old coatings or building materials can release lead or asbestos into the air.",
+    "industries": [
+      "Renovation",
+      "Demolition",
+      "Maintenance"
+    ],
+    "checks": [
+      {
+        "label": "Identify before disturbing",
+        "caption": "Check the material before cutting, sanding or demolition.",
+        "priority": "High"
+      },
+      {
+        "label": "Control the work area",
+        "caption": "Keep the disturbance contained and limit access.",
+        "priority": "High"
+      },
+      {
+        "label": "Use the exposure plan",
+        "caption": "Follow the controls for the material and the type of work.",
+        "priority": "High"
+      },
+      {
+        "label": "Keep dust contained",
+        "caption": "Use suitable cleanup methods and prevent take-home contamination.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Review worker protection",
+        "caption": "Check training, respirators and other protection for the task.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Check the material before cutting, sanding or demolition."
+      },
+      {
+        "when": "This week",
+        "action": "Keep the disturbance contained and limit access."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Check training, respirators and other protection for the task."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "29 CFR 1910.1025; 1910.1001",
+      "construction": "29 CFR 1926.62; 1926.1101"
+    },
+    "reference_status": "standard",
+    "reference_note": "",
+    "related_walkthrough_section_ids": [
+      "foundry",
+      "hvacequip",
+      "medelec",
+      "buildequip",
+      "finish",
+      "resid",
+      "specialty"
+    ],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "Disturbing old coatings or building materials can release lead or asbestos into the air.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "29 CFR 1910.1025",
+    "sources": "Sources: eCFR, 29 CFR sections listed above, checked 2026-11-18.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "29",
+    "category": "Chemical, airborne and respiratory",
+    "title": "Spray painting and isocyanate inhalation",
+    "what_happens": "Spray mist and vapors can injure lungs, and isocyanates can cause asthma.",
+    "industries": [
+      "Finishing",
+      "Manufacturing",
+      "Construction"
+    ],
+    "checks": [
+      {
+        "label": "Check the coating",
+        "caption": "Read the safety data sheet for isocyanates and other ingredients.",
+        "priority": "High"
+      },
+      {
+        "label": "Check booth airflow",
+        "caption": "Confirm the spray ventilation is operating as designed.",
+        "priority": "High"
+      },
+      {
+        "label": "Control ignition sources",
+        "caption": "Keep sparks and unsuitable electrical equipment out of spray areas.",
+        "priority": "High"
+      },
+      {
+        "label": "Select the respirator",
+        "caption": "Use the exposure assessment and respiratory program to select protection.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Maintain filters",
+        "caption": "Change filters and service the system to the planned schedule.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Read the safety data sheet for isocyanates and other ingredients."
+      },
+      {
+        "when": "This week",
+        "action": "Confirm the spray ventilation is operating as designed."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Change filters and service the system to the planned schedule."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "29 CFR 1910.107; 1910.134",
+      "construction": "29 CFR 1926.66; 1926.103"
+    },
+    "reference_status": "standard",
+    "reference_note": "",
+    "related_walkthrough_section_ids": [
+      "foodproc",
+      "meat",
+      "fabmetal",
+      "foundry",
+      "finishing",
+      "wood",
+      "vehicles",
+      "chemical",
+      "medelec"
+    ],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "Spray mist and vapors can injure lungs, and isocyanates can cause asthma.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "29 CFR 1910.107",
+    "sources": "Sources: eCFR, 29 CFR sections listed above, checked 2026-11-18.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "30",
+    "category": "Chemical, airborne and respiratory",
+    "title": "Carbon monoxide poisoning",
+    "what_happens": "Carbon monoxide can build up without a warning smell and cause collapse or death.",
+    "industries": [
+      "Warehousing",
+      "Construction",
+      "Foundries"
+    ],
+    "checks": [
+      {
+        "label": "Keep engines outside",
+        "caption": "Choose electric equipment or another method that avoids indoor engine exhaust.",
+        "priority": "High"
+      },
+      {
+        "label": "Check nearby openings",
+        "caption": "Keep exhaust away from doors, windows and air intakes.",
+        "priority": "High"
+      },
+      {
+        "label": "Assess enclosed work",
+        "caption": "Review ventilation and monitoring before using combustion equipment.",
+        "priority": "High"
+      },
+      {
+        "label": "Respond to symptoms",
+        "caption": "Stop work and move to fresh air if poisoning is suspected.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Check the equipment",
+        "caption": "Keep engines maintained and review the work plan when conditions change.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Choose electric equipment or another method that avoids indoor engine exhaust."
+      },
+      {
+        "when": "This week",
+        "action": "Keep exhaust away from doors, windows and air intakes."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Keep engines maintained and review the work plan when conditions change."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "29 CFR 1910.1000 Table Z-1; 1910.178(i)(1)",
+      "construction": "29 CFR 1926.55 Table 1"
+    },
+    "reference_status": "standard",
+    "reference_note": "",
+    "related_walkthrough_section_ids": [
+      "machining",
+      "fabmetal",
+      "foundry",
+      "printing",
+      "papermill",
+      "wood",
+      "concrete",
+      "vehicles",
+      "chemical",
+      "medelec",
+      "textile"
+    ],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "Carbon monoxide can build up without a warning smell and cause collapse or death.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "29 CFR 1910.1000",
+    "sources": "Sources: eCFR, 29 CFR sections listed above, checked 2026-11-18.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "31",
+    "category": "Environmental and physical",
+    "title": "Cold stress",
+    "what_happens": "Cold and wet conditions can lead to frostbite or hypothermia.",
+    "industries": [
+      "Outdoor work",
+      "Cold storage",
+      "Construction"
+    ],
+    "checks": [
+      {
+        "label": "Plan warm recovery",
+        "caption": "Provide a warm place and plan breaks around conditions.",
+        "priority": "High"
+      },
+      {
+        "label": "Keep clothing dry",
+        "caption": "Use layers suited to the task and replace wet clothing.",
+        "priority": "High"
+      },
+      {
+        "label": "Watch for symptoms",
+        "caption": "Check for confusion, numbness or shivering that changes.",
+        "priority": "High"
+      },
+      {
+        "label": "Work with a check-in",
+        "caption": "Make sure someone notices if a worker needs help.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Adjust the job",
+        "caption": "Reduce exposure as wind, wetness and temperature change.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Provide a warm place and plan breaks around conditions."
+      },
+      {
+        "when": "This week",
+        "action": "Use layers suited to the task and replace wet clothing."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Reduce exposure as wind, wetness and temperature change."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "No specific OSHA standard",
+      "construction": "No specific OSHA standard"
+    },
+    "reference_status": "guidance_only",
+    "reference_note": "",
+    "related_walkthrough_section_ids": [],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "Cold and wet conditions can lead to frostbite or hypothermia.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "No specific OSHA standard",
+    "sources": "Source: OSHA, Winter Weather: Cold Stress (osha.gov/winter-weather/cold-stress), checked 2026-11-18.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "reviewed": false,
+    "wisconsin_metrics": {
+      "source": "OSHA Severe Injury Reports, Wisconsin",
+      "years": "2015-2025 (through Nov.)",
+      "filter": {
+        "field": "event",
+        "values": [
+          "Exposure to environmental heat",
+          "Exposure to environmental heat outdoor"
+        ]
+      },
+      "caveat": "Reported cases only. Heat categories do not separate humidity or setting. Counts are not claim costs; a report may include more than one worker.",
+      "values": [
+        {
+          "label": "Reports",
+          "value": 39,
+          "caption": "Environmental heat events"
+        },
+        {
+          "label": "Hospitalized",
+          "value": 39,
+          "caption": "Reported workers"
+        }
+      ]
+    },
+    "id": "32",
+    "category": "Environmental and physical",
+    "title": "Extreme heat and humidity",
+    "what_happens": "Heat and humidity can overwhelm the body, even when the job feels routine.",
+    "industries": [
+      "Foundries",
+      "Plastics molding",
+      "Paving",
+      "Outdoor work"
+    ],
+    "checks": [
+      {
+        "label": "Plan cooling breaks",
+        "caption": "Set up a cool recovery area and adjust work when heat rises.",
+        "priority": "High"
+      },
+      {
+        "label": "Know the emergency steps",
+        "caption": "Call 911 for confusion, collapse or other signs of heat stroke. Start cooling.",
+        "priority": "High"
+      },
+      {
+        "label": "Build up gradually",
+        "caption": "Give new and returning workers time to adjust to heat.",
+        "priority": "High"
+      },
+      {
+        "label": "Keep water close",
+        "caption": "Make drinking water easy to reach throughout the shift.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Check on each other",
+        "caption": "Use a buddy check and watch workload, humidity and protective gear.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before the shift",
+        "action": "Check heat conditions, water, cooling space and emergency access."
+      },
+      {
+        "when": "This week",
+        "action": "Set a plan for breaks and gradual adjustment to heat."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Practice spotting symptoms and calling for help. Do not leave an ill worker alone."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "No specific OSHA standard",
+      "construction": "No specific OSHA standard"
+    },
+    "reference_status": "guidance_only",
+    "related_walkthrough_section_ids": [
+      "foundry",
+      "highway"
+    ],
+    "workers_comp": [
+      "Heat illness can require hospital care.",
+      "The Wisconsin counts on this page describe reported injuries, not claim costs."
+    ],
+    "reference_summary": "No specific OSHA standard",
+    "sources": "Sources: OSHA, Heat Exposure: Standards (osha.gov/heat-exposure/standards), checked 2026-11-18. OSHA Severe Injury Reports, Wisconsin, Jan. 2015-Nov. 2025; environmental heat categories only.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "33",
+    "category": "Environmental and physical",
+    "title": "Noise-induced hearing loss",
+    "what_happens": "Repeated high noise exposure can permanently damage hearing.",
+    "industries": [
+      "Manufacturing",
+      "Construction",
+      "Maintenance"
+    ],
+    "checks": [
+      {
+        "label": "Reduce noise at source",
+        "caption": "Check quieter tools, enclosures and equipment repairs.",
+        "priority": "High"
+      },
+      {
+        "label": "Check exposure",
+        "caption": "Measure or assess the noise for the work and shift.",
+        "priority": "High"
+      },
+      {
+        "label": "Fit hearing protection",
+        "caption": "Provide suitable protection and show workers how to fit it.",
+        "priority": "High"
+      },
+      {
+        "label": "Review the program",
+        "caption": "Check the applicable industry's hearing conservation requirements.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Check hearing follow-up",
+        "caption": "Arrange hearing checks when the applicable program calls for them.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Check quieter tools, enclosures and equipment repairs."
+      },
+      {
+        "when": "This week",
+        "action": "Measure or assess the noise for the work and shift."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Arrange hearing checks when the applicable program calls for them."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "29 CFR 1910.95",
+      "construction": "29 CFR 1926.52; 1926.101"
+    },
+    "reference_status": "standard",
+    "reference_note": "",
+    "related_walkthrough_section_ids": [
+      "textile",
+      "highway"
+    ],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "Repeated high noise exposure can permanently damage hearing.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "29 CFR 1910.95",
+    "sources": "Sources: eCFR, 29 CFR sections listed above, checked 2026-11-18.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "34",
+    "category": "Environmental and physical",
+    "title": "Hand-arm vibration",
+    "what_happens": "Repeated vibration can affect circulation, sensation and grip.",
+    "industries": [
+      "Construction",
+      "Metalworking",
+      "Maintenance"
+    ],
+    "checks": [
+      {
+        "label": "Reduce tool vibration",
+        "caption": "Choose a lower-vibration tool or a different work method.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Limit time on the tool",
+        "caption": "Plan breaks and task changes around actual exposure.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Maintain the tool",
+        "caption": "Keep bits sharp and repair worn or unbalanced parts.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Watch for symptoms",
+        "caption": "Ask about tingling, numbness and fingers changing color.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Check the grip",
+        "caption": "Avoid unnecessary gripping force and keep hands warm and dry.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Choose a lower-vibration tool or a different work method."
+      },
+      {
+        "when": "This week",
+        "action": "Plan breaks and task changes around actual exposure."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Avoid unnecessary gripping force and keep hands warm and dry."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "No specific OSHA standard",
+      "construction": "No specific OSHA standard"
+    },
+    "reference_status": "none",
+    "reference_note": "",
+    "related_walkthrough_section_ids": [],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "Repeated vibration can affect circulation, sensation and grip.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "No specific OSHA standard",
+    "sources": "Source: R&R general risk-reduction guidance. No specific OSHA standard is cited; check the rules for the task.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "35",
+    "category": "Environmental and physical",
+    "title": "Laser and radiation exposure",
+    "what_happens": "Laser beams or ionizing radiation can injure eyes or other body tissue.",
+    "industries": [
+      "Industrial cutting",
+      "Testing",
+      "Construction"
+    ],
+    "checks": [
+      {
+        "label": "Identify the source",
+        "caption": "Separate laser hazards from ionizing radiation work before planning controls.",
+        "priority": "High"
+      },
+      {
+        "label": "Control access",
+        "caption": "Keep people out of the beam or radiation area.",
+        "priority": "High"
+      },
+      {
+        "label": "Use shielding",
+        "caption": "Use the designed enclosure, barriers and interlocks.",
+        "priority": "High"
+      },
+      {
+        "label": "Check specialist protection",
+        "caption": "Have qualified staff select controls and protective equipment.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Review the authorization",
+        "caption": "Confirm training, permits and other agency requirements for the work.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Separate laser hazards from ionizing radiation work before planning controls."
+      },
+      {
+        "when": "This week",
+        "action": "Keep people out of the beam or radiation area."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Confirm training, permits and other agency requirements for the work."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "29 CFR 1910.1096",
+      "construction": "29 CFR 1926.53; 1926.54"
+    },
+    "reference_status": "standard",
+    "reference_note": "Ionizing radiation and lasers need different controls. No general industry laser-specific standard is cited.",
+    "related_walkthrough_section_ids": [],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "Laser beams or ionizing radiation can injure eyes or other body tissue.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "29 CFR 1910.1096",
+    "sources": "Sources: eCFR, 29 CFR sections listed above, checked 2026-11-18.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "36",
+    "category": "Environmental and physical",
+    "title": "Inadequate site lighting",
+    "what_happens": "Poor lighting can hide an edge, moving equipment or an obstruction.",
+    "industries": [
+      "Construction",
+      "Warehousing",
+      "Maintenance"
+    ],
+    "checks": [
+      {
+        "label": "Light the work area",
+        "caption": "Provide enough light to see the task and nearby hazards.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Light walking routes",
+        "caption": "Check stairs, intersections and routes used during night work.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Control glare",
+        "caption": "Move or shield lights that hide the work or blind operators.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Maintain fixtures",
+        "caption": "Replace failed lamps and protect temporary lights from damage.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Check the plan",
+        "caption": "Use construction illumination requirements where they apply.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Provide enough light to see the task and nearby hazards."
+      },
+      {
+        "when": "This week",
+        "action": "Check stairs, intersections and routes used during night work."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Use construction illumination requirements where they apply."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "No general workplace lighting level cited",
+      "construction": "29 CFR 1926.56"
+    },
+    "reference_status": "standard",
+    "reference_note": "Construction has an illumination standard. No general industry numeric lighting level is cited.",
+    "related_walkthrough_section_ids": [],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "Poor lighting can hide an edge, moving equipment or an obstruction.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "29 CFR 1926.56",
+    "sources": "Sources: eCFR, 29 CFR sections listed above, checked 2026-11-18.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "37",
+    "category": "Fire, biological and general site",
+    "title": "Slips on ice, snow and wet washdowns",
+    "what_happens": "A slick walking surface can cause a fall and a serious injury.",
+    "industries": [
+      "Manufacturing",
+      "Construction",
+      "Outdoor work"
+    ],
+    "checks": [
+      {
+        "label": "Treat the route",
+        "caption": "Remove snow and ice or treat the walking surface before use.",
+        "priority": "High"
+      },
+      {
+        "label": "Control washdown water",
+        "caption": "Use drainage and suitable surfaces where wet work continues.",
+        "priority": "High"
+      },
+      {
+        "label": "Block slippery areas",
+        "caption": "Keep people off a slick area until it is treated or controlled.",
+        "priority": "High"
+      },
+      {
+        "label": "Check footwear",
+        "caption": "Match footwear to the surface and work conditions.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Recheck during the shift",
+        "caption": "Look again after weather changes, leaks or washdowns.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Remove snow and ice or treat the walking surface before use."
+      },
+      {
+        "when": "This week",
+        "action": "Use drainage and suitable surfaces where wet work continues."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Look again after weather changes, leaks or washdowns."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "29 CFR 1910.22(a)(3)",
+      "construction": "29 CFR 1926.451(f)(8) (scaffolds); 1926.25(a)"
+    },
+    "reference_status": "standard",
+    "reference_note": "The construction snow and ice reference applies to scaffolds; housekeeping is listed separately.",
+    "related_walkthrough_section_ids": [
+      "plastics",
+      "foodproc",
+      "bakery",
+      "meat",
+      "wood",
+      "textile",
+      "gc",
+      "finish",
+      "utility",
+      "specialty"
+    ],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "A slick walking surface can cause a fall and a serious injury.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "29 CFR 1910.22",
+    "sources": "Sources: eCFR, 29 CFR sections listed above, checked 2026-11-18.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "38",
+    "category": "Fire, biological and general site",
+    "title": "Poor housekeeping and trip accumulation",
+    "what_happens": "Scraps, cords and spills can trip workers or block their route out.",
+    "industries": [
+      "Manufacturing",
+      "Construction",
+      "Maintenance"
+    ],
+    "checks": [
+      {
+        "label": "Clear the walkway",
+        "caption": "Remove scraps, cords and other trip hazards from travel routes.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Clean up releases",
+        "caption": "Deal with spills and leaks before people walk through them.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Protect the exit",
+        "caption": "Keep access to exits and emergency equipment open.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Provide collection points",
+        "caption": "Put bins and cord routing where the work creates waste.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Check each shift",
+        "caption": "Assign a person to check the route as the work changes.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Remove scraps, cords and other trip hazards from travel routes."
+      },
+      {
+        "when": "This week",
+        "action": "Deal with spills and leaks before people walk through them."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Assign a person to check the route as the work changes."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "29 CFR 1910.22(a)(1), (3)",
+      "construction": "29 CFR 1926.25(a)"
+    },
+    "reference_status": "standard",
+    "reference_note": "",
+    "related_walkthrough_section_ids": [
+      "plastics",
+      "foodproc",
+      "bakery",
+      "meat",
+      "wood",
+      "textile",
+      "gc",
+      "utility",
+      "specialty"
+    ],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "Scraps, cords and spills can trip workers or block their route out.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "29 CFR 1910.22",
+    "sources": "Sources: eCFR, 29 CFR sections listed above, checked 2026-11-18.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "39",
+    "category": "Fire, biological and general site",
+    "title": "Hot work fire ignitions",
+    "what_happens": "A spark can ignite nearby material or start a hidden fire.",
+    "industries": [
+      "Welding",
+      "Maintenance",
+      "Construction"
+    ],
+    "checks": [
+      {
+        "label": "Clear combustibles",
+        "caption": "Remove or protect materials that sparks and heat could reach.",
+        "priority": "High"
+      },
+      {
+        "label": "Check hidden spaces",
+        "caption": "Look through openings and on the other side of walls or floors.",
+        "priority": "High"
+      },
+      {
+        "label": "Plan the fire watch",
+        "caption": "Use a fire watch where the task and conditions call for one.",
+        "priority": "High"
+      },
+      {
+        "label": "Keep extinguishing ready",
+        "caption": "Have suitable fire equipment ready for the work.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Check after the job",
+        "caption": "Follow the fire watch and post-work checks in the hot work plan.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Remove or protect materials that sparks and heat could reach."
+      },
+      {
+        "when": "This week",
+        "action": "Look through openings and on the other side of walls or floors."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Follow the fire watch and post-work checks in the hot work plan."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "29 CFR 1910.252(a)",
+      "construction": "29 CFR 1926.352"
+    },
+    "reference_status": "standard",
+    "reference_note": "",
+    "related_walkthrough_section_ids": [
+      "machining",
+      "fabmetal",
+      "papermill",
+      "hvacequip",
+      "buildequip"
+    ],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "A spark can ignite nearby material or start a hidden fire.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "29 CFR 1910.252",
+    "sources": "Sources: eCFR, 29 CFR sections listed above, checked 2026-11-18.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "40",
+    "category": "Fire, biological and general site",
+    "title": "Mold and sewage backups",
+    "what_happens": "Contaminated water and disturbed growth can irritate or infect exposed workers.",
+    "industries": [
+      "Restoration",
+      "Demolition",
+      "Maintenance"
+    ],
+    "checks": [
+      {
+        "label": "Stop the source",
+        "caption": "Control the leak or backup before cleanup where possible.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Separate the area",
+        "caption": "Keep other workers out of the affected space.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Plan the cleanup",
+        "caption": "Match containment and cleanup methods to the material and extent.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Protect workers",
+        "caption": "Assess splash, dust, skin and breathing exposures before choosing gear.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Provide washing",
+        "caption": "Provide handwashing and a way to remove contaminated clothing.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Control the leak or backup before cleanup where possible."
+      },
+      {
+        "when": "This week",
+        "action": "Keep other workers out of the affected space."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Provide handwashing and a way to remove contaminated clothing."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "No specific mold standard",
+      "construction": "No specific mold standard"
+    },
+    "reference_status": "none",
+    "reference_note": "No specific mold standard is cited. Other exposure, PPE and task rules may apply to sewage cleanup.",
+    "related_walkthrough_section_ids": [],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "Contaminated water and disturbed growth can irritate or infect exposed workers.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "No specific OSHA standard",
+    "sources": "Source: R&R general risk-reduction guidance. No specific OSHA standard is cited; check the rules for the task.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "41",
+    "category": "Fire, biological and general site",
+    "title": "Hand and power tool mishaps",
+    "what_happens": "A damaged or unguarded tool can cut, puncture or strike a worker.",
+    "industries": [
+      "Construction",
+      "Manufacturing",
+      "Maintenance"
+    ],
+    "checks": [
+      {
+        "label": "Keep guards in place",
+        "caption": "Use the tool with its intended guards and safety devices.",
+        "priority": "High"
+      },
+      {
+        "label": "Choose the right tool",
+        "caption": "Use the tool and accessory designed for the task.",
+        "priority": "High"
+      },
+      {
+        "label": "Remove damaged tools",
+        "caption": "Take cracked, loose or malfunctioning tools out of use.",
+        "priority": "High"
+      },
+      {
+        "label": "Control the workpiece",
+        "caption": "Secure material and keep hands out of the tool's path.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Disconnect before changes",
+        "caption": "Isolate the tool before changing blades or clearing a jam.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Use the tool with its intended guards and safety devices."
+      },
+      {
+        "when": "This week",
+        "action": "Use the tool and accessory designed for the task."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Isolate the tool before changing blades or clearing a jam."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "29 CFR 1910.242(a); 1910.243",
+      "construction": "29 CFR 1926.300; 1926.302"
+    },
+    "reference_status": "standard",
+    "reference_note": "",
+    "related_walkthrough_section_ids": [
+      "machining",
+      "resid"
+    ],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "A damaged or unguarded tool can cut, puncture or strike a worker.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "29 CFR 1910.242",
+    "sources": "Sources: eCFR, 29 CFR sections listed above, checked 2026-11-18.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "42",
+    "category": "Fire, biological and general site",
+    "title": "Compressed gas cylinder projectiles",
+    "what_happens": "A damaged valve can release gas and turn a cylinder into a projectile.",
+    "industries": [
+      "Welding",
+      "Manufacturing",
+      "Construction"
+    ],
+    "checks": [
+      {
+        "label": "Secure the cylinder",
+        "caption": "Keep cylinders from tipping or being struck.",
+        "priority": "High"
+      },
+      {
+        "label": "Protect the valve",
+        "caption": "Use the required valve protection when moving or storing cylinders.",
+        "priority": "High"
+      },
+      {
+        "label": "Move with suitable gear",
+        "caption": "Use a cylinder cart and do not lift by the valve or cap.",
+        "priority": "High"
+      },
+      {
+        "label": "Separate incompatible storage",
+        "caption": "Check the storage arrangement for oxygen and fuel gas.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Check for damage",
+        "caption": "Remove damaged cylinders from service and contact the supplier.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Keep cylinders from tipping or being struck."
+      },
+      {
+        "when": "This week",
+        "action": "Use the required valve protection when moving or storing cylinders."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Remove damaged cylinders from service and contact the supplier."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "29 CFR 1910.253(b)(2), (4)",
+      "construction": "29 CFR 1926.350(a)"
+    },
+    "reference_status": "standard",
+    "reference_note": "The listed references cover oxygen and fuel-gas work. Check other gases separately.",
+    "related_walkthrough_section_ids": [
+      "fabmetal",
+      "hvacequip",
+      "buildequip"
+    ],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "A damaged valve can release gas and turn a cylinder into a projectile.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "29 CFR 1910.253",
+    "sources": "Sources: eCFR, 29 CFR sections listed above, checked 2026-11-18.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "43",
+    "category": "Fire, biological and general site",
+    "title": "Struck-by flying debris",
+    "what_happens": "A chip or broken tool fragment can strike the face or injure an eye.",
+    "industries": [
+      "Manufacturing",
+      "Construction",
+      "Maintenance"
+    ],
+    "checks": [
+      {
+        "label": "Use tool shielding",
+        "caption": "Keep guards and chip shields positioned for the task.",
+        "priority": "High"
+      },
+      {
+        "label": "Protect nearby people",
+        "caption": "Keep others outside the debris path or use a barrier.",
+        "priority": "High"
+      },
+      {
+        "label": "Select eye protection",
+        "caption": "Match eye and face protection to the particles and impact risk.",
+        "priority": "High"
+      },
+      {
+        "label": "Check the accessory",
+        "caption": "Use a sound blade, wheel or bit suited to the tool speed.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Secure the workpiece",
+        "caption": "Keep material stable so the tool does not grab or throw it.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Keep guards and chip shields positioned for the task."
+      },
+      {
+        "when": "This week",
+        "action": "Keep others outside the debris path or use a barrier."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Keep material stable so the tool does not grab or throw it."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "29 CFR 1910.212(a)(1); 1910.133",
+      "construction": "29 CFR 1926.300(c); 1926.102"
+    },
+    "reference_status": "standard",
+    "reference_note": "",
+    "related_walkthrough_section_ids": [
+      "plastics",
+      "foodproc",
+      "dairy",
+      "bakery",
+      "meat",
+      "machining",
+      "fabmetal",
+      "foundry",
+      "printing",
+      "papermill",
+      "wood",
+      "concrete",
+      "hvacequip",
+      "vehicles",
+      "textile"
+    ],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "A chip or broken tool fragment can strike the face or injure an eye.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "29 CFR 1910.212",
+    "sources": "Sources: eCFR, 29 CFR sections listed above, checked 2026-11-18.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "44",
+    "category": "Ergonomic and human factors",
+    "title": "Overexertion from heavy lifting",
+    "what_happens": "A difficult lift can strain the back, shoulders or other muscles.",
+    "industries": [
+      "Warehousing",
+      "Construction",
+      "Manufacturing"
+    ],
+    "checks": [
+      {
+        "label": "Use a lifting aid",
+        "caption": "Move the load with a suitable cart, hoist or other aid.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Change the load",
+        "caption": "Split, reduce or reposition loads that are hard to handle.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Plan the path",
+        "caption": "Clear the route and choose where the load will be set down.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Keep the lift close",
+        "caption": "Arrange the work to limit reaching and twisting under load.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Ask about difficult lifts",
+        "caption": "Have workers point out the lifts that hurt or need extra effort.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Move the load with a suitable cart, hoist or other aid."
+      },
+      {
+        "when": "This week",
+        "action": "Split, reduce or reposition loads that are hard to handle."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Have workers point out the lifts that hurt or need extra effort."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "No specific OSHA standard",
+      "construction": "No specific OSHA standard"
+    },
+    "reference_status": "none",
+    "reference_note": "",
+    "related_walkthrough_section_ids": [],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "A difficult lift can strain the back, shoulders or other muscles.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "No specific OSHA standard",
+    "sources": "Source: R&R general risk-reduction guidance. No specific OSHA standard is cited; check the rules for the task.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "45",
+    "category": "Ergonomic and human factors",
+    "title": "Repetitive motion disorders",
+    "what_happens": "Repeated hand or arm motions can lead to pain and loss of function.",
+    "industries": [
+      "Assembly",
+      "Food processing",
+      "Manufacturing"
+    ],
+    "checks": [
+      {
+        "label": "Change the task",
+        "caption": "Reduce repeated motions through tools, fixtures or a different process.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Reduce force",
+        "caption": "Check grip force, tool trigger effort and material resistance.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Build in recovery",
+        "caption": "Plan breaks or task changes that use different motions.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Adjust the station",
+        "caption": "Place parts and tools within easy reach.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Listen for symptoms",
+        "caption": "Encourage early reports of pain, tingling or numbness.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Reduce repeated motions through tools, fixtures or a different process."
+      },
+      {
+        "when": "This week",
+        "action": "Check grip force, tool trigger effort and material resistance."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Encourage early reports of pain, tingling or numbness."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "No specific OSHA standard",
+      "construction": "No specific OSHA standard"
+    },
+    "reference_status": "none",
+    "reference_note": "",
+    "related_walkthrough_section_ids": [],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "Repeated hand or arm motions can lead to pain and loss of function.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "No specific OSHA standard",
+    "sources": "Source: R&R general risk-reduction guidance. No specific OSHA standard is cited; check the rules for the task.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "46",
+    "category": "Ergonomic and human factors",
+    "title": "Awkward body postures",
+    "what_happens": "Long reaches, kneeling and bent positions can strain muscles and joints.",
+    "industries": [
+      "Construction",
+      "Assembly",
+      "Maintenance"
+    ],
+    "checks": [
+      {
+        "label": "Bring work closer",
+        "caption": "Move the task to limit long reaches and twisting.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Set working height",
+        "caption": "Use an adjustable support or platform for the job.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Use handling aids",
+        "caption": "Support heavy tools or parts rather than holding them in place.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Change position",
+        "caption": "Plan the task so one posture is not held for long periods.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Ask the worker",
+        "caption": "Try changes with the people doing the task and check whether they help.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Move the task to limit long reaches and twisting."
+      },
+      {
+        "when": "This week",
+        "action": "Use an adjustable support or platform for the job."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Try changes with the people doing the task and check whether they help."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "No specific OSHA standard",
+      "construction": "No specific OSHA standard"
+    },
+    "reference_status": "none",
+    "reference_note": "",
+    "related_walkthrough_section_ids": [],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "Long reaches, kneeling and bent positions can strain muscles and joints.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "No specific OSHA standard",
+    "sources": "Source: R&R general risk-reduction guidance. No specific OSHA standard is cited; check the rules for the task.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "47",
+    "category": "Ergonomic and human factors",
+    "title": "Working alone or isolated",
+    "what_happens": "An injured worker may be unable to call for help or be found quickly.",
+    "industries": [
+      "Maintenance",
+      "Field work",
+      "Warehousing"
+    ],
+    "checks": [
+      {
+        "label": "Decide if solo work fits",
+        "caption": "Move work needing an attendant, rescue team or other support out of solo work.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Set check-in times",
+        "caption": "Agree on who checks in and what happens if a check-in is missed.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Test the signal",
+        "caption": "Confirm the phone, radio or alarm works at the work location.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Share the location",
+        "caption": "Tell the contact where the worker will be and when the work ends.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Plan the response",
+        "caption": "Make sure help can find and reach the worker.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Move work needing an attendant, rescue team or other support out of solo work."
+      },
+      {
+        "when": "This week",
+        "action": "Agree on who checks in and what happens if a check-in is missed."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Make sure help can find and reach the worker."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "No general working-alone standard",
+      "construction": "No general working-alone standard"
+    },
+    "reference_status": "none",
+    "reference_note": "No general working-alone standard is cited. Some tasks need an attendant or rescue arrangement.",
+    "related_walkthrough_section_ids": [],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "An injured worker may be unable to call for help or be found quickly.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "No specific OSHA standard",
+    "sources": "Source: R&R general risk-reduction guidance. No specific OSHA standard is cited; check the rules for the task.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "48",
+    "category": "Ergonomic and human factors",
+    "title": "Fatigue from extended or split shifts",
+    "what_happens": "Fatigue can slow reactions and make attention harder to sustain.",
+    "industries": [
+      "Manufacturing",
+      "Construction",
+      "Maintenance"
+    ],
+    "checks": [
+      {
+        "label": "Review demanding shifts",
+        "caption": "Look for long hours, split shifts and short recovery periods.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Move critical tasks",
+        "caption": "Schedule high-consequence work when workers can stay alert.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Plan breaks",
+        "caption": "Build rest opportunities into demanding work.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Make reporting easy",
+        "caption": "Let workers raise fatigue concerns before a task starts.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Review staffing",
+        "caption": "Check whether overtime and handoffs are creating avoidable fatigue.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Look for long hours, split shifts and short recovery periods."
+      },
+      {
+        "when": "This week",
+        "action": "Schedule high-consequence work when workers can stay alert."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Check whether overtime and handoffs are creating avoidable fatigue."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "No specific OSHA standard",
+      "construction": "No specific OSHA standard"
+    },
+    "reference_status": "none",
+    "reference_note": "No general OSHA shift-length standard is cited. Review fatigue as a work-planning issue.",
+    "related_walkthrough_section_ids": [],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "Fatigue can slow reactions and make attention harder to sustain.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "No specific OSHA standard",
+    "sources": "Source: R&R general risk-reduction guidance. No specific OSHA standard is cited; check the rules for the task.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "49",
+    "category": "Ergonomic and human factors",
+    "title": "Line of sight and blind intersections",
+    "what_happens": "A worker entering a blocked intersection may step into a vehicle's path.",
+    "industries": [
+      "Warehousing",
+      "Manufacturing",
+      "Construction"
+    ],
+    "checks": [
+      {
+        "label": "Separate crossings",
+        "caption": "Use designated pedestrian routes and protected crossings.",
+        "priority": "High"
+      },
+      {
+        "label": "Clear the view",
+        "caption": "Move stored material that blocks a driver's or walker's sight.",
+        "priority": "High"
+      },
+      {
+        "label": "Slow the approach",
+        "caption": "Set an approach speed suited to the stopping distance.",
+        "priority": "High"
+      },
+      {
+        "label": "Use warning signals",
+        "caption": "Use horns and other agreed warnings at blocked cross aisles.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Check traffic changes",
+        "caption": "Recheck the layout when racks, doors or work areas move.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Use designated pedestrian routes and protected crossings."
+      },
+      {
+        "when": "This week",
+        "action": "Move stored material that blocks a driver's or walker's sight."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Recheck the layout when racks, doors or work areas move."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "29 CFR 1910.178(n)(4); 1910.176(a)",
+      "construction": "29 CFR 1926.602(a)(9)(ii)"
+    },
+    "reference_status": "standard",
+    "reference_note": "",
+    "related_walkthrough_section_ids": [
+      "fabmetal",
+      "printing",
+      "papermill",
+      "concrete",
+      "textile",
+      "highway",
+      "specialty"
+    ],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "A worker entering a blocked intersection may step into a vehicle's path.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "29 CFR 1910.178",
+    "sources": "Sources: eCFR, 29 CFR sections listed above, checked 2026-11-18.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "50",
+    "category": "Ergonomic and human factors",
+    "title": "PPE use",
+    "what_happens": "Poorly chosen or unused protective equipment can leave workers exposed to injury.",
+    "industries": [
+      "Manufacturing",
+      "Construction",
+      "Maintenance"
+    ],
+    "checks": [
+      {
+        "label": "Match gear to the task",
+        "caption": "Use the hazard assessment or task review to choose protection.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Check fit and comfort",
+        "caption": "Try suitable sizes and models with the people who wear them.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Replace damaged gear",
+        "caption": "Remove worn or damaged protection from use.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Show proper use",
+        "caption": "Explain when to wear the gear, how to fit it and its limits.",
+        "priority": "Medium"
+      },
+      {
+        "label": "Check availability",
+        "caption": "Keep the needed protection close to the work and easy to replace.",
+        "priority": "Medium"
+      }
+    ],
+    "this_week": [
+      {
+        "when": "Before work",
+        "action": "Use the hazard assessment or task review to choose protection."
+      },
+      {
+        "when": "This week",
+        "action": "Try suitable sizes and models with the people who wear them."
+      },
+      {
+        "when": "Next crew meeting",
+        "action": "Talk through this: Keep the needed protection close to the work and easy to replace."
+      }
+    ],
+    "osha_reference": {
+      "general_industry": "29 CFR 1910.132(d), (f); 1910.133; 1910.135; 1910.136",
+      "construction": "29 CFR 1926.95; 1926.100; 1926.102; 1926.96"
+    },
+    "reference_status": "standard",
+    "reference_note": "",
+    "related_walkthrough_section_ids": [
+      "plastics",
+      "foodproc",
+      "bakery",
+      "meat",
+      "foundry",
+      "papermill",
+      "concrete",
+      "gc",
+      "utility",
+      "highway"
+    ],
+    "reviewed": false,
+    "wisconsin_metrics": null,
+    "workers_comp": [
+      "Poorly chosen or unused protective equipment can leave workers exposed to injury.",
+      "The checks above focus on reducing the exposure before someone gets hurt."
+    ],
+    "reference_summary": "29 CFR 1910.132",
+    "sources": "Sources: eCFR, 29 CFR sections listed above, checked 2026-11-18.",
+    "verified_on": "2026-11-18",
+    "wording_version": "2026-11-18.1"
+  }
+]

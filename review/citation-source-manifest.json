@@ -1,0 +1,701 @@
+[
+  {
+    "section": "1910.1000",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/section-1910.1000",
+    "sha256": "aa22ee4e2985daae1fbe7fd67a9f346e292344b2a39d3ba2eb0efbeaf897a586",
+    "checked": "2026-11-18",
+    "ok": true
+  },
+  {
+    "section": "1910.1001",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/section-1910.1001",
+    "sha256": "5f58e201b5eea43d23c7cc75b6c4713c8b766fb228a0eeef39d5028ee9b7645c",
+    "checked": "2026-11-18",
+    "ok": true
+  },
+  {
+    "section": "1910.1025",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/section-1910.1025",
+    "sha256": "66cc8adecfbb3ceebf27ecce3919351fa877972d4e558a1b0365e3a8cb5a798a",
+    "checked": "2026-11-18",
+    "ok": true
+  },
+  {
+    "section": "1910.1026",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/section-1910.1026",
+    "sha256": "8d40f837937e8ffd4fb23999f6987d6649f67030ebeac8cbb5692611e4d6da8a",
+    "checked": "2026-11-18",
+    "ok": true
+  },
+  {
+    "section": "1910.1053",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/section-1910.1053",
+    "sha256": "176e46b3b7ff380e834b805d8e44026fca8472f92edd1d2159c09c72dbeeeb38",
+    "checked": "2026-11-18",
+    "ok": true
+  },
+  {
+    "section": "1910.106",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/section-1910.106",
+    "sha256": "eb936a9ec329cb6adc81af022701bac9c1dccd5f695cd0a1eb0dc5e5397cf019",
+    "checked": "2026-11-18",
+    "ok": true
+  },
+  {
+    "section": "1910.107",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/section-1910.107",
+    "sha256": "57573d064080ef678540791da1a627b0aff14496e41687556b4b4dee340cf257",
+    "checked": "2026-11-18",
+    "ok": true
+  },
+  {
+    "section": "1910.1096",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/section-1910.1096",
+    "sha256": "19a8931ac66a07782a09b390fb2532bcd4f20615b5ffde7211a7bb10632207fc",
+    "checked": "2026-11-18",
+    "ok": true
+  },
+  {
+    "section": "1910.1200",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/section-1910.1200",
+    "sha256": "fbc92e7011fc7ca7681bb697e5c5b882edf10ace9ee4094ea51f17b37bc7edc7",
+    "checked": "2026-11-18",
+    "ok": true
+  },
+  {
+    "section": "1910.132",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/section-1910.132",
+    "sha256": "7dda518eed182ebdaeda746cb68aa393ff2dff36f9b6bf7d9f652e264ea16037",
+    "checked": "2026-11-18",
+    "ok": true
+  },
+  {
+    "section": "1910.133",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/section-1910.133",
+    "sha256": "66ab78e0a3ee4fc009277e6096750a0ac04d0ecc2ec8fe5c724e9b0a4554cadb",
+    "checked": "2026-11-18",
+    "ok": true
+  },
+  {
+    "section": "1910.134",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/section-1910.134",
+    "sha256": "109ed82548d1521961ab1982f495201721edecf1f61e513ee3d8992f3e11e12a",
+    "checked": "2026-11-18",
+    "ok": true
+  },
+  {
+    "section": "1910.135",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/section-1910.135",
+    "sha256": "ed93bc8c48c989fca8ee85163df79b540902d9fd4f1c11f6a0af0cb9555b9fd0",
+    "checked": "2026-11-18",
+    "ok": true
+  },
+  {
+    "section": "1910.136",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/section-1910.136",
+    "sha256": "d83e4551c3cc62a88672cfb0630858b14dd189145681447ac3e87b06deca6058",
+    "checked": "2026-11-18",
+    "ok": true
+  },
+  {
+    "section": "1910.146",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/section-1910.146",
+    "sha256": "8430434cacb276e30dd7024c46fdebfbec7da1c21db7aaddd166f60c4b1d57bb",
+    "checked": "2026-11-18",
+    "ok": true
+  },
+  {
+    "section": "1910.147",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/section-1910.147",
+    "sha256": "1f82f8d9cc0f701ff8aedb645dcf9224183464d2f7fc4c2bafe98793c4cd27f1",
+    "checked": "2026-11-18",
+    "ok": true
+  },
+  {
+    "section": "1910.151",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/section-1910.151",
+    "sha256": "2c7507fb59e1fbdf0f0b53f06b1ef523bd2fbf795d7f982177dac1cac483eac4",
+    "checked": "2026-11-18",
+    "ok": true
+  },
+  {
+    "section": "1910.176",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/section-1910.176",
+    "sha256": "81410df83dd153acede5372a1bb1e3de7d88947c3eb154034640dbfe83fd1396",
+    "checked": "2026-11-18",
+    "ok": true
+  },
+  {
+    "section": "1910.178",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/section-1910.178",
+    "sha256": "27ef0b1176152c0db71d678b360b08b20894125bd96abe0ec57e04491d6fd0ad",
+    "checked": "2026-11-18",
+    "ok": true
+  },
+  {
+    "section": "1910.179",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/section-1910.179",
+    "sha256": "1122a2a976c0be91275a355bbfb98e954e64eb4da5a99dfd74b0bf7993910e10",
+    "checked": "2026-11-18",
+    "ok": true
+  },
+  {
+    "section": "1910.184",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/section-1910.184",
+    "sha256": "ef8f8231e8949bff90580e72c00536d76656c42c4d775775fbed6ca5322c0294",
+    "checked": "2026-11-18",
+    "ok": true
+  },
+  {
+    "section": "1910.212",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/section-1910.212",
+    "sha256": "e113c568c755ae1b06394d7a2fe76d427476339f8c4e39c9ed4542f172962820",
+    "checked": "2026-11-18",
+    "ok": true
+  },
+  {
+    "section": "1910.219",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/section-1910.219",
+    "sha256": "56310474c2cf122c5d08b233f9fc1fae77065d9a5ba840bdea204df287e12cda",
+    "checked": "2026-11-18",
+    "ok": true
+  },
+  {
+    "section": "1910.22",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/section-1910.22",
+    "sha256": "e3c89952e2189736f215c0558a19da9e2f8558028cc47cc266ca8ba66e807583",
+    "checked": "2026-11-18",
+    "ok": true
+  },
+  {
+    "section": "1910.23",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/section-1910.23",
+    "sha256": "8b80597b5ccfedba217baca92792edbfca9bccf3e4b41e444c93d6edb3d88109",
+    "checked": "2026-11-18",
+    "ok": true
+  },
+  {
+    "section": "1910.242",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/section-1910.242",
+    "sha256": "d96743200f4554e2bb779e86ae052d6fc9644e9023265a3a03d7339c014a2c02",
+    "checked": "2026-11-18",
+    "ok": true
+  },
+  {
+    "section": "1910.243",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/section-1910.243",
+    "sha256": "fa0e762f6200bf1d74c945a26d18383b7c404acd31e7ced39c762ff0254299b8",
+    "checked": "2026-11-18",
+    "ok": true
+  },
+  {
+    "section": "1910.252",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/section-1910.252",
+    "sha256": "f10dda1aba71d155171694daae5576edbd771fa15cc189a9a8acf6ca3c22eb1b",
+    "checked": "2026-11-18",
+    "ok": true
+  },
+  {
+    "section": "1910.253",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/section-1910.253",
+    "sha256": "7594dfc1ab36d07e27bec5bf375c43b341a246cde2163e01eb41e061e4e145fe",
+    "checked": "2026-11-18",
+    "ok": true
+  },
+  {
+    "section": "1910.27",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/section-1910.27",
+    "sha256": "06b048342a721cc9c7da9c85992aaf29b788c687fe7c7fa54d61c6c5d4f33d3e",
+    "checked": "2026-11-18",
+    "ok": true
+  },
+  {
+    "section": "1910.272",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/section-1910.272",
+    "sha256": "959e133151a1c438071152b1817b24d5d8be42e324a7dfc20b9a6bfdcd36ca70",
+    "checked": "2026-11-18",
+    "ok": true
+  },
+  {
+    "section": "1910.28",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/section-1910.28",
+    "ok": true,
+    "verified_via": "approved sample official section HTML",
+    "sha256": "879660eb4f419a10ad6abe47b9f73084fb12917608cb9a65c0784a18ea15278e",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1910.29",
+    "ok": true,
+    "checked": "2026-11-18",
+    "sha256": "9bbabf049c54f386ad48f791251eea33ebc67bd0d05e0b6afde2ff39b8fa6371",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/section-1910.29"
+  },
+  {
+    "section": "1910.304",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/section-1910.304",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "bab903334833b0025fbd7e23d4b0d19e5b27f10e77c7afb25731521e9d48a669",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1910.333",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/section-1910.333",
+    "sha256": "5215b483c14b7b7f1f47a1354d32d045303a1d8aa19b6fed3cdc95cb3f8530a5",
+    "checked": "2026-11-18",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML"
+  },
+  {
+    "section": "1910.334",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/section-1910.334",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "b7c81e75631be05475ecac5828391dc6bfa2a35071764829298ac4486e169301",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1910.335",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/section-1910.335",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "436bdffbf12cd834230f5d00ff148f10f90d7e1539989f3a3d6340050f355f20",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1910.38",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/section-1910.38",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "1cf10c7866e59d31b8404a123e270e22d95c08e56ae5b0d1c35a87c40b287fd2",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1910.67",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/section-1910.67",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "47557e31f11acae26724854ea1ae5578bce98b2ed061950d568a3647e7b86f5d",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1910.95",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/section-1910.95",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "b69816b31e586390952328d0845ebc40b2f2d9c96e30af64031416eb5bf27d5d",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.100",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.100",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "4b95e89c59446ce99116bf7ea51eb0212f3ce9b7fbd0cd60929195216eaaa1ba",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.101",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.101",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "23b7b6c9fd8b2823797299b9987ee7c8c25d8ae8b0e419a8f560da6ef14ceb58",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.102",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.102",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "7aa07f7343614a85c31c7e089c8dcf1392b8b0cd86cfa55287db5f22a1668e6f",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.103",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.103",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "8d32edda3dc7e740e51e4a273b6d8fe8e79a23eb55380b30fedb6700eb804af0",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.1053",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.1053",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "8f00fc18e71c86129c64da12fbae7c8ddb118b0a3bbe8c09152e72fc731afec9",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.1101",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.1101",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "50cc0aaac9bb81e8d697c25bfd44d5804a9cd70c3016ab638f3ffc46b69a1582",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.1126",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.1126",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "3dbb31cfeef0654a6a13500be72f23b692439726beedcdcbce2e7a29f52fd85b",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.1153",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.1153",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "0cf06de40dad1a4d125b19524b9a1ce4ea046d93a855d9cd33e8033e0c67582a",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.1203",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.1203",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "6a13c85a60bf8c7db38725a757f20340e41e7fc8a1ae182b2e6244b27acf35ce",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.1204",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.1204",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "1d2f68ad2f686f870a75ed3daa2627db0bf6a0c31ad9c904466ae43c943ea7ff",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.1408",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.1408",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "4e2bd1875ed4c6ef8fb4065895a38951ce48320dda27cb1731e3ff2f85af12bf",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.1417",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.1417",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "4a0bc19e7bccdc22d1701db25d2c5381181de65a716e1708ea10d39c60e884c1",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.152",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.152",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "ec434b85658a4a60bd738e9206547d2c35b3d5e649cd3f2a94b3f8d819331f37",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.21",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.21",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "c378d7bdf1b616934282412566fd523f1e182de8a9f1da07f2903f4fd6c93f32",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.25",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.25",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "53b7ca1319b1c2ede7bba322d99c6ecf0fcf87e356a7c2b70da21fe61b791e80",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.250",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.250",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "c47569b09f01d2359d3838a55414e7ca74295f6d2b20ec8fdffe8437f4fab72b",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.251",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.251",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "c0bdda1d5f44d3ae9d895efa27813c1ffb7f2271fafaca810b588c669c95132f",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.300",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.300",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "ae24761977c6d4ca467dce13c7d281a9ddb361c84c26ab9f957a287e4b2d844f",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.302",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.302",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "38df7cb5a9a64584f4f263f92d9fd22007f83647bd6694444fa19c7c8d7dd2fd",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.35",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.35",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "5103adc2533d21cbb78b5957d4efe3573b5d5fa21ea835d9cb79f43ae39a71b9",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.350",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.350",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "197459153486a868ea4de9b2cd01e56956a89ec21962303b77be699e9f33e1fd",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.352",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.352",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "9344b906f8a0f51c867cf9f5097f1f59d0d4a832d471e148b0b5e74169129e52",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.353",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.353",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "815a489b7f77da0f4638d829d562702ecb9aace0e2bdd41f9dae39b2c41107cf",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.404",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.404",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "4c2996c2841d48f49bc87dfd3cb17070bfc4e4c84be335d0ac44c556d1140cec",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.405",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.405",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "1639828725ab8aa6e02080d4b135d7efd5c4ac7de1565389ab3023bcd3f8ba10",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.416",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.416",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "25d7230d412236794717d45de38a4d1e153c2e446449309b21db3ed986fbec59",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.417",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.417",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "1e3c6347dcd821f36f675f840d3d1962b5a9e31d510a3894f23b35d9f7b40e40",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.451",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.451",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "9b62ad0d1a97f5389bdbda0a91ee40a1023e82971199ff0ee179fc87eca452b5",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.453",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.453",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "2db82c86551a03dc4b54aeee8a88597cabffef6b7387af74400fd2e5517cf5cb",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.50",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.50",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "738d68db51b7fc5948878a83d766425b9d192bc53a2ffc17866901ef371a010f",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.501",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.501",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "71518b8564fc348471d564fa6742b05d8fec70a3264016b8cfcae67ba91435e1",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.502",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.502",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "99da8960d399c10c98c986e7991111124da8dc363cadb01ea695204ed9be14a2",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.52",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.52",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "541800ea39ccca40559f1777dd4097d477885c4616fc7c12f3dbd9392808dd13",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.53",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.53",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "1864151cee91db21cfd8a6949c12c5ab0e3063413ae41b392ce03822d18d6c93",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.54",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.54",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "b465313884d71e41497132b18ad3b5dc657b11ab3b3abc0ea3bea506478deff0",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.55",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.55",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "b6c311e98de774b43d575b1df478f58517e0839f9ac0c3add1cc2af9b1cdf4f9",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.555",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.555",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "9fa939aef9f02c5f008eca07506cd9415b2a5eb24629fa9848ab27c918e978e5",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.56",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.56",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "e5ed8f233e758209efae1ee38ad4c0b160d2d7cbeb05988ed7916858a76aa7ec",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.59",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.59",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "da39854e9c631a215bc263a6baf10b804066b16e34535787384d4e02fd85f544",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.602",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.602",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "4e044e5f0feddfce65bf849f5c83afcb074e326c16fd2e3bfdfef90705c13e39",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.62",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.62",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "533bc5af5ad99df20bec729483dd71842983c0ce0ee0bf10edc54174d800a7c0",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.651",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.651",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "e1c0eaaa1281659896bc5d4f07d3cb593f1209f42915706f760316a8a4d29052",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.652",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.652",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "02a47df082a9618f0f7405205f5bb26ee84e43a4ff549b0b1cf2085361ba6781",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.66",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.66",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "695c8a8c3ba2c2b6f64f27e3d023301a4d9593e068f9f556ae4fd97d2eb4653f",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.702",
+    "ok": true,
+    "checked": "2026-11-18",
+    "sha256": "919381ec87bf435f6d95b5712059d065107c5a6864c191fec6bea0ae808a1a8f",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.702"
+  },
+  {
+    "section": "1926.703",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.703",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "8f67aa89a6c99aaa5c26f9eb7e3d0d8b5145118fced523548421923abe844491",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.704",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.704",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "2e2ff5b7ebb9d4a09640a13e86cc60e68cc77dccaa040eb90da70f3382172609",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.706",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.706",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "3f970b8125688b45322f88c0afe747d8e5b41d8bd55f1a6569db1e6eec5aabe5",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.95",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.95",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "1fd2e405cf6c76a0c870c390c25731138d3b5f5d2b8e23471dbd43b810000cf8",
+    "checked": "2026-11-18"
+  },
+  {
+    "section": "1926.96",
+    "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/section-1926.96",
+    "ok": true,
+    "verified_via": "full official part or subpart HTML",
+    "sha256": "d1059ce3ddc66ef205b8b4a01fdd092c75be7602dd4df54fcc6abf255eed09b3",
+    "checked": "2026-11-18"
+  },
+  {
+    "guidance": "cold",
+    "url": "https://www.osha.gov/winter-weather/cold-stress",
+    "checked": "2026-11-18",
+    "sha256": "e1300aedce8ceb9ad78231fd0612cb180e2f0cff887a710d88aafdae9d949f68"
+  },
+  {
+    "guidance": "heat",
+    "url": "https://www.osha.gov/heat-exposure/standards",
+    "checked": "2026-11-18",
+    "sha256": "54ba9aa3ef825da799dfadb6d3bdbab3fb6bc07b254cb79123b1bcb4edca1364"
+  }
+]

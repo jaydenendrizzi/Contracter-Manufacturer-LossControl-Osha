@@ -1,0 +1,10 @@
+/* Review records match the exact wording, not just a title or checkbox. */
+'use strict';
+const ContentReview=(()=>{
+ const version=doc=>doc.wording_version||'2026-11-18.1';
+ const fingerprint=async doc=>{const copy={...doc};delete copy.reviewed;delete copy.reviewMetadata;return FieldTools.hash({document:copy,pdfTemplate:typeof Handouts!=='undefined'?Handouts.wordingTemplate():'unavailable'});};
+ async function records(){return (await FieldTools.readAll()).contentReviews||[];}
+ async function apply(docs,kind){let log;try{log=await records();}catch{log=[];}return Promise.all(docs.map(async d=>{const digest=await fingerprint(d),entry=log.filter(r=>r.kind===kind&&r.id===d.id).at(-1);return {...d,reviewed:!!(entry&&entry.decision==='approved'&&typeof entry.reviewer==='string'&&entry.reviewer.trim()&&Number.isFinite(Date.parse(entry.reviewedAt))&&entry.digest===digest&&entry.version===version(d)),reviewMetadata:entry?.digest===digest?entry:null};}));}
+ async function record(doc,kind,reviewer,decision){if(!reviewer.trim())throw Error('Enter the reviewer name.');if(!['approved','draft'].includes(decision))throw Error('Choose a review result.');if(typeof Handouts==='undefined')throw Error('PDF tools are not ready.');const entry={templateDigest:await FieldTools.hash(Handouts.wordingTemplate()),kind,id:doc.id,version:version(doc),digest:await fingerprint(doc),reviewer:reviewer.trim(),decision,reviewedAt:new Date().toISOString()};const db=await FieldTools.open();await new Promise((resolve,reject)=>{const tx=db.transaction('kv','readwrite'),s=tx.objectStore('kv'),q=s.get('contentReviews');q.onsuccess=()=>s.put([...(q.result||[]),entry],'contentReviews');tx.oncomplete=()=>{db.close();resolve();};tx.onerror=tx.onabort=()=>{db.close();reject(tx.error);};});return entry;}
+ return {version,fingerprint,records,apply,record};
+})();
