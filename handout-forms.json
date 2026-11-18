@@ -1,0 +1,288 @@
+[
+  {
+    "id": "toolbox",
+    "title": "Toolbox talk and sign-in",
+    "reviewed": false,
+    "source_template": {
+      "id": "toolbox-meeting-x5ntelnabhtalwsr",
+      "title": "Horticulture Toolbox Meeting Template",
+      "pack": "lib-p-agriculture-0.json",
+      "osha_references": []
+    },
+    "reference": "29 CFR 1926.21(b)(2), construction hazard instruction",
+    "reference_note": "General industry training depends on the task. A talk and sign-in do not replace required training or evaluation.",
+    "blocks": [
+      {
+        "type": "lines",
+        "label": "Topic and task",
+        "rows": 1
+      },
+      {
+        "type": "lines",
+        "label": "What could hurt someone here?",
+        "rows": 2
+      },
+      {
+        "type": "lines",
+        "label": "What will we do before work starts?",
+        "rows": 2
+      },
+      {
+        "type": "lines",
+        "label": "Questions, changes and who will follow up",
+        "rows": 2
+      },
+      {
+        "type": "table",
+        "label": "Sign-in: attendance only, not proof of understanding",
+        "columns": [
+          "Name",
+          "Signature",
+          "Date"
+        ],
+        "rows": 6
+      }
+    ],
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "jsa",
+    "title": "Job safety analysis",
+    "reviewed": false,
+    "source_template": {
+      "id": "job-safety-analysis-cauetfxcpjocfauf",
+      "title": "Job Safety Analysis Template",
+      "pack": "lib-p-agriculture-0.json",
+      "osha_references": []
+    },
+    "reference": "Task-specific OSHA reference: ____________________",
+    "reference_note": "No universal OSHA JSA form is cited. Add the standard for the task; PPE assessment has separate requirements.",
+    "blocks": [
+      {
+        "type": "lines",
+        "label": "Job, area and crew",
+        "rows": 1
+      },
+      {
+        "type": "lines",
+        "label": "Tools, materials and work conditions",
+        "rows": 1
+      },
+      {
+        "type": "table",
+        "label": "Walk through the job before starting",
+        "columns": [
+          "Job step",
+          "What could hurt someone?",
+          "How will we control it?"
+        ],
+        "rows": 6
+      },
+      {
+        "type": "lines",
+        "label": "Conditions that mean stop and review the plan",
+        "rows": 2
+      },
+      {
+        "type": "lines",
+        "label": "Crew review and next check date",
+        "rows": 1
+      }
+    ],
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "near-miss",
+    "title": "Near miss report",
+    "reviewed": false,
+    "source_template": {
+      "id": "near-miss-report-form-e7MZz",
+      "title": "Near Miss Report Form",
+      "pack": "lib-p-health-and-safety-0.json",
+      "osha_references": []
+    },
+    "reference": "Task-specific OSHA reference: ____________________",
+    "reference_note": "No specific OSHA near-miss form is cited. This is not a substitute for required injury reporting or records.",
+    "blocks": [
+      {
+        "type": "lines",
+        "label": "When and where did it happen?",
+        "rows": 1
+      },
+      {
+        "type": "lines",
+        "label": "What happened? Describe the sequence, without blame.",
+        "rows": 3
+      },
+      {
+        "type": "lines",
+        "label": "What could have hurt someone?",
+        "rows": 2
+      },
+      {
+        "type": "lines",
+        "label": "What was changed right away?",
+        "rows": 2
+      },
+      {
+        "type": "table",
+        "label": "Follow-up",
+        "columns": [
+          "Action",
+          "Owner",
+          "Due date"
+        ],
+        "rows": 3
+      },
+      {
+        "type": "lines",
+        "label": "Reported by (optional) and follow-up contact",
+        "rows": 1
+      }
+    ],
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "drill",
+    "title": "Emergency drill log",
+    "reviewed": false,
+    "source_template": {
+      "id": "emergency-drill-report",
+      "title": "Emergency Evacuation Drill Assessment Form",
+      "pack": "lib-p-health-and-safety-0.json",
+      "osha_references": []
+    },
+    "reference": "29 CFR 1910.38(e), (f); 1926.35(e), emergency plan training/review",
+    "reference_note": "These are emergency plan references. They do not set a universal drill frequency. Follow the site plan and applicable rules.",
+    "blocks": [
+      {
+        "type": "lines",
+        "label": "Scenario, area and drill lead",
+        "rows": 1
+      },
+      {
+        "type": "table",
+        "label": "Drill times",
+        "columns": [
+          "Alarm started",
+          "Assembly reached",
+          "All people accounted for"
+        ],
+        "rows": 2
+      },
+      {
+        "type": "lines",
+        "label": "How were workers, visitors and contractors accounted for?",
+        "rows": 2
+      },
+      {
+        "type": "lines",
+        "label": "What worked? What slowed the response?",
+        "rows": 2
+      },
+      {
+        "type": "table",
+        "label": "Fixes before the next drill",
+        "columns": [
+          "Action",
+          "Owner",
+          "Due date"
+        ],
+        "rows": 3
+      },
+      {
+        "type": "lines",
+        "label": "Debrief date and people who reviewed the plan",
+        "rows": 1
+      }
+    ],
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "actions",
+    "title": "Corrective action plan",
+    "reviewed": false,
+    "source_template": {
+      "id": "corrective-action-plan-template-rash7mmxxyia4m5z",
+      "title": "Corrective Action Plan Template",
+      "pack": "lib-p-professional-services-0.json",
+      "osha_references": []
+    },
+    "reference": "Task-specific OSHA reference: ____________________",
+    "reference_note": "No universal OSHA corrective action form is cited. Add the standard for the condition. Track completion and check the result.",
+    "blocks": [
+      {
+        "type": "lines",
+        "label": "Condition, location and why it matters",
+        "rows": 2
+      },
+      {
+        "type": "lines",
+        "label": "Temporary control until the fix is ready",
+        "rows": 2
+      },
+      {
+        "type": "table",
+        "label": "Put High items first, then Medium, then Low",
+        "columns": [
+          "Priority / action",
+          "Owner / due date",
+          "Closed date / checked by"
+        ],
+        "rows": 6
+      },
+      {
+        "type": "lines",
+        "label": "How will we check that the fix works?",
+        "rows": 2
+      }
+    ],
+    "wording_version": "2026-11-18.1"
+  },
+  {
+    "id": "training",
+    "title": "Safety training log",
+    "reviewed": false,
+    "source_template": {
+      "id": "training-log-master-copy-pkakcllhe8wkpegc",
+      "title": "Training Log for Competence and QMS Tracking",
+      "pack": "lib-p-manufacturing-2.json",
+      "osha_references": []
+    },
+    "reference": "29 CFR 1926.21(b)(2), construction instruction; other training is task-specific",
+    "reference_note": "A sign-in alone does not show task understanding. Add any topic-specific training, evaluation or record requirements.",
+    "blocks": [
+      {
+        "type": "lines",
+        "label": "Topic, task and applicable OSHA reference",
+        "rows": 1
+      },
+      {
+        "type": "lines",
+        "label": "Trainer, date, location and language used",
+        "rows": 1
+      },
+      {
+        "type": "lines",
+        "label": "What did people practice or explain back?",
+        "rows": 2
+      },
+      {
+        "type": "table",
+        "label": "Attendance and follow-up",
+        "columns": [
+          "Name",
+          "Training / practice date",
+          "Follow-up needed / owner"
+        ],
+        "rows": 8
+      },
+      {
+        "type": "lines",
+        "label": "Next review date and where records are kept",
+        "rows": 1
+      }
+    ],
+    "wording_version": "2026-11-18.1"
+  }
+]

@@ -75,3 +75,31 @@ Automatic reminder emails to client staff and a shared team view (instead of imp
 
 ## Don't remove
 The "pick the right location" step. Public records file the same company under different names and addresses. That step is what keeps a rep from quoting another company's citations to a prospect.
+
+## Handouts, Phase 1
+
+Walkthrough links to `handouts.html`: 50 hazard sheets in seven categories, title search, six blank forms, and multi-hazard PDF packets. Active and saved visits pass client name, date and rep name through a URL fragment that is removed on arrival. No saved visit schema changed. Client wording stays DRAFT until its data record has reviewed:true. The sample design was approved; the wording still needs R&R review.
+
+`hazards.json` and `handout-forms.json` load on demand and use the separate `rr-hazards-v1` cache. Fonts and jsPDF are bundled locally. Open Handouts and Blank forms once with signal to save their content for offline use. Create PDF opens a prepared file in the phone share sheet when supported; Save PDF is the fallback. The existing visit PDF renderer is unchanged.
+
+Review all hazard sheets in `review/phase1/all-hazards-DRAFT.pdf`, all six forms in `review/phase1/`, citations in `review/hazard-citation-review.csv`, and form sources in `review/form-template-review.md`. Phases 2 and 3 are described below.
+
+To repeat browser checks, serve this directory on loopback port 8888, then run `node scripts/check-handouts.cjs` with Playwright and Chromium installed. It checks every sheet and form, a 50-page packet, search, categories, sharing handoff, visit prefills, offline reload and PDF creation at 390 px. `scripts/check-handout-samples.cjs` retains the three-sample check.
+
+## Clients and status snapshots
+
+Clients opens from navigation or visit history. It supports optional contact details, Client/Prospect type, rename, explicit merge, similar-name hints, and JSON export/import. Old visits migrate with an original-data backup. New saves no longer drop visits beyond 25. No AMS or external client directory is used.
+
+Status snapshots collect all saved client visits and locations into a two-page DRAFT PDF. Long tables show priority rows with explicit counts; Download snapshot data includes every item. See `review/PHASE2-3-REVIEW.md` for definitions, limits and validation. Client-list exports are separate from visit/photo backups.
+
+Run `node scripts/check-clients.cjs`, then `node scripts/check-clients-browser.cjs` with the local server on loopback port 8888. Nothing is deployed automatically.
+
+## Field workflow, complete backups and content review
+
+Four next actions sit above the research views. Save status reports successful writes and storage failures; the complete-backup action can recover current in-memory edits. `backup.html` exports and restores client records, visits, findings, all photos, drafts, review history and R&R checklist settings. Restore validates integrity, keeps existing work, retains conflicting copies and remaps their links. Conflicting restored drafts can be resumed from Backup tools. Library packs are saved separately.
+
+Saved findings can be closed with a completion date, client update and optional follow-up photo. Clients offers either the two-page snapshot summary or a complete paginated open-items list. The original visit report PDF is unchanged.
+
+Lead reviewers use `content-review.html` through Backup tools. Review records capture reviewer, time, wording version and document/PDF-template hashes. Changed content returns to DRAFT. Records are local and included in complete backups; this is not authenticated identity. See `review/WORKFLOW-AUDIT.md` for checks and limits, and `review/PHONE-CHECKS.md` for the physical phone checks still required.
+
+Generated review PDFs and screenshots stay local and are ignored by git. Run the browser suites to generate them; automatic approval review blocked publishing the client-named sample snapshot. The PR contains source, tests, and audit notes.

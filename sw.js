@@ -2,8 +2,10 @@
 // The app shell (page, logo, icons, PDF library, fonts) is cached so the walkthrough opens with no signal.
 // Data calls (/api/*) try the network first and fall back to the last copy seen.
 // Bump VERSION when you deploy changes so phones pick up the new page.
-const VERSION = "rr-lc-2026-11-09-libcache";
+const VERSION = "rr-lc-2026-11-18-field-workflow-v1";
 const SHELL = ["/", "/index.html", "/rr-logo.png", "/icon-192.png", "/icon-512.png", "/icon-180.png", "/manifest.webmanifest"];
+SHELL.push("/field-tools.js", "/backup.html", "/backup-ui.js", "/content-review.js", "/content-review.html", "/content-review-ui.js", "/clients.html", "/clients.js", "/clients-ui.js", "/handouts.html", "/handouts-ui.js", "/handouts-samples.html", "/handouts.js", "/handouts-samples.js", "/handouts.css", "/vendor/jspdf.umd.min.js", ...[400,700,800].flatMap(w => [`/fonts/overpass-latin-${w}-normal.woff2`, `/fonts/overpass-${w}.ttf`]));
+const HAZARD_CACHE = "rr-hazards-v1";
 const CDN = ["https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"];
 // Library data lives in its own cache so templates saved for offline survive app updates.
 // The page uses the same name for "Save this industry for offline". Change both together.
@@ -23,7 +25,7 @@ self.addEventListener("install", (e) => {
 
 self.addEventListener("activate", (e) => {
   e.waitUntil((async () => {
-    for (const k of await caches.keys()) if (k !== VERSION && k !== LIB_CACHE) await caches.delete(k);
+    for (const k of await caches.keys()) if (k !== VERSION && k !== LIB_CACHE && k !== HAZARD_CACHE) await caches.delete(k);
     await self.clients.claim();
   })());
 });
@@ -33,10 +35,17 @@ self.addEventListener("fetch", (e) => {
   if (req.method !== "GET") return;
   const url = new URL(req.url);
 
+  if (url.origin === location.origin && ["/hazards.json", "/handout-forms.json"].includes(url.pathname)) {
+    e.respondWith(caches.open(HAZARD_CACHE).then(async c => {
+      try { const r = await fetch(req); if (!r.ok) throw Error("Hazards unavailable"); await c.put(req, r.clone()); return r; }
+      catch { return (await c.match(req)) || new Response("", {status:504}); }
+    }));
+    return;
+  }
   // Page loads: network first so deploys show up, cached page when offline
   if (req.mode === "navigate") {
-    e.respondWith(fetch(req).then((r) => { const copy = r.clone(); caches.open(VERSION).then((c) => c.put("/index.html", copy)); return r; })
-      .catch(() => caches.match("/index.html")));
+    e.respondWith(fetch(req).then((r) => { const copy = r.clone(); caches.open(VERSION).then((c) => c.put(url.pathname === "/" ? "/index.html" : url.pathname, copy)); return r; })
+      .catch(() => caches.match(url.pathname === "/" ? "/index.html" : url.pathname)));
     return;
   }
   // Data: network first, last good answer when offline

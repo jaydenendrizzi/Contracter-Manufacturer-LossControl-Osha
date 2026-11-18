@@ -1,0 +1,9 @@
+node_modules/
+.env
+.env.*
+/review/workflow/memory-recovery.json
+
+# Generated review artifacts stay local; do not publish client-named examples.
+/review/**/*.pdf
+/review/**/*.png
+/review/phase1/index.html
