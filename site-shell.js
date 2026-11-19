@@ -66,7 +66,7 @@
   workspace.className = 'lc-workspace';
   const bar = document.createElement('header');
   bar.className = 'lc-topbar';
-  bar.innerHTML = `<button class="lc-menu" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="lc-navigation">${icon('menu')}</button><div class="lc-breadcrumb"><span>Loss Control</span><span aria-hidden="true">/</span><b></b></div><a class="lc-top-backup" href="backup.html">${icon('backup')}<span>Offline & backups</span></a>`;
+  bar.innerHTML = `<button class="lc-menu" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="lc-navigation">${icon('menu')}</button><a class="lc-mobile-brand" href="${href('lookup')}" aria-label="R&R Loss Control home"><img src="rr-logo.png" alt="R&R Insurance"></a><div class="lc-breadcrumb"><span>Loss Control</span><span aria-hidden="true">/</span><b></b></div><a class="lc-top-backup" href="backup.html">${icon('backup')}<span>Offline & backups</span></a>`;
   const back = oldHeader.querySelector('a:not(.brand)');
   if (!isIndex && back) {
     const contextLink = document.createElement('a');

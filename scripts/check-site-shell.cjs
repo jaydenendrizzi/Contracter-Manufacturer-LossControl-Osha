@@ -22,6 +22,11 @@ const path = require('node:path');
     await open('index.html#lookup');
     assert.equal(await page.locator('.lc-sidebar').evaluate(el => Math.round(el.getBoundingClientRect().width)), 260);
     assert.equal(await page.locator('.lc-menu').isVisible(), false);
+    assert.equal(await page.locator('.lc-mobile-brand').isVisible(), false);
+    const brand=await page.locator('.lc-brand').evaluate(el=>({width:el.getBoundingClientRect().width,sidebar:el.parentElement.getBoundingClientRect().width,background:getComputedStyle(el).backgroundColor,logoBackground:getComputedStyle(el.querySelector('.lc-logo')).backgroundColor}));
+    assert(brand.width>=brand.sidebar-3,'The masthead must meet the sidebar edges.');
+    assert.equal(brand.background,'rgb(255, 255, 255)');
+    assert.equal(brand.logoBackground,'rgba(0, 0, 0, 0)','The logo must not sit in a separate white tile.');
     assert.equal(await page.locator('.lc-nav a[aria-current]').textContent(), 'Site lookup');
     assert.equal(await page.evaluate(() => getComputedStyle(document.body).fontFamily.split(',')[0]), 'Overpass');
     await fits();
@@ -32,6 +37,7 @@ const path = require('node:path');
     await page.screenshot({path: path.join(output, 'walkthrough-desktop.png'), fullPage: true});
 
     await page.setViewportSize({width: 390, height: 844});
+    assert.equal(await page.locator('.lc-mobile-brand').isVisible(), true);
     await page.locator('.lc-menu').click();
     await page.getByRole('dialog').waitFor();
     assert.equal(await page.locator('.lc-workspace').evaluate(el => el.inert), true);
@@ -89,10 +95,10 @@ const path = require('node:path');
     await page.evaluate(() => navigator.serviceWorker.ready);
     await page.waitForFunction(async () => {
       const names = await caches.keys();
-      return names.includes('rr-lc-2026-11-19-shared-design-v1');
+      return names.includes('rr-lc-2026-11-19-brand-footer-v2');
     });
     const cached = await page.evaluate(async () => {
-      const c = await caches.open('rr-lc-2026-11-19-shared-design-v1');
+      const c = await caches.open('rr-lc-2026-11-19-brand-footer-v2');
       return Promise.all(['/site-shell.css', '/site-shell.js', ...[400,500,600,700,800].map(w => '/fonts/overpass-latin-' + w + '-normal.woff2')].map(async key => !!await c.match(key)));
     });
     assert(cached.every(Boolean));

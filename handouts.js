@@ -26,15 +26,13 @@ const Handouts = (() => {
     text(h.reviewed?'Reviewed hazard sheet':'DRAFT | Wording review pending',R,54,8,C.gray,'normal',220,'right');
     if(options.client) text('Client: '+co,R,67,6.5,C.gray,'normal',300,'right');
     line(M,76,W,C.tan,1.8);
-    box(M,86,W,120,C.navy,C.navy,9);box(M+4,90,W-8,112,C.navy,'#F4F6F3',6);
+    box(M,86,W,106,C.navy,C.navy,9);box(M+4,90,W-8,98,C.navy,'#F4F6F3',6);
     text('Loss control hazard sheet',M+16,105,8,C.tan,'heavy');
     text(`${date} | Prepared by R&R Insurance, Loss Control`,M+16,119,7.5,'#cfe0df');
     text(h.title.toUpperCase(),M+16,140,16,C.white,'heavy',W-32);
     text(`Category: ${h.category}`,M+16,169,8,C.white,'bold',W-32);
     text(`Industries: ${h.industries.join(', ')}`,M+16,182,7.5,C.white,'normal',W-32);
-    const pill=h.reference_summary || 'No specific OSHA standard';
-    box(M+16,190,310,15,'#F4F6F3','#F4F6F3',3);text(pill,M+22,200,7,C.navy,'bold',300);
-    let y=222;
+    let y=208;
     text(h.what_happens,M,y,10,C.navy,'bold',W);y+=22;
     if(h.wisconsin_metrics){
       const m=h.wisconsin_metrics;box(M,y,W,56);text('Wisconsin environmental heat reports',M+10,y+13,9,C.navy,'bold');
@@ -53,11 +51,24 @@ const Handouts = (() => {
     let cy=y+25;h.workers_comp.forEach(v=>{cy+=text('• '+v,rightX+10,cy,8,C.ink,'normal',241)+7;});
     let ry=y+22;h.this_week.forEach(v=>{text(v.when,M,ry,7,C.gray,'bold',73);const dh=text(v.action,M+80,ry,8,C.ink,'normal',180);ry+=Math.max(dh,13)+6;line(M,ry-6,leftW);});
     y=Math.max(ry,y+98)+12;
-    text('OSHA reference',M,y,9,C.navy,'heavy');y+=14;
-    if(h.reference_status==='standard') { y+=text('General industry: '+h.osha_reference.general_industry,M,y,7,C.gray,'normal',W)+3;
-    y+=text('Construction: '+h.osha_reference.construction,M,y,7,C.gray,'normal',W)+3; } else { y+=text(h.reference_status==='guidance_only'?'No specific federal OSHA standard. OSHA guidance only.':'No specific OSHA standard is cited for this general hazard.',M,y,7,C.gray,'normal',W)+3; }
-    if(h.reference_note) y+=text(h.reference_note,M,y,7,C.gray,'normal',W);
-    const ctaY=644;
+    // References have a measured bottom area so long citations cannot enter the banner or clip.
+    const reference=h.reference_status==='standard'
+      ? 'General industry: '+h.osha_reference.general_industry+' | Construction: '+h.osha_reference.construction
+      : h.reference_status==='guidance_only'?'No specific federal OSHA standard. OSHA guidance only.':'No specific OSHA standard is cited for this general hazard.';
+    const footer=[
+      {value:'OSHA reference: '+reference,size:6.5,style:'bold'},
+      {value:h.reference_note,size:6},
+      {value:h.sources || 'Sources: eCFR, 29 CFR sections listed here, checked '+h.verified_on+'.',size:6},
+      {value:h.wisconsin_metrics?.caveat,size:6},
+      {value:'This sheet is a starting point for the client’s own program.',size:6,style:'bold'},
+      {value:disclaimer(co),size:6},
+      {value:h.reviewed?'Reviewed by '+(h.reviewMetadata?.reviewer||'R&R')+' | '+(h.reviewMetadata?.reviewedAt||'').slice(0,10)+' | '+(h.reviewMetadata?.version||''): 'DRAFT | R&R wording review required before client use',size:6.5,style:'bold',color:C.navy}
+    ].filter(block=>block.value);
+    const footerHeight=footer.reduce((height,block)=>{
+      doc.setFont('Overpass',block.style||'normal');doc.setFontSize(block.size);
+      return height+doc.splitTextToSize(String(block.value),W).length*block.size*1.22+3;
+    },0);
+    const footerY=Math.min(715,779-footerHeight),ctaY=footerY-71;
     if(y>ctaY-10) throw Error('Sheet content exceeds its one-page layout: '+y);
     box(M,ctaY,W,53,C.navy,C.navy,8);box(M+4,ctaY+4,W-8,45,C.navy,'#F4F6F3',5);
     text('Want help closing these out?',M+15,ctaY+22,12,C.white,'heavy',310);
@@ -65,15 +76,10 @@ const Handouts = (() => {
     text(options.rep||'Rep: __________________',R-14,ctaY+16,8,C.tan,'bold',200,'right');
     text(options.phone||'Phone: _________________',R-14,ctaY+29,7.5,C.white,'normal',200,'right');
     text('Loss Control, R&R Insurance',R-14,ctaY+41,7,C.white,'normal',200,'right');
-    line(M,704,W,C.tan,1.5);
-    let fy=715;
-    const sources=h.sources || 'Sources: eCFR, 29 CFR sections listed above, checked '+h.verified_on+'.';
-    fy+=text(sources,M,fy,6,C.gray,'normal',W)+3;
-    if(h.wisconsin_metrics)fy+=text(h.wisconsin_metrics.caveat,M,fy,6,C.gray,'normal',W)+2;
-    fy+=text('This sheet is a starting point for the client’s own program.',M,fy,6,C.gray,'bold',W)+2;
-    fy+=text(disclaimer(co),M,fy,6,C.gray,'normal',W)+3;
-    text(h.reviewed?'Reviewed by '+(h.reviewMetadata?.reviewer||'R&R')+' | '+(h.reviewMetadata?.reviewedAt||'').slice(0,10)+' | '+(h.reviewMetadata?.version||''): 'DRAFT | R&R wording review required before client use',M,fy,6.5,C.navy,'bold',W);
-    if(fy>778)throw Error('Footer exceeds the page.');
+    line(M,footerY-11,W,C.tan,1.5);
+    let fy=footerY;
+    footer.forEach(block=>{fy+=text(block.value,M,fy,block.size,block.color||C.gray,block.style||'normal',W)+3;});
+    if(fy>780)throw Error('Footer exceeds the page.');
     return doc;
   }
   async function buildForm(f, options={}) {

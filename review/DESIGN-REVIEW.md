@@ -28,3 +28,11 @@ Screen-only styling aligns type sizes, spacing, card borders, forms, buttons and
 Generated screenshots are local in `review/design/`. No client-named PDFs or screenshots are committed. These are headless Chromium checks, not physical iPhone or Android testing. Existing physical-phone checks in `PHONE-CHECKS.md` still apply.
 
 FleetReportCard, Farm Intelligence and production deployment settings were not modified.
+
+## Logo and citation follow-up
+
+The user's silica PDF showed a duplicate citation pill at the bottom edge of the top banner. Removed that pill from all hazard sheets and packet pages. References now sit below the CTA with sources, caveats and the unchanged disclaimer. The footer is measured before rendering, and the CTA reserves enough room for wrapped general-industry/construction references and review metadata. Blank-form references and snapshot sources were already at the bottom and remain there.
+
+The logo now occupies a full-width white masthead with a tan rule and a Loss Control label, rather than a small rounded image tile. The mobile top bar also displays the official logo. The original artwork and embedded visit-report image are preserved.
+
+Validation: all 50 hazard sheets, six forms and the 50-page packet render successfully; the PDF-coordinate check finds 223 citation/source markers in the bottom area across the 56 sheets/forms and no text outside printable bounds. The shell checks verify the edge-to-edge masthead, transparent logo container and mobile branding in addition to their prior coverage. The field-workflow suite passes, including snapshot/full-list PDFs and template-review invalidation. All 37 scripts pass syntax checks. These changes bump the service worker to `rr-lc-2026-11-19-brand-footer-v2`.
