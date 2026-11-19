@@ -103,3 +103,11 @@ Saved findings can be closed with a completion date, client update and optional 
 Lead reviewers use `content-review.html` through Backup tools. Review records capture reviewer, time, wording version and document/PDF-template hashes. Changed content returns to DRAFT. Records are local and included in complete backups; this is not authenticated identity. See `review/WORKFLOW-AUDIT.md` for checks and limits, and `review/PHONE-CHECKS.md` for the physical phone checks still required.
 
 Generated review PDFs and screenshots stay local and are ignored by git. Run the browser suites to generate them; automatic approval review blocked publishing the client-named sample snapshot. The PR contains source, tests, and audit notes.
+
+## Shared R&R website design
+
+The website uses the FleetReportCard and Farm Intelligence visual language: Overpass, a dark teal sidebar, tan active markers, a white top bar, muted page background, and compact cards, forms and tables. `site-shell.js` and `site-shell.css` apply the same navigation to Lookup, Walkthrough, Handouts, Clients, Backup and lead review tools. Lead review remains reachable through Backup tools. On phones, the sidebar opens from the menu button and supports keyboard focus, Escape and tap-outside closing.
+
+This is a presentation update. Existing visit data, findings, backups and report generators keep their formats. The original embedded R&R logo remains available to the visit PDF renderer. Fonts in weights 400, 500, 600, 700 and 800, the shared shell and the existing local PDF library are cached offline. No new runtime dependencies are required.
+
+With the local server running, `node scripts/check-site-shell.cjs` checks desktop and 390 px layouts, navigation, keyboard behavior, print isolation and offline loading, and writes screenshots to the ignored `review/design/` folder. See `review/DESIGN-REVIEW.md` for the validation record.

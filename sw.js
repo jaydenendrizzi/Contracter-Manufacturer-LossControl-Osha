@@ -2,9 +2,9 @@
 // The app shell (page, logo, icons, PDF library, fonts) is cached so the walkthrough opens with no signal.
 // Data calls (/api/*) try the network first and fall back to the last copy seen.
 // Bump VERSION when you deploy changes so phones pick up the new page.
-const VERSION = "rr-lc-2026-11-18-field-workflow-v1";
+const VERSION = "rr-lc-2026-11-19-shared-design-v1";
 const SHELL = ["/", "/index.html", "/rr-logo.png", "/icon-192.png", "/icon-512.png", "/icon-180.png", "/manifest.webmanifest"];
-SHELL.push("/field-tools.js", "/backup.html", "/backup-ui.js", "/content-review.js", "/content-review.html", "/content-review-ui.js", "/clients.html", "/clients.js", "/clients-ui.js", "/handouts.html", "/handouts-ui.js", "/handouts-samples.html", "/handouts.js", "/handouts-samples.js", "/handouts.css", "/vendor/jspdf.umd.min.js", ...[400,700,800].flatMap(w => [`/fonts/overpass-latin-${w}-normal.woff2`, `/fonts/overpass-${w}.ttf`]));
+SHELL.push("/site-shell.css", "/site-shell.js", "/fonts/overpass-latin-500-normal.woff2", "/fonts/overpass-latin-600-normal.woff2", "/field-tools.js", "/backup.html", "/backup-ui.js", "/content-review.js", "/content-review.html", "/content-review-ui.js", "/clients.html", "/clients.js", "/clients-ui.js", "/handouts.html", "/handouts-ui.js", "/handouts-samples.html", "/handouts.js", "/handouts-samples.js", "/handouts.css", "/vendor/jspdf.umd.min.js", ...[400,700,800].flatMap(w => [`/fonts/overpass-latin-${w}-normal.woff2`, `/fonts/overpass-${w}.ttf`]));
 const HAZARD_CACHE = "rr-hazards-v1";
 const CDN = ["https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"];
 // Library data lives in its own cache so templates saved for offline survive app updates.
