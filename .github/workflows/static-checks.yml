@@ -22,7 +22,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: npm install --prefix /tmp/rr-team-tests @electric-sql/pglite@0.3.15 playwright@1.56.1 --no-audit --no-fund
+      - run: npm install --prefix /tmp/rr-team-tests @electric-sql/pglite@0.3.15 playwright@1.62.1 --no-audit --no-fund
       - run: PGLITE_PATH=/tmp/rr-team-tests/node_modules/@electric-sql/pglite node scripts/check-team-database.cjs
       - run: /tmp/rr-team-tests/node_modules/.bin/playwright install --with-deps chromium
       - name: Test two devices and offline sync
