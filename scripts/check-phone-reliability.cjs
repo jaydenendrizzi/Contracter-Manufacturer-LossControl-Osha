@@ -12,5 +12,6 @@ const wait=async(p,fn)=>{for(let n=0;n<200;n++){if(await p.evaluate(fn))return;a
  await p.locator('[data-f="note"]').fill('This tab keeps a recovery copy');await p.waitForFunction(()=>document.querySelector('#save-state').textContent.includes('Another tab'));
  const data=await p.evaluate(()=>FieldTools.readAll());assert.equal(data.walk.custom[0].note,'Other tab saved first');assert(Object.entries(data).some(([k,v])=>/^restored-.*-walk$/.test(k)&&v.custom[0].note==='This tab keeps a recovery copy'));
  await tab.goto('http://127.0.0.1:8888/backup.html');await tab.locator('#phone-check').click();await tab.waitForFunction(()=>document.querySelector('#phone-health').textContent.includes('Visit storage works'));
+ await context.setOffline(true);await p.waitForFunction(()=>document.querySelector('#team-save-state').textContent.includes('Team storage is not configured'));await context.setOffline(false);
  assert.deepEqual(errors,[]);console.log('PASS: simulated quota failure, honest unsaved status, in-memory backup recovery, retry after storage recovery, simultaneous-tab protection, preserved conflict draft, phone storage probe and 390 px touch layout.');
 }finally{await b.close();}})().catch(e=>{console.error(e);process.exitCode=1;});

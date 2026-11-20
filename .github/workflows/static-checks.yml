@@ -16,7 +16,7 @@ jobs:
       - run: node scripts/check-team-records.cjs
       - run: node scripts/check-team-config.mjs
   team-sync:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

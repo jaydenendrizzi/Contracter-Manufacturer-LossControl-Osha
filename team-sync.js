@@ -90,7 +90,7 @@ const TeamSync=(()=>{
  async function cycle(){
   if(running)return;running=true;emit('Checking team records...');const cache=new Map();
   try{
-   if(!navigator.onLine){emit('Offline. Work stays on this phone and is queued for the team.');return;}
+   if(!navigator.onLine){emit(config?.configured?'Offline. Work saves on this phone. Linked records sync after reconnection and sign-in.':'Offline. Work saves on this phone. Team storage is not configured yet.');return;}
    if(!config?.configured||!session){emit(!config?.configured?'Team storage is not configured yet.':'Sign in to sync. Local work stays queued.');return;}
    await beforeSync();let state=await read(),meta=metaFor(state);if(!meta){emit('Choose your team and start sharing this phone.');return;}
    if(meta.user!==session.user.id)throw Error('Sign in with this phone’s linked account.');
@@ -132,7 +132,7 @@ const TeamSync=(()=>{
  async function recordReview(entry){await change(s=>{if(!session||s._teamMeta?.role!=='admin'||s._teamMeta.user!==session.user.id)throw Error('Sign in as a lead to record shared wording approval.');const catalog=s['team-catalog']||{version:'review-1',reviewed:true,sections:[],contentReviews:[]},latest=new Map((catalog.contentReviews||[]).map(r=>[r.kind+':'+r.id,r]));latest.set(entry.kind+':'+entry.id,{...entry,authenticatedReviewer:session.user.id});s['team-catalog']={...catalog,contentReviews:[...latest.values()]};return s;});touch();}
  async function info(){const state=await read();const pendingCount=state._teamMeta?TeamRecords.pending(state,state._teamMeta,await hashes(state)).length:0;return {pendingCount,configured:!!config?.configured,user:session?.user?.email||'',meta:state._teamMeta||null,message:status,running};}
  setInterval(()=>{if(document.visibilityState==='visible'&&navigator.onLine&&session)schedule(0);},60000);
- document.addEventListener('rr-local-change',touch);addEventListener('focus',()=>schedule(0));addEventListener('online',()=>schedule(0));addEventListener('offline',()=>emit('Offline. Work saves on this phone and will sync after reconnection and sign-in.'));
+ document.addEventListener('rr-local-change',touch);addEventListener('focus',()=>schedule(0));addEventListener('online',()=>schedule(0));addEventListener('offline',()=>emit(config?.configured?'Offline. Work saves on this phone. Linked records sync after reconnection and sign-in.':'Offline. Work saves on this phone. Team storage is not configured yet.'));
  document.addEventListener('visibilitychange',()=>{if(!document.hidden)schedule(0);});
  return {init,signIn,signOut,changePassword,resetPassword,memberships,enable,run,schedule,touch,resolve,clearLocal,publish,recordReview,info,read,change,digest};
 })();
