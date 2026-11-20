@@ -95,6 +95,8 @@
   .lc-workspace .view h1{font-size:30px;line-height:1.18;letter-spacing:-.5px}
   .lc-workspace .view .hero h1{font-size:30px}
   .lc-workspace .actions{gap:10px}
+  .lc-workspace .walk-bar{margin-inline:0;padding-inline:12px;border:1px solid var(--line);border-radius:8px}
+  .lc-workspace .walk-bar .meter span{white-space:normal}
   .toast{z-index:1500}
   @media(min-width:901px) and (max-width:1250px){:root{--lc-nav-width:224px}.lc-sidebar{padding-inline:10px}.lc-brand{margin-inline:-10px;padding-inline:24px}.lc-brand strong{font-size:14px}.lc-logo{width:150px}.lc-topbar{padding-inline:24px}.lc-workspace>main{padding-inline:24px}.lc-workspace .quick-actions .actions{grid-template-columns:repeat(2,minmax(0,1fr))}.lc-workspace .search{grid-template-columns:repeat(2,minmax(0,1fr))}.lc-workspace .search .name{grid-column:1/-1}.lc-workspace .search .btn{grid-column:1/-1}}
   @media(max-width:900px){
@@ -126,6 +128,10 @@
     .lc-workspace .search{grid-template-columns:repeat(2,minmax(0,1fr))}
     .lc-workspace .search .name,.lc-workspace .search .btn{grid-column:1/-1}
     .lc-workspace .grid{grid-template-columns:minmax(0,1fr)}
+    .lc-workspace .walk-bar{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;bottom:0}
+    .lc-workspace .walk-bar .meter{grid-column:1/-1;grid-row:1;text-align:center}
+    .lc-workspace .walk-bar .meter span{font-size:12px}
+    .lc-workspace .walk-bar>.photo-btn,.lc-workspace .walk-bar>.btn{grid-row:2;display:flex;align-items:center;justify-content:center;text-align:center;min-height:44px;min-width:0;margin:0}
     .lc-workspace .sample,.lc-workspace .pick,.lc-workspace .output{overflow-wrap:anywhere}
     .lc-skip{left:15px}
   }
