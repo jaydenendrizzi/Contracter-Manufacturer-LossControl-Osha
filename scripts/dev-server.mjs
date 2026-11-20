@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 8888;
 http.createServer(async (req, res) => {
   const url = new URL(req.url, `http://localhost:${PORT}`);
   try {
-    const m = url.pathname.match(/^\/(?:api|\.netlify\/functions)\/([a-z]+)$/);
+    const m = url.pathname.match(/^\/(?:api|\.netlify\/functions)\/([a-z-]+)$/);
     if (m) {
       const mod = await import(pathToFileURL(path.resolve(`netlify/functions/${m[1]}.mjs`)).href);
       const out = await mod.default(new Request(url.href));

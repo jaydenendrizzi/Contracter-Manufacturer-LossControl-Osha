@@ -65,7 +65,7 @@ OSHA and MSHA field names were checked against the DOL catalog (apiprod.dol.gov/
 - Photos stay on the phone until the rep shares them. Clearing a finished walkthrough deletes them.
 
 ## What still needs a server
-Automatic reminder emails to client staff and a shared team view (instead of import/export) both need logins and a database, because they hold client findings. The data model is already in place: each finding stores owner, email, due date, status and closed date. Netlify Identity plus Netlify Blobs or Supabase would cover it.
+Automatic reminder emails to client staff are not implemented. The internal shared-storage integration below provides staff sign-in and shared records once its dedicated Supabase project is configured. No client portal or client messaging workflow is added.
 
 ## Data quality rules baked in
 - 300A filings with impossible hours (under 800 or over 3,500 per employee) are set aside. They're typos and would wreck the rankings.
@@ -103,3 +103,25 @@ Saved findings can be closed with a completion date, client update and optional 
 Lead reviewers use `content-review.html` through Backup tools. Review records capture reviewer, time, wording version and document/PDF-template hashes. Changed content returns to DRAFT. Records are local and included in complete backups; this is not authenticated identity. See `review/WORKFLOW-AUDIT.md` for checks and limits, and `review/PHONE-CHECKS.md` for the physical phone checks still required.
 
 Generated review PDFs and screenshots stay local and are ignored by git. Run the browser suites to generate them; automatic approval review blocked publishing the client-named sample snapshot. The PR contains source, tests, and audit notes.
+
+## Shared R&R website design
+
+The website uses the FleetReportCard and Farm Intelligence visual language: Overpass, a dark teal sidebar, tan active markers, a white top bar, muted page background, and compact cards, forms and tables. `site-shell.js` and `site-shell.css` apply the same navigation to Lookup, Walkthrough, Handouts, Clients, Backup and lead review tools. Lead review remains reachable through Backup tools. On phones, the sidebar opens from the menu button and supports keyboard focus, Escape and tap-outside closing.
+
+This is a presentation update. Existing visit data, findings, backups and report generators keep their formats. The original embedded R&R logo remains available to the visit PDF renderer. Fonts in weights 400, 500, 600, 700 and 800, the shared shell and the existing local PDF library are cached offline. No new runtime dependencies are required.
+
+With the local server running, `node scripts/check-site-shell.cjs` checks desktop and 390 px layouts, navigation, keyboard behavior, print isolation and offline loading, and writes screenshots to the ignored `review/design/` folder. See `review/DESIGN-REVIEW.md` for the validation record.
+
+The R&R logo is integrated into an edge-to-edge navigation masthead and the phone header. Hazard PDF citations appear only in the measured bottom reference/source area, including packet pages; the top banner holds the title, category and industries. All general-industry/construction references and caveats are retained. After `node scripts/check-handouts.cjs`, run `node scripts/check-pdf-footers.cjs` (requires Poppler's `pdftotext`) to inspect citation positions and text bounds in all 56 generated sheets/forms. PDF template changes automatically return prior wording approvals to DRAFT through the existing template fingerprint.
+
+## Internal team storage and repeat visits
+
+`team.html` connects a phone to a dedicated R&R workspace using individual staff accounts. Clients and completed visits/photos are shared within the organization. Unfinished visits and their photos are private to the rep. Records save locally first, sync after reconnecting/sign-in, and preserve conflicting versions for explicit review. Server revisions control conflicts, rather than phone clocks. Accepted changes and deletion markers retain server history. Shared photo objects are private, immutable and checked by content hash.
+
+**The Supabase project has not been created or connected.** Until an administrator completes [the setup instructions](supabase/SETUP.md), team storage clearly shows as unconfigured and the existing local workflow remains available. The app needs only the project's public URL/key through Netlify; no service-role key or new runtime dependency is used.
+
+Repeat full checklist reuses the original client, location and frozen checklist wording, with fresh answers. Open items retain finding IDs, owners, due dates and before photos; reps can add comparison photos. Follow-up-only visits skip the full checklist. Leads publish reviewed, versioned team sections and shared handout approvals; reps retain their personal checklist sections. Existing visits keep their original data, and the visit PDF renderer is unchanged.
+
+The active draft now guards against stale writes from another tab and preserves a recovery copy. Storage failures keep the in-memory draft available to the complete-backup action. Backup tools include a phone storage probe. Authentication and sync baselines are excluded from backup files.
+
+Run `node scripts/check-team-records.cjs`, `node scripts/check-team-config.mjs`, `node scripts/check-team-browser.cjs` and `node scripts/check-phone-reliability.cjs`. The setup guide explains the isolated PostgreSQL/RLS test. CI runs the new core, database and browser checks. Hosted setup, physical-phone acceptance and managed backup policy still need to be completed in R&R's accounts.
