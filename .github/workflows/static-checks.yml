@@ -13,3 +13,23 @@ jobs:
       - run: node scripts/check-syntax.cjs
       - run: node scripts/check-clients.cjs
       - run: node scripts/check-backup.cjs
+      - run: node scripts/check-team-records.cjs
+      - run: node scripts/check-team-config.mjs
+  team-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --prefix /tmp/rr-team-tests @electric-sql/pglite@0.3.15 playwright@1.56.1 --no-audit --no-fund
+      - run: PGLITE_PATH=/tmp/rr-team-tests/node_modules/@electric-sql/pglite node scripts/check-team-database.cjs
+      - run: /tmp/rr-team-tests/node_modules/.bin/playwright install --with-deps chromium
+      - name: Test two devices and offline sync
+        env:
+          NODE_PATH: /tmp/rr-team-tests/node_modules
+        run: |
+          node scripts/dev-server.mjs > /tmp/lc-server.log 2>&1 &
+          curl --retry 10 --retry-delay 1 --retry-connrefused --fail http://127.0.0.1:8888/team.html --output /dev/null
+          CHROMIUM_PATH="$(node -p 'require("playwright").chromium.executablePath()')" node scripts/check-team-browser.cjs
+          CHROMIUM_PATH="$(node -p 'require("playwright").chromium.executablePath()')" node scripts/check-phone-reliability.cjs

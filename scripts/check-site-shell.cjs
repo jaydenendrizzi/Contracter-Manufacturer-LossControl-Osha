@@ -41,7 +41,7 @@ const path = require('node:path');
     await page.locator('.lc-menu').click();
     await page.getByRole('dialog').waitFor();
     assert.equal(await page.locator('.lc-workspace').evaluate(el => el.inert), true);
-    await page.locator('.lc-backup-link').focus();
+    await page.locator('.lc-backup-link[href="backup.html"]').focus();
     await page.keyboard.press('Tab');
     assert.equal(await page.evaluate(() => document.activeElement.className), 'lc-brand');
     await page.keyboard.press('Shift+Tab');
@@ -95,10 +95,10 @@ const path = require('node:path');
     await page.evaluate(() => navigator.serviceWorker.ready);
     await page.waitForFunction(async () => {
       const names = await caches.keys();
-      return names.includes('rr-lc-2026-11-19-brand-footer-v2');
+      return names.includes('rr-lc-2026-11-20-internal-team-v1');
     });
     const cached = await page.evaluate(async () => {
-      const c = await caches.open('rr-lc-2026-11-19-brand-footer-v2');
+      const c = await caches.open('rr-lc-2026-11-20-internal-team-v1');
       return Promise.all(['/site-shell.css', '/site-shell.js', ...[400,500,600,700,800].map(w => '/fonts/overpass-latin-' + w + '-normal.woff2')].map(async key => !!await c.match(key)));
     });
     assert(cached.every(Boolean));

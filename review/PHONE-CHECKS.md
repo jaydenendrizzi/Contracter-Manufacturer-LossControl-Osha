@@ -16,3 +16,17 @@ Run these checks on a test phone with synthetic client data before production re
 - [ ] Test a realistic backup with the number and size of photos a rep keeps. Confirm the phone can export, transfer and restore it without closing the browser.
 
 Do not use the synthetic approval as a real R&R wording approval. Real document wording, the inherited disclaimer and citations still need R&R review.
+
+## Internal team rollout
+
+These physical-device checks remain unrun. Synthetic Chromium tests cover two-device sync, network interruption, storage failures and tab conflicts; they do not substitute for this list.
+
+- [ ] Create/configure the dedicated project, invite two test staff accounts and verify a nonmember cannot read records or photos.
+- [ ] On iPhone Safari and the Home Screen app, sign in, start sharing, take a photo, then enable airplane mode and edit a visit. Force-close and reopen before reconnecting. Confirm the saved notes/photo and sign-in/sync messages.
+- [ ] On Android Chrome, receive that completed visit. Compare actual image detail and confirm the other rep's unfinished visit and private photos are unavailable.
+- [ ] Edit one client on both devices while one is offline. Reconnect, inspect both conflict versions, choose one and confirm the selected version reaches both devices.
+- [ ] Repeat a full visit. Check the old checklist wording, fresh answers, owners, due dates, before photos and newly captured comparison photos. Verify the original visit is unchanged.
+- [ ] Run **Backup > Check phone storage**. Exercise a realistically large photo set, device storage pressure, backup download and restore on the other phone.
+- [ ] Publish a reviewed section version as a lead. Receive it as a rep; verify that an existing visit keeps its previous wording and a new visit uses the shared version.
+- [ ] Let a sign-in session expire while offline. Confirm local capture continues, then sign in to the same workspace and finish syncing. Try switching accounts with queued work and confirm the workspace guard.
+- [ ] In a separate test project, restore both a database backup and the private photo objects. Confirm a fresh phone can receive complete visits and readable photos.

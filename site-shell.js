@@ -12,7 +12,7 @@
     'handouts.html': 'Handouts',
     'clients.html': 'Clients',
     'backup.html': 'Backup & offline',
-    'content-review.html': 'Content review'
+    'content-review.html': 'Content review', 'team.html': 'Team workspace'
   };
   const views = {lookup: 'Site lookup', prospects: 'Prospects', industry: 'Industry risk', walk: 'Walkthrough', library: 'Library', stats: 'Visit stats'};
   const paths = {
@@ -43,7 +43,7 @@
   sidebar.id = 'lc-navigation';
   sidebar.setAttribute('aria-label', 'Loss Control navigation');
   const logo = oldHeader.querySelector('img');
-  sidebar.innerHTML = `<a class="lc-brand" href="${href('lookup')}" aria-label="R&R Loss Control home"><span class="lc-logo"></span><strong>Loss Control<small>R&R INSURANCE</small></strong></a><button class="lc-close" type="button" aria-label="Close navigation">${icon('close')}</button><nav class="tabs lc-nav" aria-label="Tools"><p class="lc-nav-label">WORKSPACE</p></nav><div class="lc-sidebar-bottom"><p>Made for the walk.<small>Visits, handouts and follow-through.</small></p><a class="lc-backup-link" href="backup.html">${icon('backup')}<span>Backup & offline</span></a></div>`;
+  sidebar.innerHTML = `<a class="lc-brand" href="${href('lookup')}" aria-label="R&R Loss Control home"><span class="lc-logo"></span><strong>Loss Control<small>R&R INSURANCE</small></strong></a><button class="lc-close" type="button" aria-label="Close navigation">${icon('close')}</button><nav class="tabs lc-nav" aria-label="Tools"><p class="lc-nav-label">WORKSPACE</p></nav><div class="lc-sidebar-bottom"><a class="lc-backup-link" href="team.html">${icon('clients')}<span>Team workspace</span></a><p>Made for the walk.<small>Visits, handouts and follow-through.</small></p><a class="lc-backup-link" href="backup.html">${icon('backup')}<span>Backup & offline</span></a></div>`;
   // Keep the embedded R&R logo node used by the existing visit PDF renderer.
   if (logo) sidebar.querySelector('.lc-logo').append(logo);
   const nav = sidebar.querySelector('nav');
@@ -132,8 +132,9 @@
       if (a.dataset.shellKey === current) a.setAttribute('aria-current', 'page');
       else a.removeAttribute('aria-current');
     }
-    const backup = sidebar.querySelector('.lc-backup-link');
+    const backup = sidebar.querySelector('a[href="backup.html"]');
     if (page === 'backup.html') backup.setAttribute('aria-current', 'page');
+    if (page === 'team.html') sidebar.querySelector('a[href="team.html"]').setAttribute('aria-current','page');
     bar.querySelector('.lc-breadcrumb b').textContent = isIndex ? views[view] : pages[page] || 'Loss Control';
   }
   addEventListener('hashchange', sync);

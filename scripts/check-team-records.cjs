@@ -1,0 +1,18 @@
+const assert=require('node:assert/strict'),R=require('../team-records.js');
+const meta=()=>({bases:{},conflicts:{},role:'rep',cursor:0});
+const state={clients:[{id:'c',displayName:'Synthetic company'}],visits:[]};
+const row={organization_id:'org',kind:'client',record_id:'c',revision:1,deleted:false,payload:{id:'c',displayName:'Team name'}};
+let m=meta();let result=R.reconcile(state,m,[row],{'client:c':'phone'},{'client:c':'team'});
+assert.equal(result.state.clients[0].displayName,'Synthetic company');assert(result.meta.conflicts['client:c']);
+result=R.resolve(result.state,result.meta,'client:c','phone');assert.equal(R.pending(result.state,result.meta,{'client:c':'phone'}).length,1);assert(Object.keys(result.state).some(k=>k.startsWith('team-resolution:')));
+result=R.reconcile({clients:[],visits:[]},meta(),[row],{}, {'client:c':'team'});assert.equal(result.state.clients[0].displayName,'Team name');assert.equal(R.pending(result.state,result.meta,{'client:c':'team'}).length,0);
+const deleted={...row,revision:2,deleted:true,payload:null};result=R.reconcile(result.state,result.meta,[deleted],{'client:c':'changed'},{});assert(result.meta.conflicts['client:c']);assert.equal(result.state.clients.length,1);
+result=R.resolve(result.state,result.meta,'client:c','team');assert.equal(result.state.clients.length,0);assert.equal(R.pending(result.state,result.meta,{}).length,0);
+m=meta();m.bases['client:c']={kind:'client',id:'c',revision:1,hash:'team',deleted:false};result=R.reconcile({clients:[],visits:[]},m,[{...row,revision:2}],{}, {'client:c':'new'});assert(result.meta.conflicts['client:c'],'Local delete versus remote edit must conflict.');
+m=R.ack(meta(),row,{localHash:'sent'});assert.equal(R.pending(state,m,{'client:c':'edited-during-upload'}).length,1,'An acknowledgement must not discard edits made in flight.');
+result=R.reconcile(state,m,[{...row,revision:2}],{'client:c':'sent'},{'client:c':'new'},['client:c']);assert(result.meta.conflicts['client:c'],'An open editor is protected.');
+const visit={id:'v',company:'Synthetic company',clientId:'c',location:'North',industry:'Machining',modules:['machines'],date:'2026-11-01',findings:[{id:'f',title:'Guard',owner:'Lee',due:'2026-11-10',photos:['before']},{title:'Closed',photos:[]}],status:['Open','Done']};
+const repeat=R.repeat(visit,{mode:'repeat',date:'2026-11-20'});assert.deepEqual(repeat.modules,['machines']);assert.deepEqual(repeat.answers,{});assert.equal(repeat.followup.length,1);assert.equal(repeat.followup[0].sourceFindingId,'f');assert.equal(repeat.followup[0].owner,'Lee');assert.equal(repeat.followup[0].due,'2026-11-10');assert.equal(repeat.followup[0].photo,'before');assert.equal(repeat.followup[0].status,undefined);assert.equal(repeat.followupVisitId,'v');assert.notEqual(repeat.started,visit.id);assert.equal(R.repeat(visit).modules.length,0);
+assert.throws(()=>R.validate('visit',{id:'x',company:'Test',findings:[{photos:['https://example.test/image.png']}]}));
+assert.throws(()=>R.validate('catalog',{reviewed:false,version:'1',sections:[]}));
+console.log('PASS: conflicting edits/deletes, explicit resolution and retained copies, edits during upload, editor protection, repeat-visit identifiers/owners/dates/photos, fresh checklist answers and safe photo fields.');

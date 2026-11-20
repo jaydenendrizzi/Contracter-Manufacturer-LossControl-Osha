@@ -1,4 +1,4 @@
-/* Client records are local. Existing visit and photo fields are preserved. */
+/* Local-first client records. Team sync preserves the existing visit and photo fields. */
 'use strict';
 const Clients = (() => {
   const normalize=s=>String(s||'').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/\bl[.\s]*l[.\s]*c\b/g,' ').replace(/[^a-z0-9\s]/g,' ').split(/\s+/).filter(w=>w&&!['the','inc','incorporated','llc','ltd','corp','corporation'].includes(w)).join(' ');
@@ -23,7 +23,7 @@ const Clients = (() => {
   async function transaction(change){
     const db=await openDB();return new Promise((resolve,reject)=>{
       const tx=db.transaction('kv','readwrite'),store=tx.objectStore('kv'),keys=['visits','clients','walk','client-migration-backup-v1'],values={};let left=keys.length,result;
-      tx.oncomplete=()=>{db.close();resolve(result);};tx.onerror=()=>{db.close();reject(tx.error||Error('Could not save clients.'));};tx.onabort=()=>{db.close();reject(tx.error||Error('Could not save clients.'));};
+      tx.oncomplete=()=>{db.close();if(change&&typeof document!=='undefined')document.dispatchEvent(new Event('rr-local-change'));resolve(result);};tx.onerror=()=>{db.close();reject(tx.error||Error('Could not save clients.'));};tx.onabort=()=>{db.close();reject(tx.error||Error('Could not save clients.'));};
       keys.forEach(k=>{const q=store.get(k);q.onsuccess=()=>{values[k]=q.result;if(--left)return;
         try{if(!values['client-migration-backup-v1'])store.put({visits:values.visits||[],walk:values.walk||null},'client-migration-backup-v1');
           result=migrate(values.visits||[],values.clients||[],values.walk||null);if(change)result=change(result)||result;
@@ -35,8 +35,8 @@ const Clients = (() => {
   function snapshot(state,id,asOf=new Date().toISOString().slice(0,10)){
     const client=state.clients.find(c=>c.id===id);if(!client)throw Error('Client not found.');
     const visits=state.visits.filter(v=>v.clientId===id&&v.date<=asOf).sort((a,b)=>String(b.date).localeCompare(String(a.date)));
-    const findings=visits.flatMap(v=>(v.findings||[]).map((f,i)=>({...f,visitId:v.id,location:v.location||'',visitDate:v.date,status:v.status?.[i]||'Open',closed:f.closed||''})));
-    for(const v of visits)for(const f of v.followup||[]){if(f.status!=='fixed')continue;const candidates=findings.filter(x=>(v.followupVisitId?x.visitId===v.followupVisitId:x.visitDate===v.followupOf&&x.location===(v.location||''))&&x.title===f.title);if(candidates.length===1&&candidates[0].status!=='Done'){candidates[0].status='Done';candidates[0].closedObservedOn=v.date;}}
+    const findings=visits.flatMap(v=>(v.findings||[]).map((f,i)=>({...f,visitId:v.id,findingIndex:i,location:v.location||'',visitDate:v.date,status:v.status?.[i]||'Open',closed:f.closed||''})));
+    for(const v of visits)for(const f of v.followup||[]){if(f.status!=='fixed')continue;const candidates=findings.filter(x=>(v.followupVisitId?x.visitId===v.followupVisitId:x.visitDate===v.followupOf&&x.location===(v.location||''))&&(f.sourceFindingId?(x.id||x.visitId+':'+x.findingIndex)===f.sourceFindingId:x.title===f.title));if(candidates.length===1&&candidates[0].status!=='Done'){candidates[0].status='Done';candidates[0].closedObservedOn=v.date;}}
     const rank={High:0,Medium:1,Low:2};const open=findings.filter(f=>f.status!=='Done').sort((a,b)=>(rank[a.sev]??1)-(rank[b.sev]??1)||(a.due||'9999').localeCompare(b.due||'9999'));
     const closed=findings.filter(f=>f.status==='Done').sort((a,b)=>b.closed.localeCompare(a.closed));
     const times=closed.filter(f=>/^\d{4}-\d{2}-\d{2}$/.test(f.closed)&&f.closed>=f.visitDate&&f.closed<=asOf).map(f=>(Date.parse(f.closed)-Date.parse(f.visitDate))/86400000).filter(Number.isFinite).sort((a,b)=>a-b);
