@@ -14,3 +14,6 @@ console.log('PASS: follow-up confirmation does not invent a close date or distor
 const stable=C.migrate([{id:'same-titles',company:'Test',date:'2026-11-01',location:'North',status:['Open','Open'],findings:[{id:'first',title:'Same title'},{id:'second',title:'Same title'}]},{id:'repeat',company:'Test',date:'2026-11-20',location:'North',findings:[],followupVisitId:'same-titles',followup:[{sourceFindingId:'first',title:'Same title',status:'fixed'}]}]);
 const exact=C.snapshot(stable,stable.clients[0].id,'2026-11-20');assert.equal(exact.closed.length,1);assert.equal(exact.closed[0].id,'first');assert.equal(exact.open[0].id,'second');
 console.log('PASS: repeat visits close the matching finding ID when titles are identical.');
+const chained=C.migrate([{id:'original',company:'Chain',date:'2026-11-01',findings:[{id:'original-finding',title:'Guard'}],status:['Open']},{id:'middle',company:'Chain',date:'2026-11-10',findings:[],followupVisitId:'original',followup:[]},{id:'latest',company:'Chain',date:'2026-11-20',findings:[],followupVisitId:'middle',followup:[{sourceVisitId:'original',sourceFindingId:'original-finding',title:'Guard',status:'fixed'}]}]);
+assert.equal(C.snapshot(chained,chained.clients[0].id,'2026-11-20').closed[0].id,'original-finding');
+console.log('PASS: an item carried through several follow-ups still closes its original finding.');

@@ -73,9 +73,18 @@ const TeamRecords=(()=>{
  }
  function repeat(visit,{date,consultant,mode='followup',catalogVersion='built-in-2026-11'}={}){
   const open=(visit.findings||[]).map((f,i)=>({f,i})).filter(({i})=>(visit.status?.[i]||'Open')!=='Done');
+  const followup=open.map(({f,i})=>({sourceFindingId:f.id||visit.id+':'+i,sourceVisitId:visit.id,sourceVisitDate:visit.date,sourceLocation:visit.location||'',title:f.title,sev:f.sev,rec:f.rec,note:f.note,owner:f.owner||'',email:f.email||'',due:f.due||'',clientStatus:visit.status?.[i]||'Open',photo:f.photos?.[0]||'',photos:structuredClone(f.photos||[]),status:undefined,fnote:''}));
+  for(const old of visit.followup||[]){
+   if(old.status==='fixed'||old.clientStatus==='Done')continue;
+   const sourceVisitId=old.sourceVisitId||visit.followupVisitId||'';
+   if(old.sourceFindingId&&followup.some(f=>f.sourceFindingId===old.sourceFindingId&&f.sourceVisitId===sourceVisitId))continue;
+   followup.push({sourceFindingId:old.sourceFindingId,sourceVisitId,sourceVisitDate:old.sourceVisitDate||visit.followupOf||'',sourceLocation:old.sourceLocation||visit.location||'',title:old.title,sev:old.sev,rec:old.rec,note:old.fnote||old.note||'',owner:old.owner||'',email:old.email||'',due:old.due||'',clientStatus:old.clientStatus||'Open',photo:old.afterPhotos?.at(-1)||old.photo||'',photos:structuredClone(old.afterPhotos?.length?old.afterPhotos:old.photos||[]),status:undefined,fnote:''});
+  }
+  const rank={High:0,Medium:1,Low:2};followup.sort((a,b)=>(rank[a.sev]??1)-(rank[b.sev]??1));
   return {started:crypto.randomUUID(),clientId:visit.clientId,clientType:visit.clientType||'Prospect',company:visit.company,location:visit.location||'',sector:visit.sector||'mfg',industry:visit.industry||'',date:date||new Date().toLocaleDateString('en-CA'),consultant:consultant||visit.consultant||'',modules:mode==='repeat'?[...(visit.modules||[])]:[],answers:{},custom:[],prior:structuredClone(visit.prior||{cites:[],severe:[]}),actions:{},catalogVersion,
-   followupVisitId:visit.id,followupOf:visit.date,followup:open.map(({f,i})=>({sourceFindingId:f.id||visit.id+':'+i,sourceVisitId:visit.id,title:f.title,sev:f.sev,rec:f.rec,note:f.note,owner:f.owner||'',email:f.email||'',due:f.due||'',clientStatus:visit.status?.[i]||'Open',photo:f.photos?.[0]||'',photos:structuredClone(f.photos||[]),status:undefined,fnote:''}))};
+   followupVisitId:visit.id,followupOf:visit.date,followup};
  }
- return {canonical,key,rows,prepare,validate,pending,reconcile,ack,resolve,repeat,applyRow};
+ function checklistBasis(visit,visits){const seen=new Set();let basis=visit;while(basis&&!seen.has(basis.id)){seen.add(basis.id);if(basis.checklistSnapshot?.length||basis.modules?.length)return basis;basis=visits.find(v=>v.id===basis.followupVisitId&&v.clientId===visit.clientId);}return null;}
+ return {canonical,key,rows,prepare,validate,pending,reconcile,ack,resolve,repeat,checklistBasis,applyRow};
 })();
 if(typeof module!=='undefined')module.exports=TeamRecords;

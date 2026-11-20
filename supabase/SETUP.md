@@ -48,7 +48,7 @@ Conflicting edits are kept for review. **Use phone version** queues that version
 
 ## Consistent records
 
-Lead accounts publish reviewed, versioned checklist sections from an R&R template export or the local template builder. A changed question/recommendation needs a new section version. New visits freeze the actual checklist wording in their saved record; repeat visits reuse that snapshot and begin with fresh answers. Owners, due dates, finding IDs and before photos carry forward without guessing a completion date.
+Lead accounts publish reviewed, versioned checklist sections from an R&R template export or the local template builder. A changed question/recommendation needs a new section version. New visits freeze the actual checklist wording in their saved record; repeat visits reuse that snapshot and begin with fresh answers. Owners, due dates, finding IDs and before photos carry forward through successive follow-ups without guessing a completion date. Full repeats can find the original full checklist through earlier follow-up visits. Legacy visits without a frozen snapshot use the sections still available on the phone; missing legacy custom sections must be restored before a full repeat.
 
 When a phone is linked, shared handout wording approvals come from the lead-controlled catalog. Lead review records carry the authenticated reviewer ID. Changed document/template fingerprints return approvals to DRAFT. Publishing a team catalog does not change existing visit wording or the visit PDF renderer.
 

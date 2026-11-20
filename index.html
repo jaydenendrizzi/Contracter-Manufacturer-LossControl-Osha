@@ -1438,10 +1438,14 @@ function openVisit(V) {
 function backToSetup() { historyEditing=null; $("#walk-body").innerHTML = ""; $("#walk-setup").hidden = false; renderHistory(); initWalk(); scrollTo(0, 0); }
 async function startFollowup(V, keepSetup, mode='followup') {
   if(W&&W.started!==V.id){clearTimeout(saveTimer);if(!await DB.set('walk',W))return;}
+  const basis=mode==='repeat'?TeamRecords.checklistBasis(V,(await Clients.transaction()).visits):V;
+  if(mode==='repeat'&&!basis)return toast('No previous full checklist is available. Start a new visit to choose sections.');
+  const frozen=mode==='repeat'?structuredClone(basis.checklistSnapshot||CHECKLISTS.filter(m=>(basis.modules||[]).includes(m.id))):null;
+  if(mode==='repeat'&&!frozen.length)return toast('The original checklist sections are not saved here. Sync or restore those sections before repeating.');
   historyEditing=null;
-  W=TeamRecords.repeat(V,{mode,date:today(),consultant:ls.get('rr-consultant')||V.consultant,catalogVersion:mode==='repeat'?(V.catalogVersion||'legacy'):catalogVersion()});
+  W=TeamRecords.repeat(V,{mode,date:today(),consultant:ls.get('rr-consultant')||V.consultant,catalogVersion:mode==='repeat'?(basis.catalogVersion||'legacy'):catalogVersion()});
   // Retain the original section wording, owners, due dates and before photos.
-  if(mode==='repeat'){W.checklistSnapshot=structuredClone(V.checklistSnapshot||CHECKLISTS.filter(m=>(V.modules||[]).includes(m.id)));}
+  if(mode==='repeat'){W.modules=[...(basis.modules||[])];W.checklistSnapshot=frozen;}
   if (keepSetup) Object.assign(W, keepSetup);
   W.repeatBasisVersion=V.catalogVersion||'legacy';if(!W.checklistSnapshot)W.checklistSnapshot=structuredClone(CHECKLISTS.filter(m=>W.modules.includes(m.id)));W.checklistDigest=await FieldTools.hash(W.checklistSnapshot);
   if(!await DB.set("walk", W))return;
